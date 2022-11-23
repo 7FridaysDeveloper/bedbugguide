@@ -109,14 +109,6 @@ module.exports = {
         component: require.resolve(`./src/layout/index.jsx`),
       },
     },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "images",
-        path: `${__dirname}/src/images`,
-      },
-      __key: "images",
-    },
     // {
     //   resolve: `gatsby-plugin-purgecss`,
     //   options: {
