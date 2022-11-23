@@ -92,10 +92,10 @@ module.exports = {
       resolve: "gatsby-source-wordpress",
       options: {
         url: `${process.env.WORDPRESS}/graphql`,
-        html: {
-          useGatsbyImage: true,
-          createStaticFiles: true,
-        },
+        // html: {
+        //   useGatsbyImage: true,
+        //   createStaticFiles: true,
+        // },
         // type: {
         //   __all: {
         //     limit: 20
@@ -109,6 +109,14 @@ module.exports = {
         component: require.resolve(`./src/layout/index.jsx`),
       },
     },
+    // {
+    //   resolve: "gatsby-source-filesystem",
+    //   options: {
+    //     name: "images",
+    //     path: `${__dirname}/src/images`,
+    //   },
+    //   __key: "images",
+    // },
     // {
     //   resolve: `gatsby-plugin-purgecss`,
     //   options: {
