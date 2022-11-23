@@ -92,10 +92,13 @@ module.exports = {
       resolve: "gatsby-source-wordpress",
       options: {
         url: `${process.env.WORDPRESS}/graphql`,
-        // html: {
-        //   useGatsbyImage: true,
-        //   createStaticFiles: true,
-        // },
+        html: {
+          useGatsbyImage: true,
+          createStaticFiles: true,
+        },
+        schema: {
+          requestConcurrency: 10,
+        },
         // type: {
         //   __all: {
         //     limit: 20

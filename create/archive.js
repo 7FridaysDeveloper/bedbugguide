@@ -90,7 +90,8 @@ async function getCategories(gatsbyUtilities) {
         console.log(cat.posts.nodes);
         await CreateArchivePage(gatsbyUtilities, cat.posts.nodes, {
             isCategory: true,
-            catId: cat.databaseId
+            catId: cat.databaseId,
+            categories: graphqlResult.data.allWpCategory.nodes,
         }, getPagePath, './src/templates/category/index.js')
     }
 
