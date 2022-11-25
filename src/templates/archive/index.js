@@ -1,11 +1,22 @@
 import React from "react";
 import {graphql} from "gatsby";
+import Pagination from '../../components/pagination/index.jsx';
+import Posts from "../../components/posts";
 
 
-const ArchivePage = (props) => {
-    console.log(props);
+const ArchivePage = ({ data, pageContext }) => {
+    console.log(pageContext , '222');
+
+
     return (<>
-            <div>hello world</div>
+            <div>
+                <Posts posts={data.allWpPost.nodes}></Posts>
+                <Pagination
+                    currentPage={pageContext.page}
+                    totalPage={pageContext.totalPages}
+                    postsPerPage={pageContext.postsPerPage}
+                />
+            </div>
         </>
     );
 };

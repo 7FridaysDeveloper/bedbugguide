@@ -2,6 +2,7 @@ import React from "react";
 import {GatsbyImage, getImage , StaticImage} from "gatsby-plugin-image";
 const typePropsImage = (image) => typeof image === "object" && image !== null
 const FeaturedImage = ({image, lazy = true}) => {
+    console.log( typePropsImage(image) , '1231');
     return (
         <>
             {typePropsImage(image) ?

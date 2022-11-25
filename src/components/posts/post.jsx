@@ -1,32 +1,31 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
+//import { StaticImage } from "gatsby-plugin-image";
 import FeaturedImage from "./featured-image";
 import { Link } from "gatsby";
-const Post = ({ title, featuredImage, date, uri }) => {
+const Post = ({ title, featuredImage, uri }) => {
+    console.log(featuredImage);
     return (
-        <div className="post">
-            <Link to={uri} partiallyActive={true}>
-                <div className="gradient"></div>
-                <div className="wrap-text">
-                    <div className="img-wrap">
-                        <FeaturedImage image={featuredImage} />
-                    </div>
-                    <div className="txt">
-                        <div>
-                            <h2>{title}</h2>
-                        </div>
-                        <div className="date">
-                            <StaticImage
-                                src="../../images/calendar-gray.png"
-                                alt="bg"
-                                loading="eager"
-                            />
-                            <span>{date}</span>
+
+            <div className="item">
+                <Link to={uri} partiallyActive={true} className="img">
+                    <FeaturedImage image={featuredImage} />
+                </Link>
+                <div className="txt">
+                    <div className="post-category">
+                        <Link to={uri} partiallyActive={true}>Bed Bug News  </Link>, <Link to={uri} partiallyActive={true}> Bed Bug News2 , </Link>
+                        <h3><Link to={uri} partiallyActive={true}>{title}</Link></h3>
+                        <div className="excerpt">
+                            If you wonder what bed bugs are, how do they spread, just how fast they can infest your home and what you can do about it watch this quick video: If you...
                         </div>
                     </div>
                 </div>
-            </Link>
-        </div>
+            </div>
+
+
+
+
+
+
     );
 };
 
