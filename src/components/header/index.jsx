@@ -67,9 +67,9 @@ const Header = () => {
                 <div className="fixing">
                     <div className="top-header">
                         <div className="container-fluid-custom container">
-                            <div className="time floatLeft">
-                                {new Date()}
-                            </div>
+                            {/*<div className="time floatLeft">*/}
+                            {/*    {new Date()}*/}
+                            {/*</div>*/}
                             <nav className="header-menu-desktop">
                                 <AnimatedUnderlineMenu />
                             </nav>
