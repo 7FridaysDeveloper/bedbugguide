@@ -7,7 +7,6 @@ import HeaderMenu from "src/components/header/header-menu";
 import AnimatedUnderlineMenu from "src/components/header/animated-underline-menu";
 //import Sticky from "react-sticky-el";
 import { Helmet } from "react-helmet";
-import Moment from 'moment';
 import { StaticImage} from "gatsby-plugin-image";
 
 
@@ -35,7 +34,6 @@ const Header = () => {
 
 
 
-    const time = Moment().format('dddd MMM Do YYYY');
 
     return (
         <>
@@ -70,7 +68,7 @@ const Header = () => {
                     <div className="top-header">
                         <div className="container-fluid-custom container">
                             <div className="time floatLeft">
-                                {time}
+                                {new Date()}
                             </div>
                             <nav className="header-menu-desktop">
                                 <AnimatedUnderlineMenu />
