@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
 import { Link } from "gatsby";
-import PropTypes from "prop-types";
 import ThemeContext from "src/context/theme-context";
 import AnimateHeight from "react-animate-height";
 import HeaderMenu from "src/components/header/header-menu";
@@ -19,7 +18,7 @@ import SearchSvg from "src/images/svg/search.svg";
 
 import "./style.css";
 
-const Header = ({ path }) => {
+const Header = () => {
     const theme = useContext(ThemeContext);
     const headerRef = useRef(null);
     const [isOpeMobileMenu, setOpenMobileMenu] = useState(false);
@@ -33,9 +32,7 @@ const Header = ({ path }) => {
         });
     }, [headerRef]);
 
-    useEffect(() => {
-        setOpenMobileMenu(false);
-    }, [path]);
+
 
     const time = Moment().format('dddd MMM Do YYYY');
 
@@ -118,7 +115,5 @@ const Header = ({ path }) => {
     );
 };
 
-Header.propTypes = {
-    path: PropTypes.string.isRequired,
-};
+
 export default Header;
