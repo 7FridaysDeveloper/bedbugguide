@@ -92,6 +92,9 @@ module.exports = {
       resolve: "gatsby-source-wordpress",
       options: {
         url: `${process.env.WORDPRESS}/graphql`,
+        schema: {
+          requestConcurrency: 10,
+        },
         // type: {
         //   __all: {
         //     limit: 20
