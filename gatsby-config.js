@@ -93,6 +93,7 @@ module.exports = {
       options: {
         url: `${process.env.WORDPRESS}/graphql`,
         schema: {
+          timeout: 1000000,
           requestConcurrency: 1,
         },
         // type: {
