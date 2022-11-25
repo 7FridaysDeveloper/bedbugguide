@@ -1,0 +1,24 @@
+
+.pagination-wrapper ul {
+    list-style: none;
+}
+.pagination-wrapper .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.pagination-wrapper .wrap a {
+    padding: 10px;
+    color: #000;
+    display: inline-block;
+    border: solid 1px #ddd;
+    line-height: 100%;
+    text-align: center;
+    margin: 0 3px;
+}
+.pagination-wrapper .wrap .active a {
+    background: #c51818;
+    border-color: #c51818;
+    color: #fff;
+    margin: 0 3px;
+}

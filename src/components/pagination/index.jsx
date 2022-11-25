@@ -2,7 +2,7 @@ import React from "react";
 //import ArrowPagination from "../../images/svg/arrow-right.svg";
 import PaginationJs from "react-js-pagination";
 import {navigate} from 'gatsby';
-//import "./style.css";
+import "./style.css";
 
 
 const Pagination = ({ currentPage, totalPage, postsPerPage, path = '' }) => {
@@ -11,7 +11,7 @@ const Pagination = ({ currentPage, totalPage, postsPerPage, path = '' }) => {
         await navigate(routeTo);
     };
     return (
-        <section className="pagination-wrapper">
+        <div className="pagination-wrapper">
             <div className="container">
                 {totalPage > 1 ? (
                     <PaginationJs
@@ -28,7 +28,7 @@ const Pagination = ({ currentPage, totalPage, postsPerPage, path = '' }) => {
                     />
                 ) : null}
             </div>
-        </section>
+        </div>
     );
 };
 

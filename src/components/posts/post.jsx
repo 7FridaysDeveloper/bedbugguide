@@ -3,7 +3,6 @@ import React from "react";
 import FeaturedImage from "./featured-image";
 import { Link } from "gatsby";
 const Post = ({ title, featuredImage, uri }) => {
-    console.log(featuredImage);
     return (
 
             <div className="item">

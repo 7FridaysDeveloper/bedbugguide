@@ -1,11 +1,11 @@
 import React from "react";
 import {graphql} from "gatsby";
+import Posts from "../../components/posts";
 
 
-const ArchivePage = (props) => {
-    console.log(props);
+const ArchivePage = ({pageContext , data} ) => {
     return (<>
-            <div>hello world</div>
+            <div><Posts posts={data.allWpPost.nodes} pageContext={pageContext} ></Posts></div>
         </>
     );
 };

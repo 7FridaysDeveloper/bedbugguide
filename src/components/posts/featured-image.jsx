@@ -1,8 +1,7 @@
 import React from "react";
-import {GatsbyImage, getImage , StaticImage} from "gatsby-plugin-image";
+import {GatsbyImage, getImage } from "gatsby-plugin-image";
 const typePropsImage = (image) => typeof image === "object" && image !== null
 const FeaturedImage = ({image, lazy = true}) => {
-    console.log( typePropsImage(image) , '1231');
     return (
         <>
             {typePropsImage(image) ?
@@ -14,11 +13,7 @@ const FeaturedImage = ({image, lazy = true}) => {
                     alt="123"
                 />
                 :
-                <StaticImage
-                    src="../../images/Rectangle-10.jpg"
-                    alt="bg"
-                    loading="eager"
-                />
+                null
             }
         </>
     )
