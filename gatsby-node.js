@@ -54,5 +54,5 @@ exports.createResolvers = ({ createResolvers }) =>
         },
       },
     },
-  })
+})
 
