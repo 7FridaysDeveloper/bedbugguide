@@ -116,21 +116,21 @@ module.exports = {
       },
       __key: "images",
     },
-    {
-      resolve: `gatsby-plugin-google-fonts-v2`,
-      options: {
-        fonts: [
-          {
-            family: 'Lato',
-            weights: ['100', '400' , '700']
-          },
-          {
-            family: 'Merriweather ',
-            weights: ['400' , '700']
-          }
-        ]
-      }
-    }
+    // {
+    //   resolve: `gatsby-plugin-google-fonts-v2`,
+    //   options: {
+    //     fonts: [
+    //       {
+    //         family: 'Lato',
+    //         weights: ['100', '400' , '700']
+    //       },
+    //       {
+    //         family: 'Merriweather ',
+    //         weights: ['400' , '700']
+    //       }
+    //     ]
+    //   }
+    // }
 
     // {
     //   resolve: `gatsby-plugin-purgecss`,
