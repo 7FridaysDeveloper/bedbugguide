@@ -12,6 +12,7 @@ import Moment from 'moment';
 import { StaticImage} from "gatsby-plugin-image";
 
 
+
 //import LogoSvg from "src/images/logonew.png";
 //import CloseSvg from "src/images/svg/close.svg";
 import MenuSvg from "src/images/svg/menu.svg";
