@@ -1,7 +1,8 @@
 import React from "react";
 import {useStaticQuery, graphql} from "gatsby";
 import {SEOContext} from "gatsby-plugin-wpgraphql-seo";
-
+import Header from "src/components/header";
+import Footer from "src/components/footer";
 import "../styles/global.css";
 
 const Index = ({children}) => {
@@ -83,9 +84,11 @@ const Index = ({children}) => {
   `);
     return (
         <>
+            <Header/>
             <SEOContext.Provider value={{global: seo}}>
                 {children}
             </SEOContext.Provider>
+            <Footer/>
         </>
     );
 };
