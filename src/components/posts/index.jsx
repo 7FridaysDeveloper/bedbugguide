@@ -4,7 +4,9 @@ import Post from "./post";
 import Pagination from "../pagination";
 import PopularPosts from "../popular-posts";
 import Categories from "../categoties";
-
+import Tags from "../tags";
+import About from '../static-sections/about';
+import Tabs from "../static-sections/tabs";
 
 
 
@@ -41,8 +43,14 @@ const Posts = ({ posts , pageContext }) => {
 
                         {/*CATEGOTRIES*/}
                         <Categories/>
+                        {/*TAGS*/}
+                        <Tags/>
                     </aside>
                 </div>
+            </div>
+            <div className="container bottom-blog-post">
+                <About/>
+                <Tabs/>
             </div>
         </section>
     );

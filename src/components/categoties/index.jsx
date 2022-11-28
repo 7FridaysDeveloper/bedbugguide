@@ -16,7 +16,7 @@ const Categories = () => {
     }
   `);
 
-    
+
     return (
         <div className="categories">
             <h4>categories</h4>
