@@ -7,12 +7,12 @@ require("dotenv").config({
 // https://github.com/gatsbyjs/gatsby/tree/fbfe3f63dec23d279a27b54b4057dd611dce74bb/packages/
 // gatsby/src/utils/eslint-rules
 const gatsbyRequiredRules = path.join(
-  process.cwd(),
-  "node_modules",
-  "gatsby",
-  "dist",
-  "utils",
-  "eslint-rules"
+    process.cwd(),
+    "node_modules",
+    "gatsby",
+    "dist",
+    "utils",
+    "eslint-rules"
 );
 module.exports = {
   siteMetadata: {
@@ -27,6 +27,13 @@ module.exports = {
     "gatsby-plugin-netlify",
     "gatsby-plugin-optimize-svgs",
     "gatsby-plugin-sitemap",
+    {
+      resolve: `gatsby-plugin-yoast-sitemap`,
+      options: {
+        baseUrl: process.env.WORDPRESS,
+        gatsbyUrl: process.env.CURRENT_URL,
+      },
+    },
     // {
     //   resolve: `gatsby-plugin-manifest`,
     //   options: {
@@ -97,7 +104,7 @@ module.exports = {
         },
         // type: {
         //   __all: {
-        //     limit: 25
+        //     limit: 5
         //   },
         // },
       },
