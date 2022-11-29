@@ -102,11 +102,11 @@ module.exports = {
         schema: {
           requestConcurrency: 1,
         },
-        // type: {
-        //   __all: {
-        //     limit: 5
-        //   },
-        // },
+        type: {
+          __all: {
+            limit: 5
+          },
+        },
       }
     },
     {
@@ -142,12 +142,19 @@ module.exports = {
         /* Self-hosted fonts config. Add font files and font CSS files to "static" folder */
 
         /* Web fonts. File link should point to font CSS file. */
-        web: [{
-          /* Exact name of the font as defied in @font-face CSS rule */
-          name: "Lato",
-          /* URL to the font CSS file with @font-face definition */
-          file: "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:wght@400;700&display=swap",
-        },
+        web: [
+           {
+            /* Exact name of the font as defied in @font-face CSS rule */
+            name: "Lato",
+            /* URL to the font CSS file with @font-face definition */
+            file: "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700",
+          },
+          {
+            /* Exact name of the font as defied in @font-face CSS rule */
+            name: "Merriweather",
+            /* URL to the font CSS file with @font-face definition */
+            file: "https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap",
+          },
         ],
       },
     }
