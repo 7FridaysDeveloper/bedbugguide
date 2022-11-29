@@ -1,9 +1,5 @@
 import React from "react";
 import { graphql, useStaticQuery, Link } from "gatsby";
-//import useOpenContactModal from "src/hooks/useOpenContactModal";
-//import SolutionLinks from "src/components/solution-links";
-//import ThePhone from "src/components/the-phone";
-//import FooterLogoSvg from "src/images/svg/footer-logo.svg";
 import "./style.css";
 import {StaticImage} from "gatsby-plugin-image";
 
@@ -49,6 +45,12 @@ const Footer = () => {
                 </div>
             </div>
             <div className="footer-center">
+                <StaticImage
+                    src="../../images/bg-footer.jpg"
+                    alt="bg"
+                    loading="eager"
+                    placeholder="none"
+                />
                 <div className="container">
                     <div className="item categories">
                         <h4>Categories</h4>

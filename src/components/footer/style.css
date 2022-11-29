@@ -15,8 +15,15 @@ footer .footer-top .container {
 }
 footer .footer-center {
     padding: 60px 0;
-    background: url("https://bedbugguide.com/wp-content/themes/newmagz/images/bg-footer.jpg");
     background-size: cover;
+    position: relative;
+}
+
+footer .footer-center > .gatsby-image-wrapper {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
 }
 footer .footer-center .container {
     display: flex;
