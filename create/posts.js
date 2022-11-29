@@ -18,15 +18,15 @@ const createIndividualBlogPostPages = async ({ posts, gatsbyUtilities }, templat
                 // This is a good idea so that internal links and menus work 👍
 
                 path: post.uri,
-                // use the blog post template as the page component
+                // use the blog single-post template as the page component
                 component: path.resolve(template),
 
                 // `context` is available in the template as a prop and
                 // as a variable in GraphQL.
                 context: {
                     defer: index > 10,
-                    // we need to add the post id here
-                    // so our blog post template knows which blog post
+                    // we need to add the single-post id here
+                    // so our blog single-post template knows which blog single-post
                     // the current page is (when you open it in a browser)
                     id: post.id,
 

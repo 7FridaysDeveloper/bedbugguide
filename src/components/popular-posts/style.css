@@ -1,0 +1,48 @@
+.popular-post {
+    margin-bottom: 60px;
+}
+.popular-post h4 {
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 0 35px;
+    letter-spacing: 3px;
+    font-weight: 400;
+    font-style: normal;
+    color: #212121;
+    font-size: 12px;
+}
+.popular-post .line {
+    height: 2px;
+    background: #ddd;
+    width: 100%;
+    position: relative;
+    margin-bottom: 40px;
+}
+.popular-post .line:before {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 50%;
+    left: 25%;
+    background: #000;
+    position: absolute;
+    top: 0;
+}
+.popular-post .post-cat {
+    margin-bottom: 20px;
+}
+.popular-post .post-category > a {
+    color: #e65100;
+    font-size: 14px;
+    margin-right: 5px;
+    text-transform: uppercase;
+}
+.popular-post h3 {
+    display: flex;
+}
+.popular-post h3 a {
+    font-family: var(--second_font);
+    font-size: 16px;
+    color: #000;
+    margin: 7px 0;
+}

@@ -1,13 +1,28 @@
 import React from "react";
 import { graphql } from "gatsby";
+import './style.css';
+import SinglePost from "../../components/single-post";
+import PopularPosts from "../../components/popular-posts";
+import Categories from "../../components/categoties";
+import BedBugs from "../../components/single-bed-bugs";
 
 
 const Post = (props) => {
-    console.log(props)
+    console.log(props,'22313');
     return (
-        <>
+        <div className="single-post">
+            <div className="container">
+                <div className="grid-box">
+                    <SinglePost {...props}/>
+                    <aside>
+                        <BedBugs />
+                        <PopularPosts/>
+                        <Categories/>
+                    </aside>
+                </div>
+            </div>
+        </div>
 
-        </>
     );
 };
 
@@ -27,9 +42,22 @@ export const pageQuery = graphql`
         nodes {
           name
           id
+          uri
         }
       }
-      date(formatString: "MMMM DD, YYYY")
+      author {
+         node {
+             name
+             uri
+         }
+      }
+      tags {
+         nodes {
+            uri
+            name
+         }
+      }
+      date(formatString: "MMM D, YYYY")
       featuredImage {
         node {
           altText
@@ -93,3 +121,4 @@ export const pageQuery = graphql`
     }
   }
 `;
+
