@@ -35,7 +35,6 @@ async function CreateArchivePage(gatsbyUtilities, posts, options, getPagePath, t
         postsChunkedIntoArchivePages.map(async (_posts, index) => {
             const pageNumber = index + 1
 
-            console.log(getPagePath(pageNumber, totalPages));
 
             await gatsbyUtilities.actions.createPage({
                 path: getPagePath(pageNumber, totalPages),
@@ -87,7 +86,6 @@ async function getCategories(gatsbyUtilities) {
             }
             return null
         }
-        console.log(cat.posts.nodes);
         await CreateArchivePage(gatsbyUtilities, cat.posts.nodes, {
             isCategory: true,
             catId: cat.databaseId,
