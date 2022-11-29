@@ -18,8 +18,9 @@ const Posts = ({posts, pageContext}) => {
                 <div className="grid-box">
                     <div className="left-wrapper">
                         {posts.map(
-                            ({title, databaseId, date, featuredImage, uri}) => (
+                            ({title, databaseId, date, featuredImage, uri} ,index) => (
                                 <Post
+                                    index={index}
                                     key={databaseId}
                                     title={title}
                                     date={date}
