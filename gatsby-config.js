@@ -96,6 +96,21 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-fonts-v2`,
+      options: {
+        fonts: [
+          {
+            family: 'Lato',
+            weights: ['300', '400', '700']
+          },
+          {
+            family: 'Merriweather',
+            weights: ['400', '700']
+          }
+        ]
+      }
+    },
+    {
       resolve: "gatsby-source-wordpress",
       options: {
         url: `${process.env.WORDPRESS}/graphql`,
