@@ -7,7 +7,7 @@ const Post = ({ title, featuredImage, uri, index }) => {
 
             <div className="item">
                 <Link to={uri} partiallyActive={true} className="img">
-                    <FeaturedImage image={featuredImage} lazy={index > 0} />
+                    <FeaturedImage image={featuredImage} lazy={index > 3} />
                 </Link>
                 <div className="txt">
                     <div className="post-category">
