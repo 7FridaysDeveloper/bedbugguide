@@ -1,0 +1,16 @@
+.tags {
+    margin-top: 70px;
+}
+.tags .tags-wrap {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.tags a {
+    color: #000;
+    margin-right: 5px;
+    line-height: 1.7;
+}
+.tags a:hover {
+    color: #c51818;
+}

@@ -1,0 +1,16 @@
+.about {
+    margin: 80px 0;
+}
+.about h2 {
+    font-family: var(--second_font);
+    color: #000;
+    font-size: 25px;
+    margin: 20px 0;
+}
+.about p {
+    color: #000;
+    margin-top: 0;
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 22px;
+}
