@@ -107,7 +107,7 @@ module.exports = {
         //     limit: 5
         //   },
         // },
-      },
+      }
     },
     {
       resolve: `gatsby-plugin-layout`,
@@ -123,22 +123,34 @@ module.exports = {
       },
       __key: "images",
     },
-    // {
-    //   resolve: `gatsby-plugin-google-fonts-v2`,
-    //   options: {
-    //     fonts: [
-    //       {
-    //         family: 'Lato',
-    //         weights: ['100', '400' , '700']
-    //       },
-    //       {
-    //         family: 'Merriweather ',
-    //         weights: ['400' , '700']
-    //       }
-    //     ]
-    //   }
-    // }
+    {
+      /* Include plugin */
+      resolve: "gatsby-omni-font-loader",
 
+      /* Plugin options */
+      options: {
+
+        /* Font loading mode */
+        mode: "async",
+
+        /* Enable font loading listener to handle FOUT */
+        enableListener: true,
+
+        /* Preconnect URL-s. This example is for Google Fonts */
+        preconnect: ["https://fonts.gstatic.com"],
+
+        /* Self-hosted fonts config. Add font files and font CSS files to "static" folder */
+
+        /* Web fonts. File link should point to font CSS file. */
+        web: [{
+          /* Exact name of the font as defied in @font-face CSS rule */
+          name: "Lato",
+          /* URL to the font CSS file with @font-face definition */
+          file: "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:wght@400;700&display=swap",
+        },
+        ],
+      },
+    }
     // {
     //   resolve: `gatsby-plugin-purgecss`,
     //   options: {
@@ -148,7 +160,5 @@ module.exports = {
     // },
     // "gatsby-plugin-webpack-bundle-analyser-v2",
     // "gatsby-plugin-perf-budgets",
-    // }
-    // {
   ],
 };
