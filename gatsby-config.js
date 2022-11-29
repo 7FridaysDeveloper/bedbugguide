@@ -123,6 +123,9 @@ module.exports = {
       },
       __key: "images",
     },
+    {
+      resolve: `gatsby-plugin-preload-fonts`,
+    },
     // {
     //   resolve: `gatsby-plugin-purgecss`,
     //   options: {
