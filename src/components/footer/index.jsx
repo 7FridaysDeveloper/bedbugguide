@@ -37,7 +37,7 @@ const Footer = () => {
                     <Link to={"/"}>
                        {/* <FooterLogoSvg />*/}
                         <StaticImage
-                            src="https://www.bedbugguide.com/wp-content/uploads/2015/10/logowhite.png"
+                            src="../../images/logowhite.png"
                             alt="bg"
                             loading="eager"
                             placeholder="none"
