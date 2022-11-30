@@ -38,7 +38,7 @@ exports.createResolvers = ({ createResolvers }) =>
           const { databaseId } = source
 
           const response = await fetch(
-            `${process.env.WORDPRESS}/wp-json/yarpp/v1/related/${databaseId}`
+              `${process.env.WORDPRESS}/wp-json/yarpp/v1/related/${databaseId}`
           ).then(res => res.json())
 
           if (response && response.length) {
