@@ -22,7 +22,6 @@ module.exports = {
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
-    "gatsby-plugin-react-helmet",
     "gatsby-transformer-sharp",
     "gatsby-plugin-netlify",
     "gatsby-plugin-optimize-svgs",
@@ -34,18 +33,13 @@ module.exports = {
         gatsbyUrl: process.env.CURRENT_URL,
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `7fridays`,
-    //     short_name: `7fridays`,
-    //     description: `IT company`,
-    //     lang: `en`,
-    //     start_url: `/`,
-    //     display: `standalone`,
-    //     icon: `src/images/fav.png`
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        start_url: `/`,
+        icon: `src/images/fav.png`
+      },
+    },
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
@@ -104,7 +98,7 @@ module.exports = {
         },
         // type: {
         //   __all: {
-        //     limit: 30
+        //     limit: 5
         //   },
         // },
       }

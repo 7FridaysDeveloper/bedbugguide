@@ -1,18 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import {graphql} from "gatsby";
 import Posts from "../../components/posts";
-import { Helmet } from "react-helmet";
-import {SEOContext} from "gatsby-plugin-wpgraphql-seo";
 
 const ArchivePage = ({data, pageContext}) => {
-    const { seo, allSettings } = useContext(SEOContext);
     return (<>
-            <Helmet>
-                <title>{seo.meta?.homepage?.title}</title>
-                <meta name="description" content={allSettings.generalSettingsDescription}/>
-                <meta name="og:description" content={allSettings.generalSettingsDescription}/>
-                <meta name="og:title" content={allSettings.generalSettingsTitle}/>
-            </Helmet>
+
             <div>
                 <Posts posts={data.allWpPost.nodes} pageContext={pageContext}></Posts>
             </div>
@@ -22,8 +14,25 @@ const ArchivePage = ({data, pageContext}) => {
 
 export default ArchivePage;
 
+export const Head = ({ data: { wp }}) => {
+    return (
+        <>
+            <title>{`${wp.allSettings?.generalSettingsTitle} ${wp.allSettings?.generalSettingsDescription}`}</title>
+            <meta name="description" content={wp.allSettings?.generalSettingsDescription}/>
+            <meta name="og:description" content={wp.allSettings?.generalSettingsDescription}/>
+            <meta name="og:title" content={wp.allSettings?.generalSettingsTitle}/>
+        </>
+    );
+}
+
 export const pageQuery = graphql`
   query WordPressPostArchive($offset: Int!, $postsPerPage: Int!) {
+    wp { 
+      allSettings {
+          generalSettingsDescription
+          generalSettingsTitle
+      }
+    }
     allWpPost(
       sort: { fields: [date], order: DESC }
       limit: $postsPerPage

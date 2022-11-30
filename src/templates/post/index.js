@@ -3,18 +3,20 @@ import { graphql } from "gatsby";
 import Seo from "gatsby-plugin-wpgraphql-seo";
 
 
-const Post = ({ data }) => {
-    console.log(data)
+const Post = () => {
     return (
         <>
-            <Seo
-                post={data.post}
-            />
+
         </>
     );
 };
 
 export default Post;
+
+export const Head = ({data}) => {
+    console.log(data)
+    return <Seo post={data.post} />
+}
 
 export const pageQuery = graphql`
   query BlogPostById(
@@ -53,8 +55,14 @@ export const pageQuery = graphql`
               text
               url
             }
+            opengraphImage {
+                publicUrl
+                height
+                width
+            }
         }
       id
+      uri
       excerpt
       title
       categories {

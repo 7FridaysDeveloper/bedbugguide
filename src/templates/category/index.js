@@ -2,30 +2,35 @@ import React from "react";
 import {graphql} from "gatsby";
 import Posts from "../../components/posts";
 import Seo from "gatsby-plugin-wpgraphql-seo";
-//import {Helmet} from "react-helmet";
 
 const ArchivePage = ({pageContext, data}) => {
-    console.log(data)
     return (
         <>
-            <Seo
-                postSchema={JSON.parse(data.wpCategory.seo?.schema?.raw)}
-                post={data.wpCategory}
-            />
             <div>
                 <Posts
                     posts={data.allWpPost.nodes}
                     pageContext={pageContext}
                 />
             </div>
-            {/*<Helmet>*/}
-            {/*    <title>data.wpCategory.seo.tit</title>*/}
-            {/*</Helmet>*/}
+
         </>
     );
 };
 
 export default ArchivePage;
+
+export const Head = ({ data : { wpCategory } }) => {
+    console.log(wpCategory)
+    return (
+        <>
+            <meta property="og:url" content={process.env.CURRENT_URL + wpCategory.seo.opengraphUrl} />
+            <Seo
+                postSchema={JSON.parse(wpCategory.seo?.schema?.raw)}
+                post={wpCategory}
+            />
+        </>
+    );
+}
 
 export const pageQuery = graphql`
   query WordPressPostCategory($offset: Int!, $postsPerPage: Int!, $catId: Int!) {
