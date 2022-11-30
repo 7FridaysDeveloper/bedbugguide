@@ -31,6 +31,7 @@ h1 {
 }
 h2 {
     font-size: 65px;
+    font-family: var(--alternative_font);
     font-weight: 700;
     color: var(--title_color);
     margin: 0 0 35px 0;
@@ -41,16 +42,20 @@ h3 {
     font-weight: 700;
     color: var(--title_color);
     margin: 0;
+    font-family: var(--alternative_font);
 }
 h4 {
     font-size: 28px;
     font-weight: 400;
     color: var(--title_color);
+    font-family: var(--alternative_font);
+    font-family: var(--alternative_font);
 }
 h5 {
     font-size: 24px;
     font-weight: 400;
     color: var(--title_color);
+    font-family: var(--alternative_font);
 }
 h6 {
     font-size: 18px;
@@ -126,31 +131,30 @@ p {
     position: relative;
 }
 body {
-    font: 300 18px/1.8 var(--text_font);
+    font: 400 18px/1.8 var(--text_font);
     color: var(--text_color);
     flex-shrink: 0;
     margin: 0;
     /* overflow: hidden; */
 }
-input::-moz-placeholder,
-textarea::-moz-placeholder {
-    color: #7d7d7d;
+input::placeholder,
+textarea::placeholder {
+    color: #000;
     opacity: 1 !important;
-    font-size: inherit;
-    font-family: inherit;
+    font-size: 15px;
+    font-family: var(--text_font);
 }
-input::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder {
-    color: #7d7d7d;
-    font-size: inherit;
-    font-family: inherit;
-}
+
 /*End Start Settings*/
 
 a,
 a:hover,
 a:focus {
     text-decoration: none;
+    color: #000;
+}
+a:hover {
+    color: #c51818;
 }
 header ul,
 footer ul,
@@ -231,6 +235,10 @@ select {
     border-radius: 0;
     border: none;
     box-shadow: none;
+    color: #000;
+    opacity: 1 !important;
+    font-size: 15px;
+    font-family: var(--text_font);
 }
 .caret {
     display: inline-block;

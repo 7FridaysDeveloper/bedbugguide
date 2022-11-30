@@ -134,6 +134,44 @@ footer .contact-us-footer a {
 footer .contact-us-footer a:hover {
     color: #c51818;
 }
+
+.footer-top-wrap {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+.footer-top-wrap .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+.footer-top-wrap h4 {
+    font-family: var(--text_font);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 400;
+    font-style: normal;
+    color: #212121;
+    font-size: 12px;
+    min-height: 36px;
+}
+.footer-top-wrap .line {
+    height: 2px;
+    background: #ddd;
+    width: 100%;
+    position: relative;
+    margin-bottom: 40px;
+    margin-top: 0;
+}
+.footer-top-wrap .line:before {
+    content: '';
+    display: block;
+    height: 2px;
+    left: 0;
+    width: 60%;
+    background: #000;
+    position: absolute;
+    top: 0;
+}
 @media(min-width: 1440px) {
     footer .container {
         max-width: 1200px;

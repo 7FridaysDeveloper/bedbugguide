@@ -5,7 +5,9 @@ import SinglePost from "../../components/single-post";
 import PopularPosts from "../../components/popular-posts";
 import Categories from "../../components/categoties";
 import BedBugs from "../../components/single-bed-bugs";
-
+import SearchByTag from "../../components/search-by-tag";
+import RecentComments from "../../components/recent-comments";
+import RecentPost from "../../components/recent-posts";
 
 const Post = (props) => {
     console.log(props,'22313');
@@ -21,7 +23,16 @@ const Post = (props) => {
                     </aside>
                 </div>
             </div>
+            <div className="footer-top-wrap">
+                <div className="container">
+                    <SearchByTag />
+                    <RecentComments />
+                    <RecentPost />
+                    <SearchByTag />
+                </div>
+            </div>
         </div>
+
 
     );
 };

@@ -4,7 +4,8 @@ import SingleCategory from "../single-category";
 import Statistic from "../single-statistic";
 import Tags from "../tags";
 import PrevNextPost from "../prev-next-post";
-
+import PopularPosts from "../popular-posts";
+import Comments from "../comments";
 
 const SinglePost = (props) => {
     return (
@@ -20,7 +21,8 @@ const SinglePost = (props) => {
                 <div className="line black"></div>
             </div>
             <PrevNextPost previous={props.data?.previous} next={props.data?.next} />
-
+            <PopularPosts />
+            <Comments />
         </div>
     )
 }
