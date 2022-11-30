@@ -104,7 +104,7 @@ module.exports = {
         },
         // type: {
         //   __all: {
-        //     limit: 5
+        //     limit: 30
         //   },
         // },
       }

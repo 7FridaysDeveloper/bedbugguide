@@ -1,12 +1,15 @@
 import React from "react";
 import { graphql } from "gatsby";
+import Seo from "gatsby-plugin-wpgraphql-seo";
 
 
-const Post = (props) => {
-    console.log(props)
+const Post = ({ data }) => {
+    console.log(data)
     return (
         <>
-
+            <Seo
+                post={data.post}
+            />
         </>
     );
 };
@@ -20,6 +23,37 @@ export const pageQuery = graphql`
     $nextPostId: String
   ) {
     post: wpPost(id: { eq: $id }) {
+        seo {
+            canonical
+            cornerstone
+            focuskw
+            metaDesc
+            metaKeywords
+            metaRobotsNofollow
+            metaRobotsNoindex
+            opengraphAuthor
+            opengraphDescription
+            opengraphModifiedTime
+            opengraphPublishedTime
+            opengraphPublisher
+            opengraphSiteName
+            opengraphTitle
+            opengraphType
+            opengraphUrl
+            readingTime
+            title
+            twitterDescription
+            twitterTitle
+            schema {
+              articleType
+              pageType
+              raw
+            }
+            breadcrumbs {
+              text
+              url
+            }
+        }
       id
       excerpt
       title
