@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
+import {graphql} from "gatsby";
 import Seo from "gatsby-plugin-wpgraphql-seo";
 
 
@@ -15,7 +15,18 @@ export default Post;
 
 export const Head = ({data}) => {
     console.log(data)
-    return <Seo post={data.post} />
+    const opengraphImage = data.post.seo?.opengraphImage
+    return (
+        <>
+            <meta property="article:published_time" content={ data.post.dateGmt}/>
+            <meta property="article:modified_time" content={data.post.modifiedGmt}/>
+            <meta property="og:image" content={process.env.CURRENT_URL + opengraphImage.publicUrl} />
+            <meta property="og:image:width" content={opengraphImage.width} />
+            <meta property="og:image:height" content={opengraphImage.height} />
+            <meta property="og:image:type" content={opengraphImage.mimeType} />
+            <Seo post={data.post} postSchema={data.post.seo.schema.raw}/>
+        </>
+    )
 }
 
 export const pageQuery = graphql`
@@ -51,6 +62,12 @@ export const pageQuery = graphql`
               pageType
               raw
             }
+            opengraphImage {
+                height
+                width
+                mimeType
+                publicUrl
+            }
             breadcrumbs {
               text
               url
@@ -62,6 +79,8 @@ export const pageQuery = graphql`
             }
         }
       id
+      modifiedGmt
+      dateGmt
       uri
       excerpt
       title
