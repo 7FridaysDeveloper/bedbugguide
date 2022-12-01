@@ -38,7 +38,7 @@ exports.createResolvers = ({ createResolvers }) =>
           const { databaseId } = source
 
           const response = await fetch(
-              `${process.env.WORDPRESS}/wp-json/yarpp/v1/related/${databaseId}`
+              `http://bedbugguide-server.a-max.uk/wp-json/yarpp/v1/related/${databaseId}`
           ).then(res => res.json())
 
           if (response && response.length) {
