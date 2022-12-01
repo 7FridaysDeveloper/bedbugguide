@@ -15,7 +15,7 @@ const SinglePost = (props) => {
             <div className="line"></div>
             <Statistic author={props.data?.post?.author?.node} date={props.data?.post?.date} />
             <div className="text-content">{parse(props.data?.post?.content || '')}</div>
-            <Tags />
+            <Tags tags={props.data.post.tags}/>
             <div className="share">
                 <p>Does anyone you know battle with bed bugs? Share us with them:</p>
                 <div className="line black"></div>

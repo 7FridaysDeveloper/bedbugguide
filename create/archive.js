@@ -50,7 +50,46 @@ async function CreateArchivePage(gatsbyUtilities, posts, options, getPagePath, t
         })
     )
 }
+async function getTags(gatsbyUtilities) {
+    const graphqlResult = await gatsbyUtilities.graphql(/* GraphQL */ `
+    query allWpTags {
+      allWpTag {
+        nodes {
+          name
+          uri
+          databaseId
+          posts {
+            nodes {
+              databaseId
+            }
+          }
+        }
+      }
+    }
+  `)
+    if (graphqlResult.errors) {
+        gatsbyUtilities.reporter.panicOnBuild(
+            `There was an error loading your blog categories`,
+            graphqlResult.errors
+        )
+        return
+    }
+    const categories = graphqlResult.data.allWpTag.nodes;
 
+    for (let cat of categories) {
+        const getPagePath = (page, totalPages) => {
+            if (page > 0 && page <= totalPages) {
+                return page === 1 ? `${cat.uri}` : `${cat.uri}page/${page}`
+            }
+            return null
+        }
+        await CreateArchivePage(gatsbyUtilities, cat.posts.nodes, {
+            isCategory: true,
+            catId: cat.databaseId,
+            categories: graphqlResult.data.allWpTag.nodes,
+        }, getPagePath, './src/templates/category/index.js')
+    }
+}
 async function getCategories(gatsbyUtilities) {
     const graphqlResult = await gatsbyUtilities.graphql(/* GraphQL */ `
     query allWpCategories {
@@ -92,8 +131,6 @@ async function getCategories(gatsbyUtilities) {
             categories: graphqlResult.data.allWpCategory.nodes,
         }, getPagePath, './src/templates/category/index.js')
     }
-
-
 }
 
 async function getPosts({graphql, reporter}) {

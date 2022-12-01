@@ -6,7 +6,7 @@ const Index = (props) => {
     console.log(props)
   return (
       <div className="content">
-          {/*<TheContent text={props?.data?.page?.content} />*/}
+          <TheContent text={props?.data?.page?.content} />
       </div>
   );
 };

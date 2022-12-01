@@ -2,7 +2,7 @@ import React from "react";
 import {graphql, Link, useStaticQuery} from "gatsby";
 
 import "./style.css";
-const Tags = () => {
+const Tags = ({ tags = null}) => {
 
     const data = useStaticQuery(graphql`
     query AllWpTags {
@@ -15,13 +15,13 @@ const Tags = () => {
       }
     }
   `);
-
+    const dataTags = tags ? tags : data.allWpTag;
     return (
         <div className="tags">
             <h4>tags</h4>
             <div className="line"></div>
             <div className="tags-wrap">
-                {data.allWpTag.nodes.map(
+                {dataTags.nodes.map(
                     ({uri, name, count}) => (
                         <Link to={uri} key={uri} style={{ fontSize: (count > 12) ? count/2.4 : 12}}>
                             {name}
