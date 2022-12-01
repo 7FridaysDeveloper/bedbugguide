@@ -1,0 +1,42 @@
+.read-more h2 {
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 0 35px;
+    letter-spacing: 3px;
+    font-weight: 400;
+    font-style: normal;
+    color: #212121;
+    font-size: 12px;
+    font-family: var(--text_font);
+}
+.read-more p {
+    font-size: 14px;
+    margin-bottom: 15px;
+    font-weight: 400;
+    font-style: normal;
+    color: #1e1e1e;
+}
+.read-more .line {
+    height: 2px;
+    background: #ddd;
+    width: 100%;
+    position: relative;
+    margin-bottom: 40px;
+}
+.read-more .line {
+    height: 2px;
+    background: #ddd;
+    width: 100%;
+    position: relative;
+    margin-bottom: 40px;
+}
+.read-more .line:before {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 50%;
+    left: 25%;
+    background: red;
+    position: absolute;
+    top: 0;
+}
