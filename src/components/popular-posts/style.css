@@ -36,6 +36,16 @@
 .popular-post .post-cat {
     margin-bottom: 20px;
 }
+.popular-post .grid-box-post {
+    position: relative;
+}
+.popular-post .grid-box-post > span {
+    left: 0;
+    right: 0;
+    top: -30px;
+    margin: auto;
+    position: absolute;
+}
 
 .popular-post .post-category > a {
     color: #e65100;
@@ -60,6 +70,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 20px;
+    position: relative;
 }
 
 .left-content .popular-post h4 {

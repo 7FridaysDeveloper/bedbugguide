@@ -10,6 +10,8 @@ const getPagePath = (page, totalPages) => {
 
 module.exports.createBlogPostArchive = async function (gatsbyUtilities) {
     await getCategories(gatsbyUtilities);
+    await getTags(gatsbyUtilities);
+    await getAuthorPost(gatsbyUtilities)
     const posts = await getPosts(gatsbyUtilities);
     await CreateArchivePage(gatsbyUtilities, posts, {isArchive: true}, getPagePath, './src/templates/archive/index.js');
 
@@ -50,6 +52,48 @@ async function CreateArchivePage(gatsbyUtilities, posts, options, getPagePath, t
         })
     )
 }
+
+async function getAuthorPost(gatsbyUtilities) {
+    const graphqlResult = await gatsbyUtilities.graphql(/* GraphQL */ `
+    query allWpAuthorPosts {
+      allWpUser {
+        nodes {
+          uri
+          name
+          databaseId
+          posts {
+            nodes {
+              databaseId
+            }
+          }
+        }
+      }
+    }
+  `)
+    if (graphqlResult.errors) {
+        gatsbyUtilities.reporter.panicOnBuild(
+            `There was an error loading your blog categories`,
+            graphqlResult.errors
+        )
+        return
+    }
+    const categories = graphqlResult.data.allWpUser.nodes;
+
+    for (let cat of categories) {
+        const getPagePath = (page, totalPages) => {
+            if (page > 0 && page <= totalPages) {
+                return page === 1 ? `${cat.uri}` : `${cat.uri}page/${page}`
+            }
+            return null
+        }
+        await CreateArchivePage(gatsbyUtilities, cat.posts.nodes, {
+            isCategory: true,
+            catId: cat.databaseId,
+            categories: graphqlResult.data.allWpUser.nodes,
+        }, getPagePath, './src/templates/author-post/index.js')
+    }
+}
+
 async function getTags(gatsbyUtilities) {
     const graphqlResult = await gatsbyUtilities.graphql(/* GraphQL */ `
     query allWpTags {
@@ -87,7 +131,7 @@ async function getTags(gatsbyUtilities) {
             isCategory: true,
             catId: cat.databaseId,
             categories: graphqlResult.data.allWpTag.nodes,
-        }, getPagePath, './src/templates/category/index.js')
+        }, getPagePath, './src/templates/tag/index.js')
     }
 }
 async function getCategories(gatsbyUtilities) {

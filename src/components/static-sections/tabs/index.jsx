@@ -1,11 +1,11 @@
-import React , {useState , useEffect}  from "react";
+import React, {useState, useEffect} from "react";
 import {graphql, useStaticQuery} from "gatsby";
 import parse from "html-react-parser";
 import './style.css';
 
 
 const Tabs = () => {
-    const [tabContent , setTabContent] = useState('');
+    const [tabContent, setTabContent] = useState('');
     const [isActive, setActive] = useState(false);
     const data = useStaticQuery(graphql`
     query TabsData {
@@ -31,14 +31,15 @@ const Tabs = () => {
 
     useEffect(() => {
         changeTab(0);
-    } , [] );
+    }, []);
 
     return (
         <div className="tabs">
             <div className="left">
                 {data.wp.themeGeneralSettings.themeOptions.tabs.map(
-                    ({nameLabel} , index) => (
-                        <button key={index} onClick={()=> changeTab(index)} className={isActive === index ? 'active': ''}>
+                    ({nameLabel}, index) => (
+                        <button key={index} onClick={() => changeTab(index)}
+                                className={isActive === index ? 'active' : ''}>
                             {nameLabel}
                         </button>
                     )
@@ -54,11 +55,6 @@ const Tabs = () => {
         </div>
     )
 }
-
-
-
-
-
 
 
 export default Tabs;

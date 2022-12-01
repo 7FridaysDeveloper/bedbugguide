@@ -58,12 +58,13 @@ export const pageQuery = graphql`
           twitterDescription
           twitterTitle
         }
+        count
     }
     allWpPost(
       sort: { fields: [date], order: DESC }
       limit: $postsPerPage
       skip: $offset
-      filter: {categories: {nodes: {elemMatch: {databaseId: {eq: $catId}}}}}
+      filter: {tags: {nodes: {elemMatch: {databaseId: {eq: $catId}}}}}
     ) {
       nodes {
         excerpt

@@ -26,6 +26,7 @@ module.exports = {
     "gatsby-plugin-netlify",
     "gatsby-plugin-optimize-svgs",
     "gatsby-plugin-sitemap",
+    "gatsby-plugin-preload-fonts",
     {
       resolve: `gatsby-plugin-yoast-sitemap`,
       options: {
@@ -98,7 +99,7 @@ module.exports = {
         },
         // type: {
         //   __all: {
-        //     limit: 30
+        //     limit: 5
         //   },
         // },
       }

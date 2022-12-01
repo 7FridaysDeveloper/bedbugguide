@@ -4,12 +4,17 @@ import Posts from "../../components/posts";
 import SearchByTag from "../../components/search-by-tag";
 import RecentComments from "../../components/recent-comments";
 import RecentPost from "../../components/recent-posts";
-
+import About from '../../components/static-sections/about';
+import Tabs from "../../components/static-sections/tabs";
 
 const ArchivePage = ({ data, pageContext }) => {
     return (<>
             <div>
-                <Posts posts={data.allWpPost.nodes} pageContext={pageContext} ></Posts>
+                <Posts posts={data.allWpPost.nodes} pageContext={pageContext} >
+
+                    <About />
+                    <Tabs />
+                </Posts>
                 <div className="footer-top-wrap">
                     <div className="container">
                         <SearchByTag />
@@ -68,6 +73,7 @@ export const pageQuery = graphql`
           nodes {
             name
             id
+            uri
           }
         }
         databaseId
