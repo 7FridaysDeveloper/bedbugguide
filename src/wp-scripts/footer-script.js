@@ -19,7 +19,9 @@ export default function FooterScript() {
         const footerScript = document.getElementById('footer-script');
         setTimeout(() => {
             footerScript.innerHTML = themeGeneralSettings.themeOptions.headerTrackingCodes + themeGeneralSettings.themeOptions.footerTrackingCodes;
-            nodeScriptReplace(footerScript)
+            setTimeout(() => {
+                nodeScriptReplace(footerScript)
+            }, 1000)
         }, 3000)
     }, [])
     return null;

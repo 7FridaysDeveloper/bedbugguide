@@ -35,10 +35,10 @@ exports.createResolvers = ({ createResolvers }) =>
     WpPost: {
       related_posts: {
         resolve: async (source, args, context) => {
-          // const { databaseId } = source
+          const { databaseId } = source
 
           const response = await fetch(
-              `http://bedbugguide-server.a-max.uk/wp-json/yarpp/v1/related/606`
+              `${process.env.WORDPRESS}/wp-json/yarpp/v1/related/${databaseId}`
           ).then(res => res.json())
 
           if (response && response.length) {

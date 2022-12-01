@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import './style.css';
 import SinglePost from "../../components/single-post";
 import PopularPosts from "../../components/popular-posts";
 import Categories from "../../components/categoties";
@@ -8,9 +7,9 @@ import BedBugs from "../../components/single-bed-bugs";
 import SearchByTag from "../../components/search-by-tag";
 import RecentComments from "../../components/recent-comments";
 import RecentPost from "../../components/recent-posts";
-import {graphql} from "gatsby";
 import Seo from "gatsby-plugin-wpgraphql-seo";
 
+import './style.css';
 
 const Post = (props) => {
     console.log(props,'22313');
