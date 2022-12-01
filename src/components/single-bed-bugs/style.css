@@ -17,6 +17,7 @@
     font-style: normal;
     color: #212121;
     font-size: 12px;
+    font-family: var(--text_font);
 }
 .bed-bugs .line {
     height: 2px;

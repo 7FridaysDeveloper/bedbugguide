@@ -72,3 +72,30 @@
 .blog-posts .wrapper-items {
     margin-bottom: 60px;
 }
+@media(max-width: 1199px) {
+    .blog-posts .item {
+        grid-template-columns: 260px 1fr;
+    }
+    .blog-posts .item .img {
+        width: 100%;
+    }
+}
+@media(max-width: 991px) {
+    .blog-posts .grid-box {
+        grid-template-columns: 100%;
+    }
+    .blog-posts .item {
+        grid-template-columns: 360px 1fr;
+    }
+}
+@media(max-width: 767px) {
+    .blog-posts .item {
+        grid-template-columns: 100%;
+    }
+    .blog-posts .item .img {
+        padding-top: 55%;
+    }
+    .blog-posts .item h3 a {
+        font-size: 22px;
+    }
+}

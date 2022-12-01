@@ -1,7 +1,9 @@
-.popular-post {
+
+.related-post {
     margin-bottom: 60px;
+    margin-top: 60px;
 }
-.popular-post h4 {
+.related-post h4 {
     text-transform: uppercase;
     text-align: center;
     margin: 0 0 35px;
@@ -10,16 +12,15 @@
     font-style: normal;
     color: #212121;
     font-size: 12px;
-    font-family: var(--text_font);
 }
-.popular-post .line {
+.related-post .line {
     height: 2px;
     background: #ddd;
     width: 100%;
     position: relative;
     margin-bottom: 40px;
 }
-.popular-post .line:before {
+.related-post .line:before {
     content: '';
     display: block;
     height: 2px;
@@ -29,19 +30,19 @@
     position: absolute;
     top: 0;
 }
-.popular-post .post-cat {
+.related-post .post-cat {
     margin-bottom: 20px;
 }
-.popular-post .post-category > a {
+.related-post .post-category > a {
     color: #e65100;
     font-size: 14px;
     margin-right: 5px;
     text-transform: uppercase;
 }
-.popular-post h3 {
+.related-post h3 {
     display: flex;
 }
-.popular-post h3 a {
+.related-post h3 a {
     font-family: var(--second_font);
     font-size: 16px;
     color: #000;
@@ -49,12 +50,12 @@
 }
 
 /* left-content */
-.left-content .popular-post .grid-box-post {
+.left-content .related-post .grid-box-post {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 20px;
 }
-.left-content .popular-post h4 {
+.left-content .related-post h4 {
     font-family: var(--text_font);
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -63,30 +64,37 @@
     text-align: left;
     color: #212121;
 }
-.left-content .popular-post .post-category > a {
+.left-content .related-post .post-category > a {
     font-size: 12px;
 }
-.left-content .popular-post .line:before {
+.left-content .related-post .line:before {
     left: 0;
     width: 60%;
+}
+.left-content .related-post .entry-meta {
+    flex-wrap: wrap;
+    display: flex;
 }
 .left-content .popular-post .entry-meta {
     display: flex;
 }
-.popular-post .entry-meta {
-    display: none;
-}
-.popular-post .entry-meta svg {
+.related-post .entry-meta svg {
     width: 16px;
     margin-right: 5px;
 }
-.popular-post .entry-meta svg path {
+.related-post .entry-meta svg path {
     fill: #a9a9a9;
 }
-
-.popular-post .entry-meta .date {
+.related-post .author {
+    margin-right: 10px;
+}
+.related-post .entry-meta .date {
     display: flex;
     align-items: center;
-    margin-left: 10px;
+}
+@media(max-width: 767px) {
+    .left-content .related-post .grid-box-post {
+        grid-template-columns: 100%;
+    }
 }
 /* end left-content */

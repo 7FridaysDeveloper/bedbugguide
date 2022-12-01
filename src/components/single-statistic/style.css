@@ -16,6 +16,7 @@
     display: flex;
     align-items: center;
     margin-right: 15px;
+    padding-bottom: 0;
 }
 .single-statistic .author a {
     color: #000000;

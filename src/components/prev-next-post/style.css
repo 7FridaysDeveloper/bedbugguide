@@ -6,6 +6,7 @@
 .prev-next-post .flex {
     display: flex;
     max-width: 340px;
+    width: 50%;
 }
 .prev-next-post a.image {
     width: 100px;
@@ -30,13 +31,26 @@
     display: flex;
     flex-direction: column;
 }
-.next.flex {
-    flex-direction: row-reverse;
+@media(min-width: 601px) {
+    .prev-next-post .next.flex {
+        flex-direction: row-reverse;
+    }
+    .prev-next-post .next a.image {
+        margin-right: 0;
+        margin-left: 10px;
+    }
+    .prev-next-post .next div {
+        text-align: right;
+    }
 }
-.prev-next-post .next a.image {
-    margin-right: 0;
-    margin-left: 10px;
-}
-.prev-next-post .next div {
-    text-align: right;
+@media(max-width: 600px) {
+    .prev-next-post {
+        flex-direction: column;
+    }
+    .prev-next-post .flex {
+        width: 100%;
+    }
+    .prev-next-post .next.flex {
+        margin-top: 20px;
+    }
 }

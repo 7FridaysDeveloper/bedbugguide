@@ -2,7 +2,7 @@ import React from "react";
 
 const BedBugProduct = () => {
     return(
-        <div className="recent-comments">
+        <div className="bed-bugs-products">
             <h4>BED BUG PRODUCTS</h4>
             <div className="line"></div>
             <div className="flex-box">

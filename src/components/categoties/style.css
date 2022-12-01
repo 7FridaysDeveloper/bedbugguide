@@ -10,6 +10,7 @@
     font-style: normal;
     color: #212121;
     font-size: 12px;
+    font-family: var(--text_font);
 }
 .categories .line {
     height: 2px;

@@ -36,6 +36,8 @@ footer .footer-center h4 {
     font-size: 12px;
     margin: 0;
     position: relative;
+    font-family: var(--text_font);
+    text-align: left;
 }
 footer .footer-center .line {
     background: #aaa;
@@ -191,5 +193,13 @@ footer .contact-us-footer a:hover {
     footer .footer-center ul li {
         margin-bottom: 15px;
     }
+    .footer-top-wrap .container {
+        grid-template-columns: 50% 50%;
+    }
 
+}
+@media(max-width: 767px) {
+    .footer-top-wrap .container {
+        grid-template-columns: 100%;
+    }
 }
