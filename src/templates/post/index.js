@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import './style.css';
 import SinglePost from "../../components/single-post";
 import PopularPosts from "../../components/popular-posts";
 import Categories from "../../components/categoties";
@@ -8,6 +7,9 @@ import BedBugs from "../../components/single-bed-bugs";
 import SearchByTag from "../../components/search-by-tag";
 import RecentComments from "../../components/recent-comments";
 import RecentPost from "../../components/recent-posts";
+import Seo from "gatsby-plugin-wpgraphql-seo";
+
+import './style.css';
 
 const Post = (props) => {
     return (
@@ -31,12 +33,26 @@ const Post = (props) => {
                 </div>
             </div>
         </div>
-
-
     );
+
 };
 
 export default Post;
+
+export const Head = ({data}) => {
+    const opengraphImage = data.post.seo?.opengraphImage
+    return (
+        <>
+            <meta property="article:published_time" content={ data.post.dateGmt}/>
+            <meta property="article:modified_time" content={data.post.modifiedGmt}/>
+            <meta property="og:image" content={process.env.CURRENT_URL + opengraphImage.publicUrl} />
+            <meta property="og:image:width" content={opengraphImage.width} />
+            <meta property="og:image:height" content={opengraphImage.height} />
+            <meta property="og:image:type" content={opengraphImage.mimeType} />
+            <Seo post={data.post} postSchema={data.post.seo.schema.raw}/>
+        </>
+    )
+}
 
 export const pageQuery = graphql`
   query BlogPostById(
@@ -45,7 +61,52 @@ export const pageQuery = graphql`
     $nextPostId: String
   ) {
     post: wpPost(id: { eq: $id }) {
+        seo {
+            canonical
+            cornerstone
+            focuskw
+            metaDesc
+            metaKeywords
+            metaRobotsNofollow
+            metaRobotsNoindex
+            opengraphAuthor
+            opengraphDescription
+            opengraphModifiedTime
+            opengraphPublishedTime
+            opengraphPublisher
+            opengraphSiteName
+            opengraphTitle
+            opengraphType
+            opengraphUrl
+            readingTime
+            title
+            twitterDescription
+            twitterTitle
+            schema {
+              articleType
+              pageType
+              raw
+            }
+            opengraphImage {
+                height
+                width
+                mimeType
+                publicUrl
+            }
+            breadcrumbs {
+              text
+              url
+            }
+            opengraphImage {
+                publicUrl
+                height
+                width
+            }
+        }
       id
+      modifiedGmt
+      dateGmt
+      uri
       excerpt
       title
       categories {
@@ -83,6 +144,12 @@ export const pageQuery = graphql`
           title
           uri
           databaseId
+          author {
+             node {
+                 name
+                 uri
+             }
+          }
           date(formatString: "MMMM DD, YYYY")
           featuredImage {
             node {
@@ -97,6 +164,7 @@ export const pageQuery = graphql`
             nodes {
               name
               id
+              uri
             }
           }
         }

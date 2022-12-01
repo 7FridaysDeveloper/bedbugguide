@@ -22,7 +22,6 @@ module.exports = {
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
-    "gatsby-plugin-react-helmet",
     "gatsby-transformer-sharp",
     "gatsby-plugin-netlify",
     "gatsby-plugin-optimize-svgs",
@@ -34,18 +33,13 @@ module.exports = {
         gatsbyUrl: process.env.CURRENT_URL,
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `7fridays`,
-    //     short_name: `7fridays`,
-    //     description: `IT company`,
-    //     lang: `en`,
-    //     start_url: `/`,
-    //     display: `standalone`,
-    //     icon: `src/images/fav.png`
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        start_url: `/`,
+        icon: `src/images/fav.png`
+      },
+    },
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
@@ -104,7 +98,7 @@ module.exports = {
         },
         type: {
           __all: {
-            limit: 5
+            limit: 30
           },
         },
       }
@@ -124,40 +118,8 @@ module.exports = {
       __key: "images",
     },
     {
-      /* Include plugin */
-      resolve: "gatsby-omni-font-loader",
-
-      /* Plugin options */
-      options: {
-
-        /* Font loading mode */
-        mode: "async",
-
-        /* Enable font loading listener to handle FOUT */
-        enableListener: true,
-
-        /* Preconnect URL-s. This example is for Google Fonts */
-        preconnect: ["https://fonts.gstatic.com"],
-
-        /* Self-hosted fonts config. Add font files and font CSS files to "static" folder */
-
-        /* Web fonts. File link should point to font CSS file. */
-        web: [
-           {
-            /* Exact name of the font as defied in @font-face CSS rule */
-            name: "Lato",
-            /* URL to the font CSS file with @font-face definition */
-            file: "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700",
-          },
-          {
-            /* Exact name of the font as defied in @font-face CSS rule */
-            name: "Merriweather",
-            /* URL to the font CSS file with @font-face definition */
-            file: "https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap",
-          },
-        ],
-      },
-    }
+      resolve: `gatsby-plugin-preload-fonts`,
+    },
     // {
     //   resolve: `gatsby-plugin-purgecss`,
     //   options: {

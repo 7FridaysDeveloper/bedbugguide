@@ -25,8 +25,25 @@ const ArchivePage = ({ data, pageContext }) => {
 
 export default ArchivePage;
 
+export const Head = ({ data: { wp }}) => {
+    return (
+        <>
+            <title>{`${wp.allSettings?.generalSettingsTitle} ${wp.allSettings?.generalSettingsDescription}`}</title>
+            <meta name="description" content={wp.allSettings?.generalSettingsDescription}/>
+            <meta name="og:description" content={wp.allSettings?.generalSettingsDescription}/>
+            <meta name="og:title" content={wp.allSettings?.generalSettingsTitle}/>
+        </>
+    );
+}
+
 export const pageQuery = graphql`
   query WordPressPostArchive($offset: Int!, $postsPerPage: Int!) {
+    wp { 
+      allSettings {
+          generalSettingsDescription
+          generalSettingsTitle
+      }
+    }
     allWpPost(
       sort: { fields: [date], order: DESC }
       limit: $postsPerPage
@@ -56,5 +73,5 @@ export const pageQuery = graphql`
         databaseId
       }
     }
-  }
+}
 `;

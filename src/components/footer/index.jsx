@@ -1,9 +1,5 @@
 import React from "react";
 import { graphql, useStaticQuery, Link } from "gatsby";
-//import useOpenContactModal from "src/hooks/useOpenContactModal";
-//import SolutionLinks from "src/components/solution-links";
-//import ThePhone from "src/components/the-phone";
-//import FooterLogoSvg from "src/images/svg/footer-logo.svg";
 import "./style.css";
 import {StaticImage} from "gatsby-plugin-image";
 
@@ -37,7 +33,7 @@ const Footer = () => {
                     <Link to={"/"}>
                        {/* <FooterLogoSvg />*/}
                         <StaticImage
-                            src="https://www.bedbugguide.com/wp-content/uploads/2015/10/logowhite.png"
+                            src="../../images/logowhite.png"
                             alt="bg"
                             loading="eager"
                             placeholder="none"
@@ -49,6 +45,12 @@ const Footer = () => {
                 </div>
             </div>
             <div className="footer-center">
+                <StaticImage
+                    src="../../images/bg-footer.jpg"
+                    alt="bg"
+                    loading="eager"
+                    placeholder="none"
+                />
                 <div className="container">
                     <div className="item categories">
                         <h4>Categories</h4>
@@ -99,7 +101,7 @@ const Footer = () => {
 
                     <div className="contact-us-footer">
 
-                        Contact us: <Link to={"mailto:support@saybyebugs.com"}>support@saybyebugs.com</Link>
+                        Contact us: <a href={"mailto:support@saybyebugs.com"}>support@saybyebugs.com</a>
                     </div>
                 </div>
 

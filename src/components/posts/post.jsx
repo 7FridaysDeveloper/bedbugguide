@@ -2,12 +2,12 @@ import React from "react";
 //import { StaticImage } from "gatsby-plugin-image";
 import FeaturedImage from "./featured-image";
 import { Link } from "gatsby";
-const Post = ({ title, featuredImage, uri }) => {
+const Post = ({ title, featuredImage, uri, index }) => {
     return (
 
             <div className="item">
                 <Link to={uri} partiallyActive={true} className="img">
-                    <FeaturedImage image={featuredImage} />
+                    <FeaturedImage image={featuredImage} lazy={index > 3} />
                 </Link>
                 <div className="txt">
                     <div className="post-category">

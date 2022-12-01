@@ -1,7 +1,7 @@
 import React from "react";
 import {graphql, Link, useStaticQuery} from "gatsby";
-import "./style.css";
 
+import "./style.css";
 const Tags = () => {
 
     const data = useStaticQuery(graphql`

@@ -1,7 +1,7 @@
 import React from "react";
-import './style.css';
 import CalendarSvg from '../../images/svg/calendar.svg'
 
+import './style.css';
 
 const PopularPosts = () => {
 

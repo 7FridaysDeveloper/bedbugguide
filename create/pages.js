@@ -336,7 +336,7 @@ const getComponentFragments = (
       delete require.cache[componentFragmentFile];
     }
     const query = require(componentFragmentFile);
-    console.log(componentFragmentFile);
+    //console.log(componentFragmentFile);
     const graphQLFieldGroupName = capitalizeFirstLetter(
       options.graphQLFieldGroupName.toLowerCase()
     );

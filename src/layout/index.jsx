@@ -1,32 +1,37 @@
-import React , {lazy , Suspense} from "react";
+import React from "react";
 import {useStaticQuery, graphql} from "gatsby";
-import {SEOContext} from "gatsby-plugin-wpgraphql-seo";
 import Header from "src/components/header";
 import Footer from "src/components/footer";
-const Modal = lazy(()=> import ('src/components/modal'));
+import Seo, {SEOContext} from 'gatsby-plugin-wpgraphql-seo';
+import {Helmet} from "react-helmet";
 import "../styles/global.css";
-
-
-
-import Spinner from "src/images/svg/menu.svg";
-
-
-
-
-const Index = ({children , path}) => {
-
+import FooterScript from "../wp-scripts/footer-script";
+const Index = ({children, path}) => {
     const {
-        wp: {seo},
+        wp,
     } = useStaticQuery(graphql`
     query SiteInfoQuery {
       wp {
+        allSettings {
+          generalSettingsDescription
+          generalSettingsTitle
+        }
         seo {
+          meta {
+            homepage {
+              description
+              title
+            }
+          }
           contentTypes {
             post {
               title
               schemaType
               metaRobotsNoindex
               metaDesc
+              schema {
+                raw
+              }
             }
             page {
               metaDesc
@@ -45,6 +50,7 @@ const Index = ({children , path}) => {
             companyName
             personName
             companyOrPerson
+            inLanguage
             wordpressSiteName
             siteUrl
             siteName
@@ -92,15 +98,19 @@ const Index = ({children , path}) => {
   `);
     return (
         <>
-            <Header path={path} />
-            <SEOContext.Provider value={{global: seo}}>
+            <Header path={path}/>
+            <SEOContext.Provider value={wp}>
                 {children}
             </SEOContext.Provider>
-
-            <Suspense fallback={<Spinner />}>
-                <Modal />
-            </Suspense>
             <Footer/>
+            <Helmet>
+                <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8"/>
+                <meta property="og:locale" content={wp.seo.schema.inLanguage}/>
+                <meta name="og:site_name" content={wp.allSettings.generalSettingsTitle}/>
+            </Helmet>
+            <Seo postSchema={JSON.parse(wp.seo.contentTypes.post.schema.raw)} />
+            <FooterScript />
+            <div id="footer-script"></div>
         </>
     );
 };

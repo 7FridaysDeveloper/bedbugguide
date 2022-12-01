@@ -8,7 +8,6 @@ module.exports.createPosts = async (gatsbyUtilities ) => {
 };
 
 const createIndividualBlogPostPages = async ({ posts, gatsbyUtilities }, template) => {
-    console.log(posts);
 
     return Promise.all(posts.map(({ previous, post, next }, index) =>
             // createPage is an action passed to createPages

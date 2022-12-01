@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 
 
 const Index = (props) => {
-  console.log(props, 11111111111)
+    console.log(props)
   return (
       <>
 

@@ -9,17 +9,16 @@ import About from '../static-sections/about';
 import Tabs from "../static-sections/tabs";
 
 
-
-
-const Posts = ({ posts , pageContext }) => {
+const Posts = ({posts, pageContext}) => {
     return (
         <section className="blog-posts">
             <div className="container">
                 <div className="grid-box">
                     <div className="left-wrapper">
                         {posts.map(
-                            ({ title, databaseId, date, featuredImage, uri }) => (
+                            ({title, databaseId, date, featuredImage, uri} ,index) => (
                                 <Post
+                                    index={index}
                                     key={databaseId}
                                     title={title}
                                     date={date}
