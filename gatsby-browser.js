@@ -5,8 +5,10 @@ import { Helmet} from "react-helmet";
 export const wrapRootElement = ({element}) => (
   <ThemeProvider>
     <Helmet>
-      <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700display=swap" />
-      <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" />
+      <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700display=swap"
+            crossOrigin/>
+      <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap"
+            crossOrigin/>
     </Helmet>
     {element}
   </ThemeProvider>
