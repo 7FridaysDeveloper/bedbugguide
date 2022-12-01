@@ -22,7 +22,7 @@ export default function FooterScript() {
             setTimeout(() => {
                 nodeScriptReplace(footerScript)
             }, 1000)
-        }, 3000)
+        }, 4000)
     }, [])
     return null;
 }
