@@ -18,7 +18,7 @@ module.exports.createBlogPostArchive = async function (gatsbyUtilities) {
 }
 
 
-async function CreateArchivePage(gatsbyUtilities, posts, options, getPagePath, template) {
+async function CreateArchivePage(gatsbyUtilities, posts, options, getPagePath, template, defer = false) {
     const graphqlResult = await gatsbyUtilities.graphql(`
     {
       wp {
@@ -41,6 +41,7 @@ async function CreateArchivePage(gatsbyUtilities, posts, options, getPagePath, t
             await gatsbyUtilities.actions.createPage({
                 path: getPagePath(pageNumber, totalPages),
                 component: path.resolve(template),
+                defer,
                 context: {
                     ...options,
                     offset: index * postsPerPage,
@@ -90,7 +91,7 @@ async function getAuthorPost(gatsbyUtilities) {
             isCategory: true,
             catId: cat.databaseId,
             categories: graphqlResult.data.allWpUser.nodes,
-        }, getPagePath, './src/templates/author-post/index.js')
+        }, getPagePath, './src/templates/author-post/index.js', true)
     }
 }
 
@@ -131,7 +132,7 @@ async function getTags(gatsbyUtilities) {
             isCategory: true,
             catId: cat.databaseId,
             categories: graphqlResult.data.allWpTag.nodes,
-        }, getPagePath, './src/templates/tag/index.js')
+        }, getPagePath, './src/templates/tag/index.js', true)
     }
 }
 async function getCategories(gatsbyUtilities) {
@@ -173,7 +174,7 @@ async function getCategories(gatsbyUtilities) {
             isCategory: true,
             catId: cat.databaseId,
             categories: graphqlResult.data.allWpCategory.nodes,
-        }, getPagePath, './src/templates/category/index.js')
+        }, getPagePath, './src/templates/category/index.js', true)
     }
 }
 
