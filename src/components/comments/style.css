@@ -1,10 +1,36 @@
 .comments {
-    padding-bottom: 60px;
+    padding: 30px 0;
+}
+.comments .date {
+    font-weight: 400;
+    font-style: normal;
+    color: #a9a9a9;
+    font-size: 11px;
 }
 .comments h2 {
-    font-size: 23px;
-    font-family: var(--second_font);
+    font-family: var(--text_font);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 400;
+    font-style: normal;
+    text-align: left;
     color: #212121;
+    font-size: 12px;
+}
+.comments .name {
+    font-size: 17px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.comments .text {
+    font-size: 18px;
+    color: #1e1e1e;
+}
+.comments .text a {
+    text-decoration: underline;
+    color: #33F;
 }
 .comments .line {
     height: 2px;
@@ -13,67 +39,39 @@
     position: relative;
     margin-bottom: 40px;
 }
+.comments .line {
+    height: 2px;
+    width: 100%;
+    background: #ddd;
+    margin-bottom: 20px;
+    margin-top: 25px;
+}
+
 .comments .line:before {
     content: '';
     display: block;
     height: 2px;
     left: 0;
-    width: 60%;
+    width: 40%;
     background: #000;
     position: absolute;
     top: 0;
 }
-.comments form {
-    max-width: 500px;
+.comments .item {
+    border-bottom: solid 1px #ddd;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    padding-left: 17px;
+    position: relative;
 }
-.comments textarea {
-    color: #000;
-    border: 1px solid #c6c6c6;
-    width: 100%;
-    padding: 10px;
-    height: 160px;
-    border-radius: 3px;
-    box-shadow: inset 1px 1px 5px #eee;
-    margin-bottom: 15px;
-    color: #808080;
-    outline: none;
-}
-.comments label {
-    display: inline-block;
-    text-transform: uppercase;
-    color: #1e1e1e;
-    font-size: 10px;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-.comments input {
-    font-weight: 400;
-    font-style: normal;
-    border: 1px solid #c6c6c6;
-    border-radius: 3px;
-    box-shadow: inset 1px 1px 5px #eee;
-    color: #808080;
-    font-size: 15px;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    outline: none;
-}
-.comments #submit {
-    width: auto;
-    background-color: #c51818;
-    letter-spacing: 1px;
-    font-weight: 400;
-    font-style: normal;
-    color: #ffffff;
-    font-size: 14px;
-    padding: 10px 28px;
-    border: none;
-    box-shadow: none;
-    cursor: pointer;
-    transition: .3s;
-    text-transform: uppercase;
-}
-.comments #submit:hover {
-    opacity: .8 !important;
+.comments .item:before {
+    position: absolute;
+    content: '';
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+    background: #111;
+    border-radius: 15px;
+    left: 0;
+    top: 5px;
 }

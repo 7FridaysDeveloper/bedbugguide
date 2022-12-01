@@ -5,7 +5,7 @@ import Statistic from "../single-statistic";
 import Tags from "../tags";
 import PrevNextPost from "../prev-next-post";
 import RelatedPosts from "../related-posts";
-import Comments from "../comments";
+import AddComments from "../add-comments";
 
 const SinglePost = (props) => {
     return (
@@ -22,7 +22,7 @@ const SinglePost = (props) => {
             </div>
             <PrevNextPost previous={props.data?.previous} next={props.data?.next} />
             <RelatedPosts />
-            <Comments />
+            <AddComments />
         </div>
     )
 }

@@ -33,6 +33,15 @@ const Header = () => {
     }, [headerRef]);
 
 
+    const [isActive, setActive] = useState(false);
+
+    const toggleClass = () => {
+        setActive(!isActive);
+    };
+
+
+
+
 
 
     return (
@@ -102,7 +111,7 @@ const Header = () => {
                                     placeholder="none"
                                 />
                             </Link>
-                            <div className="header-search">
+                            <div className="header-search" onClick={toggleClass} >
                                 <SearchSvg />
                             </div>
                         </div>

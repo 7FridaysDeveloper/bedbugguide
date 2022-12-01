@@ -10,7 +10,6 @@ import RecentComments from "../../components/recent-comments";
 import RecentPost from "../../components/recent-posts";
 
 const Post = (props) => {
-    console.log(props,'22313');
     return (
         <div className="single-post">
             <div className="container">

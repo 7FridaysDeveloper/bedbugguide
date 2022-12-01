@@ -2,21 +2,33 @@ import React from "react";
 import './style.css';
 
 const Comments = () => {
-    return (
+    return(
         <div className="comments">
-            <h2>Leave a Comment</h2>
-            <div className="line"></div>
-            <form action="">
-                <label htmlFor="massage">massage</label>
-                <textarea name="massage" id="massage" cols="30" rows="10"></textarea>
-                <label htmlFor="fullname">fullname</label>
-                <input id="fullname" type="text"/>
-                <label htmlFor="email">email</label>
-                <input id="email" type="text"/>
-                <label htmlFor="url">url</label>
-                <input id="url" type="text"/>
-                <input name="submit" type="submit" id="submit" className="submit-button" value="Submit"/>
-            </form>
+            <div className="container">
+                <h2>16 COMMENTS</h2>
+                <div className="line"></div>
+                <div className="item">
+                    <div className="date">1 Jan, 6:28 pm</div>
+                    <h5 className="name">Isabelle</h5>
+                    <div className="text">
+                        How do I know if I my bed has bedbugs?
+                    </div>
+                </div>
+                <div className="item">
+                    <div className="date">1 Jan, 6:28 pm</div>
+                    <h5 className="name">Isabelle</h5>
+                    <div className="text">
+                        How do I know if I my bed has bedbugs?
+                    </div>
+                </div>
+                <div className="item">
+                    <div className="date">1 Jan, 6:28 pm</div>
+                    <h5 className="name">Isabelle</h5>
+                    <div className="text">
+                        How do I know if I my bed has bedbugs?
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
