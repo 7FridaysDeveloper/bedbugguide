@@ -101,7 +101,7 @@ const Footer = () => {
 
                     <div className="contact-us-footer">
 
-                        Contact us: <Link to={"mailto:support@saybyebugs.com"}>support@saybyebugs.com</Link>
+                        Contact us: <a href={"mailto:support@saybyebugs.com"}>support@saybyebugs.com</a>
                     </div>
                 </div>
 

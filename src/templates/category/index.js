@@ -20,7 +20,6 @@ const ArchivePage = ({pageContext, data}) => {
 export default ArchivePage;
 
 export const Head = ({ data : { wpCategory } }) => {
-    console.log(wpCategory)
     return (
         <>
             <meta property="og:url" content={process.env.CURRENT_URL + wpCategory.seo.opengraphUrl} />

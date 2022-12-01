@@ -3,6 +3,7 @@ import {Link} from "gatsby";
 import FeaturedImage from "../posts/featured-image";
 
 const NextPost = (next) => {
+    if(!next.next) return null;
     return(
         <div className="next flex">
             <Link className="image" to={next?.next?.uri}><FeaturedImage image={next?.next?.featuredImage.node.localFile} /></Link>

@@ -96,11 +96,11 @@ module.exports = {
         schema: {
           requestConcurrency: 1,
         },
-        // type: {
-        //   __all: {
-        //     limit: 5
-        //   },
-        // },
+        type: {
+          __all: {
+            limit: 30
+          },
+        },
       }
     },
     {

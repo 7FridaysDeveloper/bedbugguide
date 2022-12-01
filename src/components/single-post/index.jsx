@@ -21,7 +21,7 @@ const SinglePost = (props) => {
                 <div className="line black"></div>
             </div>
             <PrevNextPost previous={props.data?.previous} next={props.data?.next} />
-            <RelatedPosts />
+            <RelatedPosts posts={props?.data.post?.related_posts} />
             <Comments />
         </div>
     )

@@ -12,7 +12,6 @@ import Seo from "gatsby-plugin-wpgraphql-seo";
 import './style.css';
 
 const Post = (props) => {
-    console.log(props,'22313');
     return (
         <div className="single-post">
             <div className="container">
@@ -41,7 +40,6 @@ const Post = (props) => {
 export default Post;
 
 export const Head = ({data}) => {
-    console.log(data)
     const opengraphImage = data.post.seo?.opengraphImage
     return (
         <>
@@ -146,6 +144,12 @@ export const pageQuery = graphql`
           title
           uri
           databaseId
+          author {
+             node {
+                 name
+                 uri
+             }
+          }
           date(formatString: "MMMM DD, YYYY")
           featuredImage {
             node {
@@ -160,6 +164,7 @@ export const pageQuery = graphql`
             nodes {
               name
               id
+              uri
             }
           }
         }
