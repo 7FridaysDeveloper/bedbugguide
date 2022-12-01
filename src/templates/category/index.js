@@ -4,6 +4,7 @@ import Posts from "../../components/posts";
 import Seo from "gatsby-plugin-wpgraphql-seo";
 
 const ArchivePage = ({pageContext, data}) => {
+    console.log(data)
     return (
         <>
             <div>
@@ -64,7 +65,7 @@ export const pageQuery = graphql`
       sort: { fields: [date], order: DESC }
       limit: $postsPerPage
       skip: $offset
-      filter: {tags: {nodes: {elemMatch: {databaseId: {eq: $catId}}}}}
+      filter: {categories: {nodes: {elemMatch: {databaseId: {eq: $catId}}}}}
     ) {
       nodes {
         excerpt
