@@ -5,7 +5,6 @@ import CalendarSvg from '../../images/svg/calendar.svg'
 import './style.css';
 
 const RelatedPosts = ({posts}) => {
-    console.log(posts, 'dsadsa')
     return (
         <div className="related-post wrapper-items">
             <h4>Related Posts</h4>
