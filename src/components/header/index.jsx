@@ -70,7 +70,6 @@ const Header = () => {
                                     placeholder="none"
                                 />
                             </Link>
-
                             <div className="header-search">
                                 <SearchSvg />
                             </div>

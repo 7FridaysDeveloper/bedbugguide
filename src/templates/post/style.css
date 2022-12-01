@@ -1,0 +1,83 @@
+.single-post {
+    margin-top: 50px;
+}
+.single-post h1 {
+    font-weight: 700;
+    color: #000000;
+    margin: 10px 0;
+    font-size: 35px;
+    font-family: var(--second_font);
+}
+.single-post .grid-box {
+    display: grid;
+    grid-template-columns: 1fr 365px;
+    grid-gap: 30px;
+}
+.line {
+    height: 3px;
+    width: 100%;
+    background: #ddd;
+    margin-bottom: 20px;
+    margin-top: 25px;
+}
+.line.black {
+    margin-top: 5px;
+    background: #000;
+}
+.text-content p,
+.text-content li {
+    padding-bottom: 20px;
+    color: #000;
+    font-size: 18px;
+}
+.text-content ol li {
+    list-style: decimal;
+    margin-bottom: 4px;
+    padding-bottom: 0;
+}
+.text-content a {
+    color: #000;
+}
+.text-content h3 {
+    font-family: var(--text_font);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 400;
+    font-style: normal;
+    text-align: left;
+    color: #212121;
+}
+.text-content .wp-block-button {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.text-content .wp-block-button a {
+    border-radius: 9999px;
+    box-shadow: none;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.125em;
+    padding: 18px 21px;
+    text-align: center;
+    text-decoration: none;
+    word-break: break-word;
+    box-sizing: border-box;
+    color: #fff;
+}
+.text-content .wp-block-button a:hover{
+    color: #fff;
+    opacity: .8;
+}
+.text-content a:hover {
+    color: #c51818;
+}
+
+.share {
+    color: #1e1e1e;
+}
+@media (max-width: 991px) {
+    .single-post .grid-box {
+        display: block;
+    }
+}

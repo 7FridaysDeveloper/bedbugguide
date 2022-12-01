@@ -1,5 +1,5 @@
 import React from "react";
-
+import './style.css';
 import {graphql, Link, useStaticQuery} from "gatsby";
 
 
@@ -21,9 +21,8 @@ const Categories = () => {
         <div className="categories">
             <h4>categories</h4>
             <div className="line"></div>
-            <div className="categories">
+            <div className="categories-wrap">
                 <ul>
-
                     {data.allWpCategory.nodes.map(
                         ({uri, name, count} , index) => (
                             <li key={uri}>

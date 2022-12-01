@@ -1,14 +1,42 @@
 import React from "react";
+import { graphql } from "gatsby";
+import './style.css';
+import SinglePost from "../../components/single-post";
+import PopularPosts from "../../components/popular-posts";
+import Categories from "../../components/categoties";
+import BedBugs from "../../components/single-bed-bugs";
+import SearchByTag from "../../components/search-by-tag";
+import RecentComments from "../../components/recent-comments";
+import RecentPost from "../../components/recent-posts";
 import {graphql} from "gatsby";
 import Seo from "gatsby-plugin-wpgraphql-seo";
 
 
-const Post = () => {
+const Post = (props) => {
+    console.log(props,'22313');
     return (
-        <>
-
-        </>
+        <div className="single-post">
+            <div className="container">
+                <div className="grid-box">
+                    <SinglePost {...props}/>
+                    <aside>
+                        <BedBugs />
+                        <PopularPosts/>
+                        <Categories/>
+                    </aside>
+                </div>
+            </div>
+            <div className="footer-top-wrap">
+                <div className="container">
+                    <SearchByTag />
+                    <RecentComments />
+                    <RecentPost />
+                    <SearchByTag />
+                </div>
+            </div>
+        </div>
     );
+
 };
 
 export default Post;
@@ -88,9 +116,22 @@ export const pageQuery = graphql`
         nodes {
           name
           id
+          uri
         }
       }
-      date(formatString: "MMMM DD, YYYY")
+      author {
+         node {
+             name
+             uri
+         }
+      }
+      tags {
+         nodes {
+            uri
+            name
+         }
+      }
+      date(formatString: "MMM D, YYYY")
       featuredImage {
         node {
           altText
@@ -154,3 +195,4 @@ export const pageQuery = graphql`
     }
   }
 `;
+

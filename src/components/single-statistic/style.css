@@ -1,0 +1,23 @@
+.single-statistic {
+    display: flex;
+    padding-bottom: 10px;
+    margin-bottom: 35px;
+}
+.single-statistic svg {
+    max-width: 17px;
+    height: 20px;
+    margin-right: 5px;
+}
+.single-statistic svg path {
+    fill: #a9a9a9;
+}
+.single-statistic div {
+    color: #a9a9a9;
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    padding-bottom: 0;
+}
+.single-statistic .author a {
+    color: #000000;
+}

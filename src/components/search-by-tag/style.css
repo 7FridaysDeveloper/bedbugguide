@@ -1,0 +1,8 @@
+.tag-cloud {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.tag-cloud a {
+    margin-right: 5px;
+}

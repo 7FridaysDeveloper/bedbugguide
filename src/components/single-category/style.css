@@ -1,0 +1,5 @@
+.category-post a {
+    color: var(--link_color);
+    text-transform: uppercase;
+    font-size: 10px;
+}

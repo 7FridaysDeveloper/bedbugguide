@@ -11,8 +11,6 @@ import Tabs from "../static-sections/tabs";
 
 const Posts = ({posts, pageContext}) => {
     return (
-
-
         <section className="blog-posts">
             <div className="container">
                 <div className="grid-box">

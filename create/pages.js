@@ -83,7 +83,7 @@ const getPages = async ({ graphql }) => {
     throw new Error("GraphQL query failed");
   }
 
-  // Combine the different post type queries into a single array of nodes (pages)
+  // Combine the different single-post type queries into a single array of nodes (pages)
   let pages = [];
   options.postTypes.forEach((postType) => {
     pages = pages.concat(graphqlResult.data[`allWp${postType}`].nodes);
@@ -378,7 +378,7 @@ const capitalizeFirstLetter = (string) => {
 };
 
 // This creates a file which contains all the possible combinations of
-// of graphql fragments for post types and dsas
+// of graphql fragments for single-post types and dsas
 const createFragments = () => {
   if (!existsSync(fragmentsFolder)) {
     mkdirSync(fragmentsFolder, { recursive: true });

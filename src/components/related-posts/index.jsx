@@ -3,12 +3,10 @@ import './style.css';
 import CalendarSvg from '../../images/svg/calendar.svg'
 
 
-const PopularPosts = () => {
-
+const RelatedPosts = () => {
     return (
-
-        <div className="popular-post wrapper-items">
-            <h4>Popular Posts</h4>
+        <div className="related-post wrapper-items">
+            <h4>Related Posts</h4>
             <div className="line"></div>
             <div className="grid-box-post">
                 <div className="post-cat">
@@ -57,4 +55,4 @@ const PopularPosts = () => {
     );
 };
 
-export default PopularPosts;
+export default RelatedPosts;
