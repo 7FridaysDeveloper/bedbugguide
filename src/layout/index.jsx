@@ -5,7 +5,7 @@ import Footer from "src/components/footer";
 import Seo, {SEOContext} from 'gatsby-plugin-wpgraphql-seo';
 import {Helmet} from "react-helmet";
 import "../styles/global.css";
-
+import FooterScript from "../wp-scripts/footer-script";
 const Index = ({children, path}) => {
     const {
         wp,
@@ -108,9 +108,9 @@ const Index = ({children, path}) => {
                 <meta property="og:locale" content={wp.seo.schema.inLanguage}/>
                 <meta name="og:site_name" content={wp.allSettings.generalSettingsTitle}/>
             </Helmet>
-            <Seo postSchema={JSON.parse(
-                wp.seo.contentTypes.post.schema.raw
-            )}></Seo>
+            <Seo postSchema={JSON.parse(wp.seo.contentTypes.post.schema.raw)} />
+            <FooterScript />
+            <div id="footer-script"></div>
         </>
     );
 };
