@@ -1,3 +1,26 @@
+@font-face {
+    font-family: 'Lato';
+    font-display: swap;
+    src: url('../fonts/Lato-Regular.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Lato';
+    font-display: swap;
+    src: url('../fonts/Lato-Bold.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Merriweather';
+    font-display: swap;
+    src: url('../fonts/Merriweather-Bold.woff2') format('woff2');
+    font-style: normal;
+}
+
+
+
 :root {
     --main_color:#212121;
     --bg_header: #212121;

@@ -1,13 +1,13 @@
 import React from "react";
 import { graphql } from "gatsby";
-
+//import TheContent from "../../components/the-content";
 
 const Index = (props) => {
     console.log(props)
   return (
-      <>
-
-      </>
+      <div className="content">
+          {/*<TheContent text={props?.data?.page?.content} />*/}
+      </div>
   );
 };
 
@@ -19,6 +19,7 @@ export const pagesQuery = graphql`
   ) {
     page: wpPage(id: { eq: $id }) {
       title
+      content
     }
   }
 `;
