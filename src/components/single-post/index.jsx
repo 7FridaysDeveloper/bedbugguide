@@ -8,7 +8,6 @@ import RelatedPosts from "../related-posts";
 import AddComments from "../add-comments";
 
 const SinglePost = (props) => {
-    console.log(props)
     return (
         <div className="left-content">
             <SingleCategory categories={props.data?.post?.categories?.nodes} />

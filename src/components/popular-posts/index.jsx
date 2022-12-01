@@ -6,7 +6,6 @@ import './style.css';
 
 const PopularPosts = () => {
     const [popularPost, setPopularPosts] = useState([]);
-    console.log(popularPost, setPopularPosts)
     useEffect(() => {
          fetch(process.env.GATSBY_API_URL+'/posts?_embed=wp:term')
          .then(res => res.json())
@@ -29,7 +28,6 @@ const PopularPosts = () => {
          })
 
     }, [])
-    console.log(popularPost)
     return (
 
         <div className="popular-post wrapper-items">

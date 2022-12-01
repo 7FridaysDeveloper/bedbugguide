@@ -4,7 +4,6 @@ import Posts from "../../components/posts";
 import Seo from "gatsby-plugin-wpgraphql-seo";
 
 const TagPage = ({pageContext, data}) => {
-    console.log(data)
     return (
         <>
             <div>

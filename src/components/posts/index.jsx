@@ -9,7 +9,6 @@ import Tags from "../tags";
 
 
 const Posts = ({posts, pageContext, children}) => {
-    console.log(posts)
     return (
         <section className="blog-posts">
             <div className="container">

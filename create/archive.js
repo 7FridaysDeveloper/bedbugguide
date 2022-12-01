@@ -18,7 +18,7 @@ module.exports.createBlogPostArchive = async function (gatsbyUtilities) {
 }
 
 
-async function CreateArchivePage(gatsbyUtilities, posts, options, getPagePath, template, defer = false) {
+async function CreateArchivePage(gatsbyUtilities, posts, options, getPagePath, template) {
     const graphqlResult = await gatsbyUtilities.graphql(`
     {
       wp {
@@ -41,7 +41,6 @@ async function CreateArchivePage(gatsbyUtilities, posts, options, getPagePath, t
             await gatsbyUtilities.actions.createPage({
                 path: getPagePath(pageNumber, totalPages),
                 component: path.resolve(template),
-                defer,
                 context: {
                     ...options,
                     offset: index * postsPerPage,
