@@ -257,9 +257,9 @@ header .container-fluid-custom {
 .header_logo-item {
     display: flex;
     align-items: center;
+    max-width: 250px;
 }
 header .header_logo-item img {
-    max-height: 60px;
     object-fit: contain;
 }
 header .container-fluid-custom .menu-item {

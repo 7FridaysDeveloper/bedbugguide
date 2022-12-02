@@ -4,7 +4,8 @@ import TheContent from "../../components/the-content";
 import ReadMore from "../../components/read-more";
 
 const Index = (props) => {
-    console.log(props)
+    console.log(props);
+  const showSection = (props.data.page.sidebarSettings.sidebarSettings === "Show" ? true : false);
   return (
       <div className="content">
           <div className="container">
@@ -13,7 +14,7 @@ const Index = (props) => {
                     <TheContent text={props?.data?.page?.content} title={props?.data?.page?.title} />
                   </main>
                   <aside>
-                      <ReadMore />
+                      {showSection === true ? <ReadMore /> : null}
                   </aside>
               </div>
           </div>
@@ -30,6 +31,10 @@ export const pagesQuery = graphql`
     page: wpPage(id: { eq: $id }) {
       title
       content
+      sidebarSettings {
+          fieldGroupName
+          sidebarSettings
+      }
     }
   }
 `;
