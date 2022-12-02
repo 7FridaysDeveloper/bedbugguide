@@ -68,8 +68,7 @@ export const pageQuery = graphql`
                  gatsbyImageData(
                     placeholder: BLURRED
                     transformOptions: { fit: OUTSIDE }
-                    width: 500
-                    breakpoints: [540, 991]
+                    breakpoints: [360, 991]
                 )
               }
             }
