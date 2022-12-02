@@ -98,6 +98,9 @@ const Index = ({children, path}) => {
   `);
     return (
         <>
+            <div className="loader-fonts-wrapper">
+                <div className="loader-fonts"></div>
+            </div>
             <Header path={path}/>
             <SEOContext.Provider value={wp}>
                 {children}
