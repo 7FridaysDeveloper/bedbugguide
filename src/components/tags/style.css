@@ -30,7 +30,7 @@
     font-family: var(--text_font);
 }
 
-.single-post .tags .tags-wrap a {
+.single-post .left-content .tags .tags-wrap a {
     font-size: 12px !important;
     padding: 10px;
     background: #dcdcdc;
@@ -40,20 +40,20 @@
     color: #000;
 }
 
-.single-post .tags {
+.single-post .left-content .tags {
     margin-top: 30px !important;
     margin-bottom: 40px;
 }
 
-.single-post .tags h4 {
+.single-post .left-content .tags h4 {
     display: none;
 }
 
-.single-post .tags .line {
+.single-post .left-content .tags .line {
     display: none;
 }
 
-.single-post .tags .tags-wrap a:hover {
+.single-post .left-content .tags .tags-wrap a:hover {
     color: #fff;
     background: #363636;
 }

@@ -3,7 +3,7 @@ import {graphql} from "gatsby";
 import Posts from "../../components/posts";
 import BedBugProduct from "../../components/bed-bug-products";
 import RecentComments from "../../components/recent-comments";
-import RecentPost from "../../components/recent-posts";
+import BedBugsPosts from "../../components/bed-bugs-recent-posts";
 import Tags from "../../components/tags";
 
 
@@ -15,7 +15,7 @@ const ArchivePage = ({ data, pageContext }) => {
                     <div className="container">
                         <Tags />
                         <RecentComments />
-                        <RecentPost />
+                        <BedBugsPosts />
                         <BedBugProduct />
                     </div>
                 </div>
