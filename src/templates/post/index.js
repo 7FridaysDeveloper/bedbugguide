@@ -104,6 +104,7 @@ export const pageQuery = graphql`
             }
         }
       id
+      databaseId
       modifiedGmt
       dateGmt
       uri

@@ -1,5 +1,6 @@
-.comments {
-    padding: 30px 0;
+
+.comments-list {
+    padding-bottom: 40px;
 }
 .comments .date {
     font-weight: 400;
