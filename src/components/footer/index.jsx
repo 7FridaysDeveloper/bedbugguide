@@ -1,12 +1,14 @@
 import React from "react";
-import { graphql, useStaticQuery, Link } from "gatsby";
-import "./style.css";
+import {graphql, useStaticQuery, Link} from "gatsby";
+import usePopularPosts from "../../hooks/usePopularPosts";
 import {StaticImage} from "gatsby-plugin-image";
-
+import parse from "html-react-parser";
 import FolderSvg from "src/images/svg/folder.svg";
 
-const Footer = () => {
+import "./style.css";
 
+const Footer = () => {
+    const popularPost = usePopularPosts(8);
 
     const data = useStaticQuery(graphql`
     query FooterMenu {
@@ -31,7 +33,7 @@ const Footer = () => {
             <div className="footer-top">
                 <div className="container">
                     <Link to={"/"}>
-                       {/* <FooterLogoSvg />*/}
+                        {/* <FooterLogoSvg />*/}
                         <StaticImage
                             src="../../images/logowhite.png"
                             alt="bg"
@@ -54,9 +56,11 @@ const Footer = () => {
                 <div className="container">
                     <div className="item categories">
                         <h4>Categories</h4>
-                        <div className="line"></div>
+                        <div className="line">
+
+                        </div>
                         <ul>
-                            {data.allWpCategory.nodes.map(({ uri, name }) => (
+                            {data.allWpCategory.nodes.map(({uri, name}) => (
                                 <li key={uri}>
                                     <Link to={uri}><FolderSvg/>{name}</Link>
                                 </li>
@@ -67,14 +71,29 @@ const Footer = () => {
                     </div>
                     <div className="item popular-posts">
                         <h4>Popular Posts</h4>
-                        <div className="line"></div>
+                        <div className="line">
+                            <ul>
+                            {popularPost.map(post => (
+                                <li className="post-cat" key={post.id}>
+                                    <div className="post-category">
+                                        <Link to={'/' + post.categories[0].slug}>{post.categories[0]?.name}</Link>
+                                    </div>
+                                    <h3 className="post-title">
+                                        <Link to={post.uri}>{parse(post.title)}</Link>
+                                    </h3>
+                                </li>
+                            ))}
+                            </ul>
+                        </div>
                     </div>
                     <div className="item our-step">
                         <h4>Our 3 step approach</h4>
                         <div className="line"></div>
                         <div className="text">
-                            Discover our proven to work 3 step approach that has helped hundreds. Read our short article to see exactly how you too can
-                            <a href="/simple-trick-exterminates-bed-bugs-overnight/"> <u> completely exterminate bed bugs.</u></a>
+                            Discover our proven to work 3 step approach that has helped hundreds. Read our short article
+                            to see exactly how you too can
+                            <a href="/simple-trick-exterminates-bed-bugs-overnight/"> <u> completely exterminate bed
+                                bugs.</u></a>
                         </div>
                     </div>
                 </div>
@@ -91,7 +110,7 @@ const Footer = () => {
                         the bedbugguide.com service and Web site. These Terms of Use affect your rights and you
                         should read them carefully. BedBugGuide.com owned and operated by SayByeBugs.
                         <ul className="footer-menu-bottom">
-                            {data.footerMenu.nodes.map(({ uri, label }) => (
+                            {data.footerMenu.nodes.map(({uri, label}) => (
                                 <li key={uri}>
                                     <Link to={uri}>  {label}</Link> <span> - </span>
                                 </li>

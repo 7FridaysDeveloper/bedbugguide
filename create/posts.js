@@ -19,7 +19,6 @@ const createIndividualBlogPostPages = async ({ posts, gatsbyUtilities }, templat
                 path: post.uri,
                 // use the blog single-post template as the page component
                 component: path.resolve(template),
-                defer: index > 10,
                 // `context` is available in the template as a prop and
                 // as a variable in GraphQL.
                 context: {

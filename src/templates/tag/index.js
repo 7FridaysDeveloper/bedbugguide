@@ -72,15 +72,15 @@ export const pageQuery = graphql`
       date(formatString: "MMMM DD, YYYY")
       title
       featuredImage {
-        node {
-          sourceUrl
-          localFile {
-            childImageSharp {
-              gatsbyImageData
+          node {
+            sourceUrl
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
         }
-      }
       categories {
         nodes {
           name

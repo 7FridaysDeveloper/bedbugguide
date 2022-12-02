@@ -8,6 +8,7 @@ import About from '../../components/static-sections/about';
 import Tabs from "../../components/static-sections/tabs";
 
 const ArchivePage = ({ data, pageContext }) => {
+    console.log(data)
     return (<>
             <div>
                 <Posts posts={data.allWpPost.nodes} pageContext={pageContext} >
@@ -64,7 +65,12 @@ export const pageQuery = graphql`
             sourceUrl
             localFile {
               childImageSharp {
-                gatsbyImageData
+                 gatsbyImageData(
+                    placeholder: BLURRED
+                    transformOptions: { fit: OUTSIDE }
+                    width: 500
+                    breakpoints: [540, 991]
+                )
               }
             }
           }
