@@ -19,51 +19,51 @@
 /*    font-style: normal;*/
 /*}*/
 
-html .loader-fonts {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    border: 16px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 16px solid #3498db;
-    width: 80px;
-    height: 80px;
-    -webkit-animation: spin 2s linear infinite; /* Safari */
-    animation: spin 2s linear infinite;
-}
-html .loader-fonts-wrapper {
-    display: none;
-}
-html.wc-loading .loader-fonts-wrapper {
-    display: block;
-    position: absolute;
-    z-index: 9999;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    background-color: #ffffff;
-}
+/*html .loader-fonts {*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    bottom: 0;*/
+/*    margin: auto;*/
+/*    border: 16px solid #f3f3f3;*/
+/*    border-radius: 50%;*/
+/*    border-top: 16px solid #3498db;*/
+/*    width: 80px;*/
+/*    height: 80px;*/
+/*    -webkit-animation: spin 2s linear infinite; !* Safari *!*/
+/*    animation: spin 2s linear infinite;*/
+/*}*/
+/*html .loader-fonts-wrapper {*/
+/*    display: none;*/
+/*}*/
+/*html.wf-loading .loader-fonts-wrapper {*/
+/*    display: block;*/
+/*    position: absolute;*/
+/*    z-index: 9999;*/
+/*    height: 100%;*/
+/*    width: 100%;*/
+/*    top: 0;*/
+/*    bottom: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    margin: auto;*/
+/*    background-color: #ffffff;*/
+/*}*/
 
-/* Safari */
-@-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-}
+/*!* Safari *!*/
+/*@-webkit-keyframes spin {*/
+/*    0% { -webkit-transform: rotate(0deg); }*/
+/*    100% { -webkit-transform: rotate(360deg); }*/
+/*}*/
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-html.wf-active .loader-fonts-wrapper{
-    display: none;
-}
+/*@keyframes spin {*/
+/*    0% { transform: rotate(0deg); }*/
+/*    100% { transform: rotate(360deg); }*/
+/*}*/
+/*html.wf-active .loader-fonts-wrapper{*/
+/*    display: none;*/
+/*}*/
 
 :root {
     --main_color:#212121;
