@@ -1,9 +1,10 @@
 import React from "react";
 import {graphql} from "gatsby";
 import Posts from "../../components/posts";
-import SearchByTag from "../../components/search-by-tag";
+import BedBugProduct from "../../components/bed-bug-products";
 import RecentComments from "../../components/recent-comments";
 import RecentPost from "../../components/recent-posts";
+import Tags from "../../components/tags";
 
 
 const ArchivePage = ({ data, pageContext }) => {
@@ -12,10 +13,10 @@ const ArchivePage = ({ data, pageContext }) => {
                 <Posts posts={data.allWpPost.nodes} pageContext={pageContext} ></Posts>
                 <div className="footer-top-wrap">
                     <div className="container">
-                        <SearchByTag />
+                        <Tags />
                         <RecentComments />
                         <RecentPost />
-                        <SearchByTag />
+                        <BedBugProduct />
                     </div>
                 </div>
             </div>

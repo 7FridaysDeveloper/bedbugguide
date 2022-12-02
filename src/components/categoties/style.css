@@ -66,6 +66,7 @@
 .categories .categories-wrap ul li a {
     color: #000;
     font-weight: 700;
+    font-size: 16px;
 }
 .categories .categories-wrap ul li .summary a small {
     font-size: 10px !important;
