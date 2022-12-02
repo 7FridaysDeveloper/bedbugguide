@@ -5,8 +5,8 @@ import { Helmet } from "react-helmet";
 export const wrapRootElement = ({element}) => (
   <ThemeProvider>
     <Helmet>
-        <link rel="preconnect" href="https://fonts.gstatic.com/"  />
-        <link rel="preconnect" href="https://fonts.gstatic.com/" crossOrigin />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com/"  />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com/" crossOrigin />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:wght@400;700&display=swap"/>
     </Helmet>
     {element}
