@@ -8,3 +8,23 @@
 .the-content {
     color: #1e1e1e;
 }
+.the-content h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #000;
+}
+.the-content img.alignleft {
+    display: inline;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.content .grid-box {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    grid-gap: 30px;
+}
+.the-content img.alignright {
+    display: inline;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}

@@ -4,12 +4,13 @@ import SinglePost from "../../components/single-post";
 import PopularPosts from "../../components/popular-posts";
 import Categories from "../../components/categoties";
 import BedBugs from "../../components/single-bed-bugs";
-import SearchByTag from "../../components/search-by-tag";
 import RecentComments from "../../components/recent-comments";
-import RecentPost from "../../components/recent-posts";
+import Tags from "../../components/tags";
+import BedBugsPosts from "../../components/bed-bugs-recent-posts";
+import BedBugProduct from "../../components/bed-bug-products";
 import Seo from "gatsby-plugin-wpgraphql-seo";
-
 import './style.css';
+
 
 const Post = (props) => {
     return (
@@ -26,10 +27,10 @@ const Post = (props) => {
             </div>
             <div className="footer-top-wrap">
                 <div className="container">
-                    <SearchByTag />
+                    <Tags />
                     <RecentComments />
-                    <RecentPost />
-                    <SearchByTag />
+                    <BedBugsPosts />
+                    <BedBugProduct />
                 </div>
             </div>
         </div>

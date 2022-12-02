@@ -29,8 +29,8 @@ const Categories = () => {
                                 <div className="number">{index+1}</div>
                                 <div className="summary">
                                     <Link to={uri}>
-                                        <small>{name}</small>
-                                        {count} Articles
+                                        {name}
+                                        <small> {count} Articles</small>
                                     </Link>
                                 </div>
                             </li>

@@ -6,7 +6,7 @@ const Modal = () => {
     return(
         <div className="modal-wrap" id="search-full">
            <div className="overlay"></div>
-
+p
             <div className="container">
                 <div className="form-group">
                     <form action="">

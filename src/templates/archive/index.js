@@ -1,26 +1,22 @@
 import React from "react";
 import {graphql} from "gatsby";
 import Posts from "../../components/posts";
-import SearchByTag from "../../components/search-by-tag";
+import BedBugProduct from "../../components/bed-bug-products";
 import RecentComments from "../../components/recent-comments";
-import RecentPost from "../../components/recent-posts";
-import About from '../../components/static-sections/about';
-import Tabs from "../../components/static-sections/tabs";
+import BedBugsPosts from "../../components/bed-bugs-recent-posts";
+import Tags from "../../components/tags";
+
 
 const ArchivePage = ({ data, pageContext }) => {
     return (<>
             <div>
-                <Posts posts={data.allWpPost.nodes} pageContext={pageContext} >
-
-                    <About />
-                    <Tabs />
-                </Posts>
+                <Posts posts={data.allWpPost.nodes} pageContext={pageContext} ></Posts>
                 <div className="footer-top-wrap">
                     <div className="container">
-                        <SearchByTag />
+                        <Tags />
                         <RecentComments />
-                        <RecentPost />
-                        <SearchByTag />
+                        <BedBugsPosts />
+                        <BedBugProduct />
                     </div>
                 </div>
             </div>

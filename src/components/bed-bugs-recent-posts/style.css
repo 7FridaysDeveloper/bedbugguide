@@ -1,8 +1,8 @@
-.bed-bugs-products {
+.bed-bugs-posts {
     display: flex;
     flex-direction: column;
 }
-.bed-bugs-products .cat a {
+.bed-bugs-posts .cat a {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 400;
@@ -10,23 +10,23 @@
     font-size: 10px;
     color: #e65100;
 }
-.bed-bugs-products .item:first-child h3 {
+.bed-bugs-posts .item:first-child h3 {
     font-size: 19px;
     color: #000;
     margin: 5px 0;
 }
-.bed-bugs-products .flex-box {
+.bed-bugs-posts .flex-box {
     display: flex;
     flex-direction: column;
 }
-.bed-bugs-products .item h3 {
+.bed-bugs-posts .item h3 {
     font-size: 14px;
     color: #000;
     margin-top: 18px;
     margin-left: 65px;
 
 }
-.bed-bugs-products .item .flex {
+.bed-bugs-posts .item .flex {
     display: flex;
     align-items: center;
     font-weight: 400;
@@ -35,22 +35,22 @@
     font-size: 13px;
     margin-bottom: 20px;
 }
-.bed-bugs-products .cat {
+.bed-bugs-posts .cat {
     margin-bottom: 8px;
 }
-.bed-bugs-products .item .date svg {
+.bed-bugs-posts .item .date svg {
     width: 15px;
     flex-shrink: 0;
     margin-right: 4px;
 }
-.bed-bugs-products .item .date svg path {
+.bed-bugs-posts .item .date svg path {
     fill: #a9a9a9;
 }
-.bed-bugs-products .item .author a {
+.bed-bugs-posts .item .author a {
     font-size: 14px;
     margin-right: 12px;
 }
-.bed-bugs-products .item .date {
+.bed-bugs-posts .item .date {
     display: flex;
     align-items: center;
 }
