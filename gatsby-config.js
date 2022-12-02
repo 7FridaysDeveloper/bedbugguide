@@ -27,6 +27,7 @@ module.exports = {
     "gatsby-plugin-optimize-svgs",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-preload-fonts",
+    "gatsby-plugin-preact",
     {
       resolve: `gatsby-plugin-yoast-sitemap`,
       options: {
@@ -97,11 +98,11 @@ module.exports = {
         schema: {
           requestConcurrency: 1,
         },
-        // type: {
-        //   __all: {
-        //     limit: 5
-        //   },
-        // },
+        type: {
+          __all: {
+            limit: 5
+          },
+        },
       }
     },
     {
