@@ -8,7 +8,6 @@ import About from '../../components/static-sections/about';
 import Tabs from "../../components/static-sections/tabs";
 
 const ArchivePage = ({ data, pageContext }) => {
-    console.log(data)
     return (<>
             <div>
                 <Posts posts={data.allWpPost.nodes} pageContext={pageContext} >

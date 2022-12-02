@@ -33,7 +33,6 @@ const Footer = () => {
             <div className="footer-top">
                 <div className="container">
                     <Link to={"/"}>
-                        {/* <FooterLogoSvg />*/}
                         <StaticImage
                             src="../../images/logowhite.png"
                             alt="bg"
@@ -73,16 +72,16 @@ const Footer = () => {
                         <h4>Popular Posts</h4>
                         <div className="line">
                             <ul>
-                            {popularPost.map(post => (
-                                <li className="post-cat" key={post.id}>
-                                    <div className="post-category">
-                                        <Link to={'/' + post.categories[0].slug}>{post.categories[0]?.name}</Link>
-                                    </div>
-                                    <h3 className="post-title">
-                                        <Link to={post.uri}>{parse(post.title)}</Link>
-                                    </h3>
-                                </li>
-                            ))}
+                                {popularPost.map(post => (
+                                    <li className="post-cat" key={post.id}>
+                                        <div className="post-category">
+                                            <Link to={'/' + post.categories[0].slug}>{post.categories[0]?.name}</Link>
+                                        </div>
+                                        <h3 className="post-title">
+                                            <Link to={post.uri}>{parse(post.title)}</Link>
+                                        </h3>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </div>

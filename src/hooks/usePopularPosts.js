@@ -6,7 +6,7 @@ const usePopularPosts = (limit = 4) => {
     const getSessionPopularPosts = () => {
         const posts =  localStorage.getItem('usePopularPosts');
         if(posts !== null) return JSON.parse(posts);
-        return [];
+        return null;
     }
 
     const setSessionPopularPosts = (posts) => {
@@ -37,7 +37,7 @@ const usePopularPosts = (limit = 4) => {
                 setSessionPopularPosts(newPosts);
             })
         } else {
-            setPopularPosts(sessionPopularPost);
+            setPopularPosts(sessionPopularPost || []);
         }
 
 
