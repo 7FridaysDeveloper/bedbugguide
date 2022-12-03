@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import {useLocation} from '@reach/router';
 import HeaderMenu from "src/components/header/header-menu";
 
 const css = {
@@ -11,7 +10,6 @@ const css = {
     transition: "0.5s",
 };
 const AnimatedUnderlineMenu = () => {
-    const { pathname } = useLocation();
     const [options, setOptions] = useState({
         width: null,
         left: null,
@@ -32,11 +30,7 @@ const AnimatedUnderlineMenu = () => {
             width: linkActive.offsetWidth,
         });
     };
-    useEffect(() => {
-        setTimeout(() => {
-            activeItemLink();
-        }, 0);
-    }, [pathname]);
+
     return (
         <>
             <HeaderMenu onMouseEnter={mouseEnter} onMouseLeave={activeItemLink}/>
