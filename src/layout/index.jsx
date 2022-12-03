@@ -1,11 +1,15 @@
 import React from "react";
+import Loadable from 'react-loadable';
 import {useStaticQuery, graphql} from "gatsby";
 import Header from "src/components/header";
 import Seo, {SEOContext} from 'gatsby-plugin-wpgraphql-seo';
 import FooterScript from "../wp-scripts/footer-script";
-import Footer from "src/components/footer";
+import ClipLoader from "react-spinners/ClipLoader";
 
-
+const Footer = Loadable({
+    loader: () => import('src/components/footer'),
+    loading: ClipLoader
+});
 
 import "../styles/global.css";
 const Index = ({children, path}) => {
