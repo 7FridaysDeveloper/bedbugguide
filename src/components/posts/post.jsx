@@ -2,7 +2,8 @@ import React from "react";
 import FeaturedImage from "./featured-image";
 import {Link} from "gatsby";
 
-const Post = ({title, featuredImage, uri, index, categories}) => {
+const Post = ({title, featuredImage, uri, index, categories, tags}) => {
+    const split = categories.nodes.concat(tags.nodes)
     return (
 
         <div className="item">
@@ -11,7 +12,7 @@ const Post = ({title, featuredImage, uri, index, categories}) => {
             </Link>
             <div className="txt">
                 <div className="post-category">
-                    {categories.nodes.map((cat, index, array) => (
+                    {split.map((cat, index, array) => (
                         <Link to={cat.uri} key={cat.id} partiallyActive={true}>{cat.name} {index < array.length-1 ? ',' : null}</Link>
                     ))}
                     <h3><Link to={uri} partiallyActive={true}>{title}</Link></h3>

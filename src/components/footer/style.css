@@ -1,3 +1,7 @@
+footer {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+}
 footer .footer-top {
     background: var(--bg_header);
 }

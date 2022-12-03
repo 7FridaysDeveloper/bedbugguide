@@ -74,6 +74,13 @@ export const pageQuery = graphql`
             uri
           }
         }
+        tags {
+          nodes {
+            name
+            id
+            uri
+          }
+        }
         databaseId
       }
     }

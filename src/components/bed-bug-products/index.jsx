@@ -8,6 +8,7 @@ const BedBugProduct = () => {
     query BedBugsProducts {
       allWpPost(
         filter: {categories: {nodes: {elemMatch: {slug: {eq: "bed-bug-products"}}}}}
+        limit: 5
       ) {
        nodes {
           id
