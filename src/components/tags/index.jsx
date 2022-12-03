@@ -6,7 +6,7 @@ const Tags = ({ tags = null}) => {
 
     const data = useStaticQuery(graphql`
     query AllWpTags {
-      allWpTag {
+      allWpTag(sort: {order: DESC, fields: count}, limit: 45) {
         nodes {
           uri
           name

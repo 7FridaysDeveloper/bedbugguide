@@ -6,7 +6,7 @@ import './style.css';
 const Categories = () => {
     const data = useStaticQuery(graphql`
     query AllWpCategories {
-      allWpCategory {
+      allWpCategory(filter: {count: {gt: 0}}) {
         nodes {
           name
           uri

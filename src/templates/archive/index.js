@@ -61,9 +61,7 @@ export const pageQuery = graphql`
             localFile {
               childImageSharp {
                  gatsbyImageData(
-                    placeholder: BLURRED
-                    transformOptions: { fit: OUTSIDE }
-                    breakpoints: [360, 991]
+                    breakpoints: [540, 991]
                 )
               }
             }
