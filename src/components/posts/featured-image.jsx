@@ -3,6 +3,7 @@ import {GatsbyImage, getImage} from "gatsby-plugin-image";
 
 const typePropsImage = (image) => typeof image === "object" && image !== null
 const FeaturedImage = ({image, lazy = false}) => {
+    console.log(image, lazy)
     if (!typePropsImage(image)) return null;
     return (
         <>
@@ -13,6 +14,7 @@ const FeaturedImage = ({image, lazy = false}) => {
                 <GatsbyImage
                     imgClassName="team_img"
                     className="team_block"
+                    urationFadeIn={0}
                     image={getImage(image)}
                     alt="123"
                 />}
