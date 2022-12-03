@@ -8,9 +8,10 @@ import Tags from "../../components/tags";
 
 
 const ArchivePage = ({ data, pageContext }) => {
+    console.log('ArchivePage')
     return (<>
             <div>
-                <Posts posts={data.allWpPost.nodes} pageContext={pageContext} ></Posts>
+                <Posts posts={data.allWpPost.nodes} pageContext={pageContext} />
                 <div className="footer-top-wrap">
                     <div className="container">
                         <Tags />

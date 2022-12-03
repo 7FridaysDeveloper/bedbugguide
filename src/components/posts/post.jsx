@@ -1,20 +1,20 @@
 import React from "react";
 import FeaturedImage from "./featured-image";
-import {Link} from "gatsby";
 
 const Post = ({title, featuredImage, uri, index, categories}) => {
+    console.log('post')
     return (
 
         <div className="item">
-            <Link to={uri} partiallyActive={true} className="img">
+            <a href={uri} className="img">
                 <FeaturedImage image={featuredImage} lazy={index > 0}/>
-            </Link>
+            </a>
             <div className="txt">
                 <div className="post-category">
                     {categories.nodes.slice(0, 4).map((cat, index, array) => (
-                        <Link to={cat.uri} key={cat.id} partiallyActive={true}>{cat.name} {index < array.length-1 ? ',' : null}</Link>
+                        <a href={cat.uri} key={cat.id} >{cat.name} {index < array.length-1 ? ',' : null}</a>
                     ))}
-                    <h3><Link to={uri} partiallyActive={true}>{title}</Link></h3>
+                    <h3><a href={uri} >{title}</a></h3>
                     <div className="excerpt">
                         If you wonder what bed bugs are, how do they spread, just how fast they can infest your home and
                         what you can do about it watch this quick video: If you...

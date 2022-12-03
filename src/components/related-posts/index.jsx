@@ -1,5 +1,4 @@
 import React from "react";
-import {Link} from "gatsby";
 import CalendarSvg from '../../images/svg/calendar.svg'
 
 import './style.css';
@@ -14,15 +13,15 @@ const RelatedPosts = ({posts}) => {
                     <div className="post-cat" key={post.databaseId}>
                         <div className="post-category">
                             {post.categories?.nodes.map((item) => {
-                                return <Link key={item.id} to={item.uri}>{item.name}</Link>
+                                return <a key={item.id} href={item.uri}>{item.name}</a>
                             })}
                         </div>
                         <h3 className="post-title">
-                            <Link to={post.uri}>{post.title}</Link>
+                            <a href={post.uri}>{post.title}</a>
                         </h3>
                         <div className="entry-meta">
                         <span className="author">
-                            <Link  to={post?.author?.node.uri}>{post?.author?.node.name}</Link>
+                            <a  href={post?.author?.node.uri}>{post?.author?.node.name}</a>
                         </span>
                             <span className="date">
                                 <CalendarSvg/>

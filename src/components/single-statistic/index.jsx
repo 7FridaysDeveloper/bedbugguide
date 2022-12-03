@@ -1,18 +1,16 @@
 import React from "react";
-import {Link} from "gatsby";
 import CalendarSvg from "src/images/svg/calendar.svg";
 import ViewSvg from "src/images/svg/visible.svg";
 import CommentSvg from "src/images/svg/comment.svg";
 
 import './style.css';
 
-
 const Statistic = ({author, date, postSettings}) => {
 
     return (
         <div className="single-statistic">
             <div className="author">
-                <Link to={author.uri}>{author.name}</Link>
+                <a href={author.uri}>{author.name}</a>
             </div>
             <div className="date">
                 <CalendarSvg/>

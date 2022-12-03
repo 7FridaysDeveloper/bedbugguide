@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import ClipLoader from "react-spinners/ClipLoader";
 import usePopularPosts from "../../hooks/usePopularPosts";
 import parse from "html-react-parser";
@@ -16,10 +15,10 @@ const PopularPosts = () => {
                 {popularPost.length === 0 ? <ClipLoader /> : popularPost.map(post => (
                     <div className="post-cat" key={post.id}>
                         <div className="post-category">
-                            <Link to={'/'+post.categories[0].slug}>{post.categories[0]?.name}</Link>
+                            <a href={'/'+post.categories[0].slug}>{post.categories[0]?.name}</a>
                         </div>
                         <h3 className="post-title">
-                            <Link to={post.uri}>{parse(post.title)}</Link>
+                            <a href={post.uri}>{parse(post.title)}</a>
                         </h3>
                     </div>
                 ))}
