@@ -27,7 +27,6 @@ const Footer = () => {
     }
   `);
 
-
     return (
         <footer>
             <div className="footer-top">

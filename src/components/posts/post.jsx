@@ -2,10 +2,7 @@ import React from "react";
 import FeaturedImage from "./featured-image";
 import {Link} from "gatsby";
 
-const Post = ({title, featuredImage, uri, index, categories, tags}) => {
-    const tagsArray = Array.isArray(tags?.nodes) ? tags?.nodes : [];
-    const categoriesArray = Array.isArray(categories.nodes) ? categories.nodes : [];
-    const split = [...categoriesArray, ...tagsArray]
+const Post = ({title, featuredImage, uri, index, categories}) => {
     return (
 
         <div className="item">
@@ -14,7 +11,7 @@ const Post = ({title, featuredImage, uri, index, categories, tags}) => {
             </Link>
             <div className="txt">
                 <div className="post-category">
-                    {split.map((cat, index, array) => (
+                    {categories.nodes.slice(0, 4).map((cat, index, array) => (
                         <Link to={cat.uri} key={cat.id} partiallyActive={true}>{cat.name} {index < array.length-1 ? ',' : null}</Link>
                     ))}
                     <h3><Link to={uri} partiallyActive={true}>{title}</Link></h3>

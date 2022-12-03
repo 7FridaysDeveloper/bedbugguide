@@ -1,10 +1,10 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import {useStaticQuery, graphql} from "gatsby";
 import Header from "src/components/header";
-import Footer from "src/components/footer";
 import Seo, {SEOContext} from 'gatsby-plugin-wpgraphql-seo';
-//mport {Helmet} from "react-helmet";
 import FooterScript from "../wp-scripts/footer-script";
+
+const Footer = lazy(() => import("src/components/footer"))
 
 import "../styles/global.css";
 const Index = ({children, path}) => {
@@ -103,12 +103,12 @@ const Index = ({children, path}) => {
             <SEOContext.Provider value={wp}>
                 {children}
             </SEOContext.Provider>
-            <Footer/>
-            {/*<Helmet>*/}
+            <Suspense>
+                <Footer />
+            </Suspense>
             {/*    <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8"/>*/}
             {/*    <meta property="og:locale" content={wp.seo.schema.inLanguage}/>*/}
             {/*    <meta name="og:site_name" content={wp.allSettings.generalSettingsTitle}/>*/}
-            {/*</Helmet>*/}
             <Seo postSchema={JSON.parse(wp.seo.contentTypes.post.schema.raw)} />
             <FooterScript />
             <div id="footer-script"></div>
