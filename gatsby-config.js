@@ -119,7 +119,12 @@ module.exports = {
       __key: "images",
     },
     {
-      resolve: `gatsby-plugin-preload-fonts`,
+      resolve: 'gatsby-plugin-preconnect',
+      options: {
+        domains: [
+          'https://fonts.gstatic.com',
+        ],
+      },
     },
     // {
     //   resolve: `gatsby-plugin-purgecss`,
