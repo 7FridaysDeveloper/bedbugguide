@@ -3,7 +3,9 @@ import FeaturedImage from "./featured-image";
 import {Link} from "gatsby";
 
 const Post = ({title, featuredImage, uri, index, categories, tags}) => {
-    const split = categories.nodes.concat(tags.nodes || [])
+    const tagsArray = Array.isArray(tags?.nodes) || [];
+    const categoriesArray = Array.isArray(categories.nodes) || [];
+    const split = [...categoriesArray, ...tagsArray]
     return (
 
         <div className="item">
