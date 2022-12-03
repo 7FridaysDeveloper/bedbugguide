@@ -1,10 +1,10 @@
-import React, { lazy, Suspense } from "react";
+import React from "react";
 import {useStaticQuery, graphql} from "gatsby";
 import Header from "src/components/header";
 import Seo, {SEOContext} from 'gatsby-plugin-wpgraphql-seo';
 import FooterScript from "../wp-scripts/footer-script";
+import Footer from "src/components/footer";
 
-const Footer = lazy(() => import("src/components/footer"))
 
 import "../styles/global.css";
 const Index = ({children, path}) => {
@@ -103,9 +103,7 @@ const Index = ({children, path}) => {
             <SEOContext.Provider value={wp}>
                 {children}
             </SEOContext.Provider>
-            <Suspense>
-                <Footer />
-            </Suspense>
+            <Footer />
             {/*    <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8"/>*/}
             {/*    <meta property="og:locale" content={wp.seo.schema.inLanguage}/>*/}
             {/*    <meta name="og:site_name" content={wp.allSettings.generalSettingsTitle}/>*/}

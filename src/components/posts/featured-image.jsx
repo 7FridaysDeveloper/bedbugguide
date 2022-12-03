@@ -6,6 +6,7 @@ const FeaturedImage = ({image, lazy = true}) => {
         <>
             {typePropsImage(image) ?
                 <GatsbyImage
+                    fadeIn={false}
                     imgClassName="team_img"
                     className="team_block"
                     loading={lazy ? 'lazy' : 'eager'}
