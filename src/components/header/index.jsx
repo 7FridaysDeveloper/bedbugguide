@@ -69,13 +69,11 @@ const Header = () => {
                             <Link to={"/"} className="header_logo-item">
                                 <StaticImage
                                     src="../../images/logonew.png"
-                                    fadeIn={false}
                                     loading="eager"
                                     placeholder="none"
                                     imgClassName="team_img"
-                                    durationFadeIn={0}
                                     className="team_block"
-                                    alt="123"
+                                    alt="logo"
                                 />
                             </Link>
                             <div className="header-search" onClick={toggleClass} >
