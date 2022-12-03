@@ -3,7 +3,7 @@ import FeaturedImage from "./featured-image";
 import {Link} from "gatsby";
 
 const Post = ({title, featuredImage, uri, index, categories, tags}) => {
-    const split = categories.nodes.concat(tags.nodes)
+    const split = categories.nodes.concat(tags.nodes || [])
     return (
 
         <div className="item">

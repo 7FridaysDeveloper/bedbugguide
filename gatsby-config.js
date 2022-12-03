@@ -86,7 +86,7 @@ module.exports = {
           placeholder: `dominantColor`,
           formats: ["auto", "webp"],
           quality: 70,
-          breakpoints: [450,750, 1080, 1366, 1920],
+          breakpoints: [750, 1000, 1366, 1920],
           backgroundColor: `transparent`,
         },
       },
@@ -98,11 +98,11 @@ module.exports = {
         schema: {
           requestConcurrency: 1,
         },
-        // type: {
-        //   __all: {
-        //     limit: 5
-        //   },
-        // },
+        type: {
+          __all: {
+            limit: 40
+          },
+        },
       }
     },
     {
