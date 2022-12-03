@@ -98,7 +98,7 @@ module.exports = {
         },
         type: {
           __all: {
-            limit: 40
+            limit: 5
           },
         },
       }
