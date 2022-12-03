@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useLayoutEffect} from 'react';
 
 const usePopularPosts = (limit = 4) => {
     const [popularPost, setPopularPosts] = useState([]);
@@ -14,7 +14,7 @@ const usePopularPosts = (limit = 4) => {
         setPopularPosts(posts);
     }
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const sessionPopularPost = getSessionPopularPosts();
         if(sessionPopularPost === null) {
             fetch(process.env.GATSBY_API_URL+'/posts?_embed=wp:term')
