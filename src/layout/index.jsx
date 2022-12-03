@@ -3,9 +3,7 @@ import {useStaticQuery, graphql} from "gatsby";
 import Header from "src/components/header";
 import Seo, {SEOContext} from 'gatsby-plugin-wpgraphql-seo';
 import FooterScript from "../wp-scripts/footer-script";
-import lazy from 'preact-lazy';
-import { h } from 'preact'
-const Footer = lazy(() => import("src/components/footer"))
+import Footer from "src/components/footer";
 
 
 import "../styles/global.css";
