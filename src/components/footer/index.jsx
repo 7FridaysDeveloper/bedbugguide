@@ -1,14 +1,12 @@
 import React from "react";
 import {graphql, useStaticQuery, Link} from "gatsby";
-import usePopularPosts from "../../hooks/usePopularPosts";
 import {StaticImage} from "gatsby-plugin-image";
-import parse from "html-react-parser";
 import FolderSvg from "src/images/svg/folder.svg";
+import FooterPopularPost from "../footer-popular-post";
 
 import "./style.css";
 
 const Footer = () => {
-    const popularPost = usePopularPosts(8);
 
     const data = useStaticQuery(graphql`
     query FooterMenu {
@@ -70,18 +68,7 @@ const Footer = () => {
                     <div className="item popular-posts">
                         <h4>Popular Posts</h4>
                         <div className="line">
-                            <ul>
-                                {popularPost.map(post => (
-                                    <li className="post-cat" key={post.id}>
-                                        <div className="post-category">
-                                            <Link to={'/' + post.categories[0].slug}>{post.categories[0]?.name}</Link>
-                                        </div>
-                                        <h3 className="post-title">
-                                            <Link to={post.uri}>{parse(post.title)}</Link>
-                                        </h3>
-                                    </li>
-                                ))}
-                            </ul>
+                            <FooterPopularPost />
                         </div>
                     </div>
                     <div className="item our-step">
@@ -128,4 +115,4 @@ const Footer = () => {
     );
 };
 
-export default Footer;
+export default React.memo(Footer);

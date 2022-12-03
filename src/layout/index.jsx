@@ -6,8 +6,10 @@ import FooterScript from "../wp-scripts/footer-script";
 import Footer from "src/components/footer";
 
 
+
 import "../styles/global.css";
 const Index = ({children, path}) => {
+
     const {
         wp,
     } = useStaticQuery(graphql`
