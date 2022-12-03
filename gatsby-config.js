@@ -125,7 +125,6 @@ module.exports = {
         ],
       },
     },
-    "gatsby-plugin-offline"
     // {
     //   resolve: `gatsby-plugin-purgecss`,
     //   options: {
