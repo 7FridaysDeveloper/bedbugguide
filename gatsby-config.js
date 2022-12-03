@@ -26,7 +26,6 @@ module.exports = {
     "gatsby-plugin-netlify",
     "gatsby-plugin-optimize-svgs",
     "gatsby-plugin-sitemap",
-    "gatsby-plugin-preload-fonts",
     "gatsby-plugin-preact",
     {
       resolve: `gatsby-plugin-yoast-sitemap`,
