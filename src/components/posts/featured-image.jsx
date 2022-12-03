@@ -1,22 +1,21 @@
 import React from "react";
 import {GatsbyImage, getImage } from "gatsby-plugin-image";
 const typePropsImage = (image) => typeof image === "object" && image !== null
-const FeaturedImage = ({image, lazy = false}) => {
-    console.log(getImage(image))
-    if(!typePropsImage(image)) return null;
+const FeaturedImage = ({image, lazy = true}) => {
     return (
         <>
-            {lazy ?
-                <div className="gatsby-image-wrapper gatsby-image-wrapper-constrained team_block">
-                    <img src={getImage(image).images.fallback.src} alt=""/>
-                </div>
-                :
+            {typePropsImage(image) ?
                 <GatsbyImage
+                    fadeIn={false}
                     imgClassName="team_img"
+                    durationFadeIn={10}
                     className="team_block"
+                    loading={lazy ? 'lazy' : 'eager'}
                     image={getImage(image)}
                     alt="123"
                 />
+                :
+                null
             }
         </>
     )
