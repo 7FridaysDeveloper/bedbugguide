@@ -1,25 +1,12 @@
-import React, { useState, useEffect } from "react";
-import Loadable from 'react-loadable';
+import React from "react";
 import {useStaticQuery, graphql} from "gatsby";
 import Header from "src/components/header";
 import Seo, {SEOContext} from 'gatsby-plugin-wpgraphql-seo';
 import FooterScript from "../wp-scripts/footer-script";
-import ClipLoader from "react-spinners/ClipLoader";
-
-const Footer = Loadable({
-    loader: () => import('src/components/footer'),
-    loading: ClipLoader
-});
+import Footer from "../components/footer";
 
 import "../styles/global.css";
 const Index = ({children, path}) => {
-    const [show, setShow] = useState(false);
-    useEffect(() => {
-        window.addEventListener('load', () => {
-            setTimeout( () => setShow(true), 10)
-        }, { once: true})
-
-    }, [])
     const {
         wp,
     } = useStaticQuery(graphql`
@@ -115,7 +102,7 @@ const Index = ({children, path}) => {
             <SEOContext.Provider value={wp}>
                 {children}
             </SEOContext.Provider>
-            { show ? <Footer /> : null}
+             <Footer />
             {/*    <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8"/>*/}
             {/*    <meta property="og:locale" content={wp.seo.schema.inLanguage}/>*/}
             {/*    <meta name="og:site_name" content={wp.allSettings.generalSettingsTitle}/>*/}
