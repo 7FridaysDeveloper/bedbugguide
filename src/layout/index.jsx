@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Loadable from 'react-loadable';
 import {useStaticQuery, graphql} from "gatsby";
 import Header from "src/components/header";
@@ -13,7 +13,12 @@ const Footer = Loadable({
 
 import "../styles/global.css";
 const Index = ({children, path}) => {
-
+    const [show, setShow] = useState(false);
+    useEffect(() => {
+        window.addEventListener('load', () => {
+            setTimeout( () => setShow(true), 10)
+        }, { once: true})
+    }, [])
     const {
         wp,
     } = useStaticQuery(graphql`
@@ -109,7 +114,7 @@ const Index = ({children, path}) => {
             <SEOContext.Provider value={wp}>
                 {children}
             </SEOContext.Provider>
-            <Footer />
+            { show ? <Footer /> : null}
             {/*    <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8"/>*/}
             {/*    <meta property="og:locale" content={wp.seo.schema.inLanguage}/>*/}
             {/*    <meta name="og:site_name" content={wp.allSettings.generalSettingsTitle}/>*/}
