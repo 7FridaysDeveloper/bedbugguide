@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import HeaderMenu from "src/components/header/header-menu";
 
 const css = {
