@@ -33,11 +33,6 @@ const Header = () => {
         setActive(!isActive);
     };
 
-
-
-
-
-
     return (
         <>
             <header ref={headerRef}>

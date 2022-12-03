@@ -12,6 +12,7 @@ const FeaturedImage = ({image, lazy = true}) => {
                     className="team_block"
                     loading={lazy ? 'lazy' : 'eager'}
                     image={getImage(image)}
+                    placeholder="none"
                     alt="123"
                 />
                 :

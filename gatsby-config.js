@@ -125,12 +125,7 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        precachePages: [`/`, `/page/*`],
-      },
-    },
+    "gatsby-plugin-offline"
     // {
     //   resolve: `gatsby-plugin-purgecss`,
     //   options: {

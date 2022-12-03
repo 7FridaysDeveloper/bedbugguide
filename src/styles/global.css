@@ -48,6 +48,9 @@
 a {
     text-decoration: none;
 }
+.gatsby-image-wrapper [data-main-image] {
+    opacity: 1!important;
+}
 body {
     font: 400 14px/1.4 var(--text_font);
     color: var(--text_color);
