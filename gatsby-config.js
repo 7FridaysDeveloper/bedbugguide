@@ -93,6 +93,7 @@ module.exports = {
       resolve: "gatsby-source-wordpress",
       options: {
         url: `${process.env.WORDPRESS}/graphql`,
+        timeout: 3600000,
         schema: {
           requestConcurrency: 1,
         },
@@ -117,14 +118,14 @@ module.exports = {
       },
       __key: "images",
     },
-    {
-      resolve: 'gatsby-plugin-preconnect',
-      options: {
-        domains: [
-          'https://fonts.gstatic.com',
-        ],
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-preconnect',
+    //   options: {
+    //     domains: [
+    //       'https://fonts.gstatic.com',
+    //     ],
+    //   },
+    // },
     // {
     //   resolve: `gatsby-plugin-purgecss`,
     //   options: {
