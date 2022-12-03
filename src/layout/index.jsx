@@ -15,13 +15,9 @@ import "../styles/global.css";
 const Index = ({children, path}) => {
     const [show, setShow] = useState(false);
     useEffect(() => {
-        console.log('load')
         window.addEventListener('load', () => {
-            alert(2);
             setTimeout( () => setShow(true), 10)
         }, { once: true})
-
-        setTimeout( () => setShow(true), 1000)
 
     }, [])
     const {
