@@ -3,9 +3,10 @@ import {useStaticQuery, graphql} from "gatsby";
 import Header from "src/components/header";
 import Footer from "src/components/footer";
 import Seo, {SEOContext} from 'gatsby-plugin-wpgraphql-seo';
-import {Helmet} from "react-helmet";
-import "../styles/global.css";
+//mport {Helmet} from "react-helmet";
 import FooterScript from "../wp-scripts/footer-script";
+
+import "../styles/global.css";
 const Index = ({children, path}) => {
     const {
         wp,
@@ -103,11 +104,11 @@ const Index = ({children, path}) => {
                 {children}
             </SEOContext.Provider>
             <Footer/>
-            <Helmet>
-                <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8"/>
-                <meta property="og:locale" content={wp.seo.schema.inLanguage}/>
-                <meta name="og:site_name" content={wp.allSettings.generalSettingsTitle}/>
-            </Helmet>
+            {/*<Helmet>*/}
+            {/*    <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8"/>*/}
+            {/*    <meta property="og:locale" content={wp.seo.schema.inLanguage}/>*/}
+            {/*    <meta name="og:site_name" content={wp.allSettings.generalSettingsTitle}/>*/}
+            {/*</Helmet>*/}
             <Seo postSchema={JSON.parse(wp.seo.contentTypes.post.schema.raw)} />
             <FooterScript />
             <div id="footer-script"></div>

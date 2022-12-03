@@ -97,11 +97,11 @@ module.exports = {
         schema: {
           requestConcurrency: 1,
         },
-        // type: {
-        //   __all: {
-        //     limit: 40
-        //   },
-        // },
+        type: {
+          __all: {
+            limit: 40
+          },
+        },
       }
     },
     {
@@ -121,14 +121,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-preload-fonts`,
     },
-    // {
-    //   resolve: `gatsby-plugin-purgecss`,
-    //   options: {
-    //     printRejected: true,
-    //     develop: true,
-    //   },
-    // },
-    // "gatsby-plugin-webpack-bundle-analyser-v2",
-    // "gatsby-plugin-perf-budgets",
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true,
+        develop: true,
+      },
+    },
+    "gatsby-plugin-webpack-bundle-analyser-v2",
+    "gatsby-plugin-perf-budgets",
   ],
 };
