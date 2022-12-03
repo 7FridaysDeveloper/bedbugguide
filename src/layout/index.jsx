@@ -16,6 +16,7 @@ const Index = ({children, path}) => {
     const [show, setShow] = useState(false);
     useEffect(() => {
         window.addEventListener('load', () => {
+            alert(2);
             setTimeout( () => setShow(true), 10)
         }, { once: true})
     }, [])
