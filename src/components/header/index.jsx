@@ -4,7 +4,7 @@ import ThemeContext from "src/context/theme-context";
 import AnimateHeight from "react-animate-height";
 import HeaderMenu from "src/components/header/header-menu";
 import AnimatedUnderlineMenu from "src/components/header/animated-underline-menu";
-import { StaticImage} from "gatsby-plugin-image";
+import {getImage, StaticImage} from "gatsby-plugin-image";
 
 
 import MenuSvg from "src/images/svg/menu.svg";
@@ -74,10 +74,13 @@ const Header = () => {
                             <Link to={"/"} className="header_logo-item">
                                 <StaticImage
                                     src="../../images/logonew.png"
-                                    alt="bg"
                                     fadeIn={false}
                                     loading="eager"
                                     placeholder="none"
+                                    imgClassName="team_img"
+                                    durationFadeIn={0}
+                                    className="team_block"
+                                    alt="123"
                                 />
                             </Link>
                             <div className="header-search" onClick={toggleClass} >
