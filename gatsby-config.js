@@ -85,8 +85,7 @@ module.exports = {
         defaults: {
           placeholder: `dominantColor`,
           formats: ["auto", "webp"],
-          quality: 70,
-          breakpoints: [750, 1000, 1366, 1920],
+          quality: 80,
           backgroundColor: `transparent`,
         },
       },
