@@ -4,7 +4,7 @@ import ThemeContext from "src/context/theme-context";
 import AnimateHeight from "react-animate-height";
 import HeaderMenu from "src/components/header/header-menu";
 import AnimatedUnderlineMenu from "src/components/header/animated-underline-menu";
-import {getImage, StaticImage} from "gatsby-plugin-image";
+import {StaticImage} from "gatsby-plugin-image";
 
 
 import MenuSvg from "src/images/svg/menu.svg";
