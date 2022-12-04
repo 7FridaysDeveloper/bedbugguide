@@ -2,7 +2,6 @@ import React from "react";
 import FeaturedImage from "./featured-image";
 
 const Post = ({title, featuredImage, uri, index, categories}) => {
-    console.log('post')
     return (
 
         <div className="item">

@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
-import { Link } from "gatsby";
 import {StaticImage} from "gatsby-plugin-image";
 import ThemeContext from "src/context/theme-context";
 import AnimateHeight from "react-animate-height";

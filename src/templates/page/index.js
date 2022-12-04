@@ -4,7 +4,6 @@ import TheContent from "../../components/the-content";
 import ReadMore from "../../components/read-more";
 
 const Index = (props) => {
-    console.log(props);
   const showSection = (props.data.page.sidebarSettings.sidebarSettings === "Show" ? true : false);
   return (
       <div className="content">

@@ -2,7 +2,6 @@ import React from "react";
 import './style.css';
 
 const Comments = ({ count = '0' }) => {
-    console.log(count, 'count')
     if (count === '0') return null;
     return(
         <div className="comments comments-list">

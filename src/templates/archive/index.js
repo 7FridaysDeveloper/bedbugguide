@@ -1,14 +1,22 @@
 import React from "react";
 import {graphql} from "gatsby";
 import Posts from "../../components/posts";
-import BedBugProduct from "../../components/bed-bug-products";
 import RecentComments from "../../components/recent-comments";
-import BedBugsPosts from "../../components/bed-bugs-recent-posts";
 import Tags from "../../components/tags";
+import Loadable from 'react-loadable';
+import ClipLoader from "react-spinners/ClipLoader";
 
+const BedBugProduct = Loadable({
+    loader: () => import("../../components/bed-bug-products"),
+    loading: ClipLoader,
+});
+
+const BedBugsPosts = Loadable({
+    loader: () => import("../../components/bed-bugs-recent-posts"),
+    loading: ClipLoader,
+});
 
 const ArchivePage = ({ data, pageContext }) => {
-    console.log('ArchivePage')
     return (<>
             <div>
                 <Posts posts={data.allWpPost.nodes} pageContext={pageContext} />
