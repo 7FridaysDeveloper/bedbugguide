@@ -1,5 +1,22 @@
+.youtube-component {
+    position: relative;
+    background: #000000;
+}
+.youtube-component div,
 .youtube-component img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.youtube-component svg {
+    width: 68px;
+    height: 48px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    cursor: pointer;
 }

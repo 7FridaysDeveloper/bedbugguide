@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import YouTube from 'react-youtube';
-
+import YoutubePlaySvg from '../../images/svg/youtube-play.svg'
 import './style.css'
 export default function YouTubeLazy({videoId, style}) {
     console.log(style)
-    const [show, setShow] = useState(true);
+    const [show, setShow] = useState(false);
     const showVideo = () => setShow(true);
 
     return (
@@ -16,11 +16,13 @@ export default function YouTubeLazy({videoId, style}) {
                     opts={{...style, playerVars: { autoplay: 1 } }}
                 />
                 :
-                <img
-                    onClick={showVideo}
-                    src={`https://img.youtube.com/vi/${videoId}/0.jpg`}
-                    alt="youtube-video"
-                    loading="lazy"/>
+                <div>
+                    <img
+                        src={`https://img.youtube.com/vi/${videoId}/0.jpg`}
+                        alt="youtube-video"
+                        loading="lazy"/>
+                    <YoutubePlaySvg onClick={showVideo} />
+                </div>
             }
         </div>
     )
