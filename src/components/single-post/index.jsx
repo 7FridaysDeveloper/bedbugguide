@@ -7,7 +7,7 @@ import PrevNextPost from "../prev-next-post";
 import RelatedPosts from "../related-posts";
 import AddComments from "../add-comments";
 import Comments from "../comments";
-import YouTube from 'react-youtube';
+import YouTubeLazy from "../youtube";
 import {youtubeParser} from '../../util/helpers'
 
 const SinglePost = (props) => {
@@ -26,26 +26,33 @@ const SinglePost = (props) => {
     }, [])
     return (
         <div className="left-content">
-            <SingleCategory categories={props.data?.post?.categories?.nodes} />
+            <SingleCategory categories={props.data?.post?.categories?.nodes}/>
             <h1 className="post-title">{props.data?.post?.title}</h1>
             <div className="line"></div>
-            <Statistic author={props.data?.post?.author?.node} date={props.data?.post?.date} postSettings={postSettings} />
+            <Statistic author={props.data?.post?.author?.node} date={props.data?.post?.date}
+                       postSettings={postSettings}/>
             <div className="text-content">{parse(props.data?.post?.content || '', {
                 replace: domNode => {
                     if (domNode.name === 'iframe' && youtubeParser(domNode.attribs.src)) {
-                        return <YouTube videoId={youtubeParser(domNode.attribs.src)} />
+                        console.log(domNode)
+                        return (
+                            <YouTubeLazy
+                                videoId={youtubeParser(domNode.attribs.src)}
+                                style={{height: domNode.attribs.height+'px', width: domNode.attribs.width+'px'}}
+                            />
+                        )
                     }
                 }
-                })}</div>
+            })}</div>
             <Tags tags={props.data.post.tags}/>
             <div className="share">
                 <p>Does anyone you know battle with bed bugs? Share us with them:</p>
                 <div className="line black"></div>
             </div>
-            <PrevNextPost previous={props.data?.previous} next={props.data?.next} />
-            <RelatedPosts />
+            <PrevNextPost previous={props.data?.previous} next={props.data?.next}/>
+            <RelatedPosts/>
             <Comments count={postSettings?.comment_count}/>
-            <AddComments />
+            <AddComments/>
         </div>
     )
 }
