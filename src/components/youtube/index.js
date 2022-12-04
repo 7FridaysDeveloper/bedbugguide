@@ -1,26 +1,19 @@
-import React, {useState, useLayoutEffect} from "react";
+import React, {useState} from "react";
 import YouTube from 'react-youtube';
 
 import './style.css'
 export default function YouTubeLazy({videoId, style}) {
     console.log(style)
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState(true);
     const showVideo = () => setShow(true);
-
-    useLayoutEffect(() => {
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                setShow(true);
-            }, 10)
-        }, { once: true })
-    }, [])
 
     return (
         <div style={style} className="youtube-component">
             {show ?
                 <YouTube
                     videoId={videoId}
-                    opts={{ ...style }}
+                    loading={'lazy'}
+                    opts={{...style, playerVars: { autoplay: 1 } }}
                 />
                 :
                 <img
