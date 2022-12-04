@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
 import { Link } from "gatsby";
+import {StaticImage} from "gatsby-plugin-image";
 import ThemeContext from "src/context/theme-context";
 import AnimateHeight from "react-animate-height";
 import HeaderMenu from "src/components/header/header-menu";
@@ -64,7 +65,7 @@ const Header = () => {
                     </nav>
                     <div className="bottom-header">
                         <div className="container">
-                            <Link to={"/"} className="header_logo-item">
+                            <a href={"/"} className="header_logo-item">
                                 <StaticImage
                                     src="../../images/logonew.png"
                                     loading="eager"
@@ -73,7 +74,7 @@ const Header = () => {
                                     className="team_block"
                                     alt="logo"
                                 />
-                            </Link>
+                            </a>
                             <div className="header-search" onClick={toggleClass} >
                                 <SearchSvg />
                             </div>
