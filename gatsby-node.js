@@ -31,27 +31,27 @@ exports.createSchemaCustomization = ({ actions }) => {
 }
 
 exports.createResolvers = ({ createResolvers }) =>
-  createResolvers({
-    WpPost: {
-      related_posts: {
-        resolve: async (source, args, context) => {
-          const { databaseId } = source
+    createResolvers({
+      WpPost: {
+        related_posts: {
+          resolve: async (source, args, context) => {
+            const { databaseId } = source
 
-          const response = await fetch(
-              `${process.env.WORDPRESS}/wp-json/yarpp/v1/related/${databaseId}`
-          ).then(res => res.json())
+            const response = await fetch(
+                `${process.env.WORDPRESS}/wp-json/yarpp/v1/related/${databaseId}`
+            ).then(res => res.json())
 
-          if (response && response.length) {
-            const result = await context.nodeModel.runQuery({
-              query: {
-                filter: { databaseId: { in: response.map(({ id }) => id) } },
-              },
-              type: 'WpPost',
-            })
-            return { nodes: result }
-          } else return { nodes: [] }
+            if (response && response.length) {
+              const result = await context.nodeModel.runQuery({
+                query: {
+                  filter: { databaseId: { in: response.map(({ id }) => id) } },
+                },
+                type: 'WpPost',
+              })
+              return { nodes: result }
+            } else return { nodes: [] }
+          },
         },
       },
-    },
 })
 

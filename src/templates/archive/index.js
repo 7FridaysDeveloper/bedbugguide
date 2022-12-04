@@ -2,9 +2,13 @@ import React from "react";
 import {graphql} from "gatsby";
 import Posts from "../../components/posts";
 import RecentComments from "../../components/recent-comments";
-import Tags from "../../components/tags";
 import Loadable from 'react-loadable';
 import ClipLoader from "react-spinners/ClipLoader";
+
+const Tags = Loadable({
+    loader: () => import("../../components/tags"),
+    loading: ClipLoader,
+});
 
 const BedBugProduct = Loadable({
     loader: () => import("../../components/bed-bug-products"),

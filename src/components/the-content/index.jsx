@@ -12,7 +12,6 @@ const TheContent = ({text, title}) => {
              {parse(text, {
                  replace: domNode => {
                      if (domNode.name === 'iframe' && youtubeParser(domNode.attribs.src)) {
-                         console.log(domNode)
                          return (
                              <YouTubeLazy
                                  videoId={youtubeParser(domNode.attribs.src)}

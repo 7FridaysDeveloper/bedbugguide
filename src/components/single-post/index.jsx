@@ -34,7 +34,6 @@ const SinglePost = (props) => {
             <div className="text-content">{parse(props.data?.post?.content || '', {
                 replace: domNode => {
                     if (domNode.name === 'iframe' && youtubeParser(domNode.attribs.src)) {
-                        console.log(domNode)
                         return (
                             <YouTubeLazy
                                 videoId={youtubeParser(domNode.attribs.src)}
@@ -50,7 +49,7 @@ const SinglePost = (props) => {
                 <div className="line black"></div>
             </div>
             <PrevNextPost previous={props.data?.previous} next={props.data?.next}/>
-            <RelatedPosts/>
+            <RelatedPosts posts={props.data.post?.related_posts}/>
             <Comments count={postSettings?.comment_count}/>
             <AddComments/>
         </div>
