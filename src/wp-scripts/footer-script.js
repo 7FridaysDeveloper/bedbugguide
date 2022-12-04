@@ -20,7 +20,8 @@ export default function FooterScript() {
         setTimeout(() => {
             footerScript.innerHTML = themeGeneralSettings.themeOptions.headerTrackingCodes + themeGeneralSettings.themeOptions.footerTrackingCodes;
             setTimeout(() => {
-                nodeScriptReplace(footerScript)
+                nodeScriptReplace(footerScript);
+                console.log(footerScript)
             }, 1000)
         }, 10000)
     }, [])

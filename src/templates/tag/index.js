@@ -76,9 +76,10 @@ export const pageQuery = graphql`
             sourceUrl
             localFile {
               childImageSharp {
-                gatsbyImageData(
-                    breakpoints: [540, 991]
-                    width: 700
+                 gatsbyImageData(
+                    quality: 60
+                    sizes: "(max-width: 440px) 330px"
+                    breakpoints: [330]
                 )
               }
             }
