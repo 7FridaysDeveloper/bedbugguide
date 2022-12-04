@@ -6,7 +6,7 @@ import FooterScript from "../wp-scripts/footer-script";
 import Footer from "../components/footer";
 
 import "../styles/global.css";
-const Index = ({children, path}) => {
+const Index = ({children}) => {
     const {
         wp,
     } = useStaticQuery(graphql`
@@ -98,7 +98,7 @@ const Index = ({children, path}) => {
   `);
     return (
         <>
-            <Header path={path}/>
+            <Header />
             <SEOContext.Provider value={wp}>
                 {children}
             </SEOContext.Provider>

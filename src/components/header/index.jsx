@@ -65,15 +65,14 @@ const Header = () => {
                     <div className="bottom-header">
                         <div className="container">
                             <Link to={"/"} className="header_logo-item">
-                                <div className="logo-main"></div>
-                                {/*<StaticImage*/}
-                                {/*    src="../../images/logonew.png"*/}
-                                {/*    loading="eager"*/}
-                                {/*    placeholder="none"*/}
-                                {/*    imgClassName="team_img"*/}
-                                {/*    className="team_block"*/}
-                                {/*    alt="logo"*/}
-                                {/*/>*/}
+                                <StaticImage
+                                    src="../../images/logonew.png"
+                                    loading="eager"
+                                    placeholder="none"
+                                    imgClassName="team_img"
+                                    className="team_block"
+                                    alt="logo"
+                                />
                             </Link>
                             <div className="header-search" onClick={toggleClass} >
                                 <SearchSvg />
