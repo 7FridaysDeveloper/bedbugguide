@@ -126,6 +126,21 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts-v2`,
+      options: {
+        fonts: [
+          {
+            family: 'Lato',
+            weights: ['700', '400']
+          },
+          {
+            family: 'Merriweather',
+            weights: ['700']
+          }
+        ]
+      }
+    }
     // {
     //   resolve: `gatsby-plugin-purgecss`,
     //   options: {
