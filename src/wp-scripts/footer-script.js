@@ -48,17 +48,19 @@ const FooterScript = () => {
             document.body.appendChild(fragmentFooter)
         }
 
-        window.addEventListener('scroll',() => {
-            if(isAppendScript === false) {
-                appendScript();
-            }
-        }, {once: true});
+        setTimeout(() => {
+            window.addEventListener('scroll',() => {
+                if(isAppendScript === false) {
+                    appendScript();
+                }
+            }, {once: true});
+        }, 1000)
 
         setTimeout(() => {
             if(isAppendScript === false) {
                 appendScript();
             }
-        }, 3000)
+        }, 4000)
     }, [])
     return null;
 }
