@@ -12,7 +12,7 @@ const FeaturedImage = ({image, lazy = true}) => {
                     loading={lazy ? 'lazy' : 'eager'}
                     image={getImage(image)}
                     placeholder="none"
-                    alt="123"
+                    alt="post-image"
                 />
                 :
                 null
