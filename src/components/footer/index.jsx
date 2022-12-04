@@ -57,9 +57,9 @@ const Footer = () => {
                         </div>
                         <ul>
                             {data.allWpCategory.nodes.map(({uri, name}) => (
-                                <Link key={uri}>
-                                    <to href={uri}><FolderSvg/>{name}</to>
-                                </Link>
+                                <li key={uri}>
+                                    <a href={uri}><FolderSvg/>{name}</a>
+                                </li>
                             ))}
                         </ul>
 
