@@ -70,8 +70,8 @@ export const pageQuery = graphql`
             localFile {
               childImageSharp {
                  gatsbyImageData(
-                    breakpoints: [540, 991]
-                    width: 700
+                    breakpoints: [440, 991]
+                    width: 500
                 )
               }
             }

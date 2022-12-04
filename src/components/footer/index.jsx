@@ -33,7 +33,7 @@ const Footer = () => {
                         <StaticImage
                             src="../../images/logowhite.png"
                             alt="bg"
-                            loading="eager"
+                            loading="lazy"
                             placeholder="none"
                         />
                     </a>
@@ -46,7 +46,7 @@ const Footer = () => {
                 <StaticImage
                     src="../../images/bg-footer.jpg"
                     alt="bg"
-                    loading="eager"
+                    loading="lazy"
                     placeholder="none"
                 />
                 <div className="container">
@@ -103,7 +103,6 @@ const Footer = () => {
                     </div>
 
                     <div className="contact-us-footer">
-
                         Contact us: <a href={"mailto:support@saybyebugs.com"}>support@saybyebugs.com</a>
                     </div>
                 </div>
