@@ -8,6 +8,7 @@ const TagPage = ({pageContext, data}) => {
         <>
             <div>
                 <Posts
+                    slug={pageContext.uri}
                     posts={data.allWpPost.nodes}
                     pageContext={pageContext}
                 />

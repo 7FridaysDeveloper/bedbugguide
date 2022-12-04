@@ -89,6 +89,7 @@ async function getAuthorPost(gatsbyUtilities) {
         await CreateArchivePage(gatsbyUtilities, cat.posts.nodes, {
             isCategory: true,
             catId: cat.databaseId,
+            uri: cat.uri,
             categories: graphqlResult.data.allWpUser.nodes,
         }, getPagePath, './src/templates/author-post/index.js', true)
     }
@@ -130,6 +131,7 @@ async function getTags(gatsbyUtilities) {
         await CreateArchivePage(gatsbyUtilities, cat.posts.nodes, {
             isCategory: true,
             catId: cat.databaseId,
+            uri: cat.uri,
             categories: graphqlResult.data.allWpTag.nodes,
         }, getPagePath, './src/templates/tag/index.js', true)
     }
@@ -172,6 +174,7 @@ async function getCategories(gatsbyUtilities) {
         await CreateArchivePage(gatsbyUtilities, cat.posts.nodes, {
             isCategory: true,
             catId: cat.databaseId,
+            uri: cat.uri,
             categories: graphqlResult.data.allWpCategory.nodes,
         }, getPagePath, './src/templates/category/index.js', true)
     }

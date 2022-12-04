@@ -1,8 +1,8 @@
-import {useEffect} from "react";
+import React, {useLayoutEffect} from "react";
 import {useStaticQuery, graphql} from "gatsby";
-import nodeScriptReplace from "../util/load-script-html";
+import parse from "html-react-parser";
 
-export default function FooterScript() {
+const FooterScript = () => {
     const {wp: {themeGeneralSettings}} = useStaticQuery(graphql`
         query FooterScript {
           wp {
@@ -15,15 +15,51 @@ export default function FooterScript() {
           }
         }
     `);
-    useEffect(() => {
-        const footerScript = document.getElementById('footer-script');
+    useLayoutEffect(() => {
+        const fragmentFooter = document.createDocumentFragment();
+        const fragmentHeader = document.createDocumentFragment();
+
+        const replaceNode = (domNode, fragment) => {
+            if(domNode.type === 'script') {
+                const script = document.createElement('script');
+                if(domNode.attribs.src !== undefined) {
+                    script.src = domNode.attribs.src;
+                }
+
+                if(domNode.attribs.type !== undefined) {
+                    script.type = domNode.attribs.type;
+                }
+                domNode.children.forEach(({ nodeValue }) =>  script.innerHTML = script.innerHTML+nodeValue);
+                fragment.appendChild(script)
+            }
+        }
+        {parse(themeGeneralSettings?.themeOptions.footerTrackingCodes, {
+            replace: (domNode) => replaceNode(domNode, fragmentFooter)
+        })}
+
+        {parse(themeGeneralSettings?.themeOptions.headerTrackingCodes, {
+            replace: (domNode) => replaceNode(domNode, fragmentHeader)
+        })}
+
+        let isAppendScript = false;
+        const appendScript = () => {
+            isAppendScript = true;
+            document.head.appendChild(fragmentHeader)
+            document.body.appendChild(fragmentFooter)
+        }
+
+        window.addEventListener('scroll',() => {
+            if(isAppendScript === false) {
+                appendScript();
+            }
+        }, {once: true});
+
         setTimeout(() => {
-            footerScript.innerHTML = themeGeneralSettings.themeOptions.headerTrackingCodes + themeGeneralSettings.themeOptions.footerTrackingCodes;
-            setTimeout(() => {
-                nodeScriptReplace(footerScript);
-                console.log(footerScript)
-            }, 1000)
-        }, 10000)
+            if(isAppendScript === false) {
+                appendScript();
+            }
+        }, 3000)
     }, [])
     return null;
 }
+export default React.memo(FooterScript);

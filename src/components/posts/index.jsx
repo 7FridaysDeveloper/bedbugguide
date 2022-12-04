@@ -8,7 +8,7 @@ import Tags from "../tags";
 
 
 
-const Posts = ({posts, pageContext, children}) => {
+const Posts = ({posts, pageContext, children, slug}) => {
     return (
         <section className="blog-posts">
             <div className="container">
@@ -29,6 +29,7 @@ const Posts = ({posts, pageContext, children}) => {
                             )
                         )}
                         <Pagination
+                            path={slug}
                             currentPage={pageContext.page}
                             totalPage={pageContext.totalPages}
                             postsPerPage={pageContext.postsPerPage}

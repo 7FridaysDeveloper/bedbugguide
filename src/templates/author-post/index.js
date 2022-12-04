@@ -3,11 +3,13 @@ import {graphql} from "gatsby";
 import Posts from "../../components/posts";
 import Seo from "gatsby-plugin-wpgraphql-seo";
 
-const TagPage = ({pageContext, data}) => {
+const AuthorPage = ({pageContext, data }) => {
+    console.log(pageContext)
     return (
         <>
             <div>
                 <Posts
+                    slug={pageContext.uri}
                     posts={data.allWpPost.nodes}
                     pageContext={pageContext}
                 />
@@ -17,7 +19,7 @@ const TagPage = ({pageContext, data}) => {
     );
 };
 
-export default TagPage;
+export default AuthorPage;
 
 export const Head = ({ data : { wpUser } }) => {
     return (
