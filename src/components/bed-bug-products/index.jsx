@@ -1,5 +1,5 @@
 import React from "react";
-import {graphql, useStaticQuery} from "gatsby";
+import {graphql, useStaticQuery, Link} from "gatsby";
 import SvgCalendar from "../../images/svg/calendar.svg";
 import './style.css';
 
@@ -48,11 +48,11 @@ const BedBugProduct = () => {
                             {index === 0 ?
                                 <div className="wrap">
                                     <div className="cat">
-                                        <a href={categoryName.slug} >{categoryName.name}</a>
+                                        <Link to={categoryName.slug} >{categoryName.name}</Link>
                                     </div>
-                                    <h3><a href={uri} >{title}</a></h3>
+                                    <h3><Link to={uri} >{title}</Link></h3>
                                     <div className="flex">
-                                        <div className="author"><a href={authorName.slug} >{authorName.name}</a></div>
+                                        <div className="author"><Link to={authorName.slug} >{authorName.name}</Link></div>
                                         <div className="date">
                                             <SvgCalendar/>
                                             {dateCategory}
@@ -61,7 +61,7 @@ const BedBugProduct = () => {
                                 </div>
                                 :
                                 <div className="wrap">
-                                    <h3><a href={uri} >{title}</a></h3>
+                                    <h3><Link to={uri} >{title}</Link></h3>
                                 </div>
                             }
                         </div>

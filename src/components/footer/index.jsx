@@ -1,5 +1,5 @@
 import React from "react";
-import {graphql, useStaticQuery } from "gatsby";
+import {graphql, useStaticQuery, Link } from "gatsby";
 import {StaticImage} from "gatsby-plugin-image";
 import FolderSvg from "src/images/svg/folder.svg";
 import FooterPopularPost from "../footer-popular-post";
@@ -29,14 +29,14 @@ const Footer = () => {
         <footer>
             <div className="footer-top">
                 <div className="container">
-                    <a href={"/"}>
+                    <Link to={"/"}>
                         <StaticImage
                             src="../../images/logowhite.png"
                             alt="bg"
                             loading="lazy"
                             placeholder="none"
                         />
-                    </a>
+                    </Link>
                     <div className="share-us">
                         Share us:
                     </div>
@@ -57,9 +57,9 @@ const Footer = () => {
                         </div>
                         <ul>
                             {data.allWpCategory.nodes.map(({uri, name}) => (
-                                <li key={uri}>
-                                    <a href={uri}><FolderSvg/>{name}</a>
-                                </li>
+                                <Link key={uri}>
+                                    <to href={uri}><FolderSvg/>{name}</to>
+                                </Link>
                             ))}
                         </ul>
 
