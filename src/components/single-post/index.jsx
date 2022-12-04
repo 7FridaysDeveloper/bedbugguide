@@ -7,6 +7,9 @@ import PrevNextPost from "../prev-next-post";
 import RelatedPosts from "../related-posts";
 import AddComments from "../add-comments";
 import Comments from "../comments";
+import YouTube from 'react-youtube';
+import {youtubeParser} from '../../util/helpers'
+
 const SinglePost = (props) => {
     const [postSettings, setPostSettings] = useState(null);
 
@@ -27,7 +30,13 @@ const SinglePost = (props) => {
             <h1 className="post-title">{props.data?.post?.title}</h1>
             <div className="line"></div>
             <Statistic author={props.data?.post?.author?.node} date={props.data?.post?.date} postSettings={postSettings} />
-            <div className="text-content">{parse(props.data?.post?.content || '')}</div>
+            <div className="text-content">{parse(props.data?.post?.content || '', {
+                replace: domNode => {
+                    if (domNode.name === 'iframe' && youtubeParser(domNode.attribs.src)) {
+                        return <YouTube videoId={youtubeParser(domNode.attribs.src)} />
+                    }
+                }
+                })}</div>
             <Tags tags={props.data.post.tags}/>
             <div className="share">
                 <p>Does anyone you know battle with bed bugs? Share us with them:</p>
