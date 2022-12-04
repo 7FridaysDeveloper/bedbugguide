@@ -97,11 +97,11 @@ module.exports = {
         schema: {
           requestConcurrency: 1,
         },
-        type: {
-          __all: {
-            limit: 5
-          },
-        },
+        // type: {
+        //   __all: {
+        //     limit: 5
+        //   },
+        // },
       }
     },
     {
@@ -130,10 +130,8 @@ module.exports = {
       resolve: '@slixites/gatsby-plugin-google-fonts',
       options: {
         fonts: [
-          'Lato',
-          '400,700',
-          'Merriweather',
-          '700',
+          'Lato:400,700',
+          'Merriweather:700',
         ],
         display: 'swap',
         preconnect: true,
