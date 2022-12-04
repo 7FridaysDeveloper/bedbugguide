@@ -4,6 +4,7 @@ import Posts from "../../components/posts";
 import RecentComments from "../../components/recent-comments";
 import Loadable from 'react-loadable';
 import ClipLoader from "react-spinners/ClipLoader";
+import Tabs from "../../components/static-sections/tabs";
 
 const Tags = Loadable({
     loader: () => import("../../components/tags"),
@@ -24,6 +25,9 @@ const ArchivePage = ({ data, pageContext }) => {
     return (<>
             <div>
                 <Posts posts={data.allWpPost.nodes} pageContext={pageContext} />
+                <div className="container">
+                    <Tabs />
+                </div>
                 <div className="footer-top-wrap">
                     <div className="container">
                         <Tags />
