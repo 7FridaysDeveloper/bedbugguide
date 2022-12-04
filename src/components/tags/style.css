@@ -1,5 +1,7 @@
 .tags {
     margin-top: 70px;
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
 }
 
 .tags .tags-wrap {

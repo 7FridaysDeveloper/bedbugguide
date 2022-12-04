@@ -1,4 +1,9 @@
 .tabs {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+}
+
+.tabs {
     display: grid;
     grid-template-columns: 350px 1fr;
     grid-gap: 20px;
