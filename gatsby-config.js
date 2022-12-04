@@ -119,29 +119,6 @@ module.exports = {
       __key: "images",
     },
     // {
-    //   resolve: 'gatsby-plugin-preconnect',
-    //   options: {
-    //     domains: [
-    //       'https://fonts.gstatic.com',
-    //     ],
-    //   },
-    // },
-    {
-      resolve: '@slixites/gatsby-plugin-google-fonts',
-      options: {
-        fonts: [
-          'Lato:400,700',
-          'Merriweather:700',
-        ],
-        display: 'swap',
-        preconnect: true,
-        attributes: {
-          rel: 'stylesheet preload prefetch',
-          as: 'style',
-        },
-      },
-    },
-    // {
     //   resolve: `gatsby-plugin-purgecss`,
     //   options: {
     //     printRejected: true,
