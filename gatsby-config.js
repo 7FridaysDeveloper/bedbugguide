@@ -97,11 +97,11 @@ module.exports = {
         schema: {
           requestConcurrency: 1,
         },
-        // type: {
-        //   __all: {
-        //     limit: 5
-        //   },
-        // },
+        type: {
+          __all: {
+            limit: 5
+          },
+        },
       }
     },
     {
@@ -118,29 +118,31 @@ module.exports = {
       },
       __key: "images",
     },
+    // {
+    //   resolve: 'gatsby-plugin-preconnect',
+    //   options: {
+    //     domains: [
+    //       'https://fonts.gstatic.com',
+    //     ],
+    //   },
+    // },
     {
-      resolve: 'gatsby-plugin-preconnect',
-      options: {
-        domains: [
-          'https://fonts.gstatic.com',
-        ],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-fonts-v2`,
+      resolve: '@slixites/gatsby-plugin-google-fonts',
       options: {
         fonts: [
-          {
-            family: 'Lato',
-            weights: ['700', '400']
-          },
-          {
-            family: 'Merriweather',
-            weights: ['700']
-          }
-        ]
-      }
-    }
+          'Lato',
+          '400,700',
+          'Merriweather',
+          '700',
+        ],
+        display: 'swap',
+        preconnect: true,
+        attributes: {
+          rel: 'stylesheet preload prefetch',
+          as: 'style',
+        },
+      },
+    },
     // {
     //   resolve: `gatsby-plugin-purgecss`,
     //   options: {
