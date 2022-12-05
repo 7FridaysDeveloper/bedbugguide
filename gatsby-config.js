@@ -95,15 +95,14 @@ module.exports = {
       resolve: "gatsby-source-wordpress",
       options: {
         url: `${process.env.WORDPRESS}/graphql`,
-        includedRoutes: ["**/searchResults"],
         schema: {
           requestConcurrency: 1,
         },
-        // type: {
-        //   __all: {
-        //     limit: 50,
-        //   },
-        // },
+        type: {
+          __all: {
+            limit: 50,
+          },
+        },
       }
     },
     {
