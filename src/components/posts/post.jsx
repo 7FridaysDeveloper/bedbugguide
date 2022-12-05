@@ -2,7 +2,9 @@ import React from "react";
 //import { StaticImage } from "gatsby-plugin-image";
 import FeaturedImage from "./featured-image";
 import { Link } from "gatsby";
-const Post = ({ title, featuredImage, uri, index }) => {
+import parse from "html-react-parser";
+
+const Post = ({ title, featuredImage, uri, categories , excerpt ,  index }) => {
     return (
 
             <div className="item">
@@ -11,10 +13,14 @@ const Post = ({ title, featuredImage, uri, index }) => {
                 </Link>
                 <div className="txt">
                     <div className="post-category">
-                        <Link to={uri} partiallyActive={true}>Bed Bug News  </Link>, <Link to={uri} partiallyActive={true}> Bed Bug News2 , </Link>
+                        {categories.nodes.map(
+                            ({uri, name} , index) => (
+                                <Link to={uri} key={index}>{name}{index+1 === categories.nodes.length ? null : ','}</Link>
+                            )
+                        )}
                         <h3><Link to={uri} partiallyActive={true}>{title}</Link></h3>
                         <div className="excerpt">
-                            If you wonder what bed bugs are, how do they spread, just how fast they can infest your home and what you can do about it watch this quick video: If you...
+                            {parse(excerpt)}
                         </div>
                     </div>
                 </div>

@@ -69,6 +69,7 @@ export const pageQuery = graphql`
           nodes {
             name
             id
+            uri
           }
         }
         databaseId

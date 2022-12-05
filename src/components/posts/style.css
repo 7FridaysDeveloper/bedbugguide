@@ -35,7 +35,8 @@
 }
 .blog-posts .item h3 a {
     color: #000;
-    font-size: 24px;
+    font-size: 22px;
+    line-height: 1.45;
     margin: 10px 0 5px;
 }
 .blog-posts .item h3 a:hover {

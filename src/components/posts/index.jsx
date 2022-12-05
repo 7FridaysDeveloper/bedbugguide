@@ -10,13 +10,16 @@ import Tabs from "../static-sections/tabs";
 
 
 const Posts = ({posts, pageContext}) => {
+
+    console.log(posts);
+
     return (
         <section className="blog-posts">
             <div className="container">
                 <div className="grid-box">
                     <div className="left-wrapper">
                         {posts.map(
-                            ({title, databaseId, date, featuredImage, uri} ,index) => (
+                            ({title, databaseId, date, featuredImage, uri ,categories , excerpt} ,index) => (
                                 <Post
                                     index={index}
                                     key={databaseId}
@@ -24,6 +27,8 @@ const Posts = ({posts, pageContext}) => {
                                     date={date}
                                     featuredImage={featuredImage?.node.localFile}
                                     uri={uri}
+                                    categories={categories}
+                                    excerpt={excerpt}
                                 />
                             )
                         )}

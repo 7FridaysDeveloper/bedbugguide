@@ -18,9 +18,6 @@
     src: url('../fonts/Merriweather-Bold.woff2') format('woff2');
     font-style: normal;
 }
-
-
-
 :root {
     --main_color:#212121;
     --bg_header: #212121;
@@ -43,18 +40,17 @@
     --second_font: 'Merriweather';
 }
 
-a {
-    text-decoration: none;
+*, :after, :before {
+    box-sizing: border-box;
 }
+
 body {
-    font: 400 14px/1.4 var(--text_font);
+    font: 400 18px/1.8 var(--text_font);
     color: var(--text_color);
     flex-shrink: 0;
     margin: 0;
 }
-*, :after, :before {
-    box-sizing: border-box;
-}
+
 h1 {
     font-size: 86px;
     font-weight: 700;
@@ -98,17 +94,44 @@ h6 {
 p {
     margin: 0;
 }
+
+a {
+    text-decoration: none;
+}
+
+a,
+a:hover,
+a:focus {
+    text-decoration: none;
+    color: #000;
+}
+a:hover {
+    color: #c51818;
+}
+header ul,
+footer ul,
+header ol,
+footer ol {
+    padding: 0;
+    margin: 0;
+}
+ul,
+ol {
+    list-style-position: inside;
+}
+
+body > .content {
+    min-height: 650px;
+    width: 100%;
+    clear: both;
+}
+
 @media(max-width:1199px){
     h1, h2 {
         font-size: 36px;
     }
 }
 @media(max-width: 767px) {
-    :root {
-        --big_bord_rad: 60px;
-        --med_bord_rad: 30px;
-        --dots_width: 150px;
-    }
     body{
         font-size: 14px;
     }
