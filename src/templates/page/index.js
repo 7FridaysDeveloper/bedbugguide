@@ -2,7 +2,6 @@ import React from "react";
 import { graphql } from "gatsby";
 import TheContent from "../../components/the-content";
 import ReadMore from "../../components/read-more";
-import FooterScript from "../../wp-scripts/footer-script";
 
 const Index = (props) => {
   const showSection = (props.data.page.sidebarSettings.sidebarSettings === "Show" ? true : false);
@@ -24,13 +23,6 @@ const Index = (props) => {
 
 export default Index;
 
-export const Head = () => {
-    return (
-        <>
-            <FooterScript />
-        </>
-    );
-}
 
 export const pagesQuery = graphql`
   query PageById(

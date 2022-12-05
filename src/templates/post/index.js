@@ -9,7 +9,6 @@ import Tags from "../../components/tags";
 import BedBugsPosts from "../../components/bed-bugs-recent-posts";
 import BedBugProduct from "../../components/bed-bug-products";
 import Seo from "gatsby-plugin-wpgraphql-seo";
-import FooterScript from "../../wp-scripts/footer-script";
 import './style.css';
 
 
@@ -45,7 +44,6 @@ export const Head = ({data}) => {
     const opengraphImage = data.post.seo?.opengraphImage
     return (
         <>
-            <FooterScript />
             <meta property="article:published_time" content={ data.post.dateGmt}/>
             <meta property="article:modified_time" content={data.post.modifiedGmt}/>
             <meta property="og:image" content={process.env.CURRENT_URL + opengraphImage.publicUrl} />

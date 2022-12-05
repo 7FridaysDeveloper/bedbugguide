@@ -1,8 +1,8 @@
 import React, { useLayoutEffect } from "react";
 import {useStaticQuery, graphql} from "gatsby";
 import parse from "html-react-parser";
-let loadingScript = false;
-let effectLoading = false
+import {Helmet} from "react-helmet";
+
 const FooterScript = () => {
 
 
@@ -19,7 +19,6 @@ const FooterScript = () => {
         }
     `);
     useLayoutEffect(() => {
-        if(effectLoading) return false;
         const fragmentFooter = document.createDocumentFragment();
         const fragmentHeader = document.createDocumentFragment();
 
@@ -53,7 +52,6 @@ const FooterScript = () => {
         let isAppendScript = false;
         const appendScript = () => {
             isAppendScript = true;
-            effectLoading = true;
             document.head.appendChild(fragmentHeader)
             document.body.appendChild(fragmentFooter)
         }
@@ -74,11 +72,8 @@ const FooterScript = () => {
 
     }, [])
 
-    if(loadingScript) return null
-    loadingScript = true;
-
     return (
-        <>
+        <Helmet>
             {parse(themeGeneralSettings?.themeOptions.headerTrackingCodes, {
                 replace: (domNode) => {
                     if(domNode.type === 'script') {
@@ -98,7 +93,7 @@ const FooterScript = () => {
                         return <></>;
                     }
                 }})}
-        </>
+        </Helmet>
     );
 }
 export default React.memo(FooterScript);

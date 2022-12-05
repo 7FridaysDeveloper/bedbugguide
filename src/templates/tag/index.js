@@ -2,7 +2,6 @@ import React from "react";
 import {graphql} from "gatsby";
 import Posts from "../../components/posts";
 import Seo from "gatsby-plugin-wpgraphql-seo";
-import FooterScript from "../../wp-scripts/footer-script";
 
 const TagPage = ({pageContext, data}) => {
     return (
@@ -24,7 +23,6 @@ export default TagPage;
 export const Head = ({ data : { wpTag } }) => {
     return (
         <>
-            <FooterScript />
             <meta property="og:url" content={process.env.CURRENT_URL + wpTag.seo.opengraphUrl} />
             <Seo
                 postSchema={JSON.parse(wpTag.seo?.schema?.raw)}

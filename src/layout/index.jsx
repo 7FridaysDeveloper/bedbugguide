@@ -4,6 +4,7 @@ import Header from "src/components/header";
 import Seo, {SEOContext} from 'gatsby-plugin-wpgraphql-seo';
 import Loadable from 'react-loadable';
 import ClipLoader from "react-spinners/ClipLoader";
+import FooterScript from "../wp-scripts/footer-script";
 
 const Footer = Loadable({
     loader: () => import("../components/footer"),
@@ -103,6 +104,7 @@ const Index = ({children}) => {
   `);
     return (
         <>
+            <FooterScript />
             <Header />
             <SEOContext.Provider value={wp}>
                 {children}

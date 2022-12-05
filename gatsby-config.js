@@ -27,6 +27,7 @@ module.exports = {
     "gatsby-plugin-optimize-svgs",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-preact",
+    "gatsby-plugin-react-helmet",
     {
       resolve: `gatsby-plugin-yoast-sitemap`,
       options: {
@@ -94,12 +95,13 @@ module.exports = {
       resolve: "gatsby-source-wordpress",
       options: {
         url: `${process.env.WORDPRESS}/graphql`,
+        includedRoutes: ["**/searchResults"],
         schema: {
           requestConcurrency: 1,
         },
         // type: {
         //   __all: {
-        //     limit: 5
+        //     limit: 50,
         //   },
         // },
       }
