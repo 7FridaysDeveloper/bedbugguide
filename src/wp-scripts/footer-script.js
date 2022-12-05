@@ -1,8 +1,10 @@
 import React, { useLayoutEffect } from "react";
 import {useStaticQuery, graphql} from "gatsby";
 import parse from "html-react-parser";
-
+let loadingScript = false;
+let effectLoading = false
 const FooterScript = () => {
+
 
     const {wp: {themeGeneralSettings}} = useStaticQuery(graphql`
         query FooterScript {
@@ -17,6 +19,7 @@ const FooterScript = () => {
         }
     `);
     useLayoutEffect(() => {
+        if(effectLoading) return false;
         const fragmentFooter = document.createDocumentFragment();
         const fragmentHeader = document.createDocumentFragment();
 
@@ -50,9 +53,9 @@ const FooterScript = () => {
         let isAppendScript = false;
         const appendScript = () => {
             isAppendScript = true;
-            return;
-            // document.head.appendChild(fragmentHeader)
-            // document.body.appendChild(fragmentFooter)
+            effectLoading = true;
+            document.head.appendChild(fragmentHeader)
+            document.body.appendChild(fragmentFooter)
         }
 
         setTimeout(() => {
@@ -67,8 +70,13 @@ const FooterScript = () => {
             if(isAppendScript === false) {
                 appendScript();
             }
-        }, 4000)
+        }, 4000);
+
     }, [])
+
+    if(loadingScript) return null
+    loadingScript = true;
+
     return (
         <>
             {parse(themeGeneralSettings?.themeOptions.headerTrackingCodes, {
