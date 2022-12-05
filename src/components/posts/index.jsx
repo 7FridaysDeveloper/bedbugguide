@@ -15,16 +15,16 @@ const Posts = ({posts, pageContext, children, slug}) => {
                 <div className="grid-box">
                     <div className="left-wrapper">
                         {posts.map(
-                            ({title, databaseId, date, featuredImage, uri, categories, tags} ,index) => (
+                            ({title, databaseId, date, featuredImage, uri ,categories , excerpt, tags} ,index) => (
                                 <Post
                                     index={index}
-                                    categories={categories}
-                                    tags={tags}
                                     key={databaseId}
                                     title={title}
                                     date={date}
                                     featuredImage={featuredImage?.node.localFile}
                                     uri={uri}
+                                    categories={categories}
+                                    excerpt={excerpt}
                                 />
                             )
                         )}

@@ -2,6 +2,7 @@ import React from "react";
 import {graphql, useStaticQuery, Link } from "gatsby";
 import {StaticImage} from "gatsby-plugin-image";
 import FolderSvg from "src/images/svg/folder.svg";
+import Share from "../share";
 import FooterPopularPost from "../footer-popular-post";
 
 import "./style.css";
@@ -38,7 +39,7 @@ const Footer = () => {
                         />
                     </Link>
                     <div className="share-us">
-                        Share us:
+                        <Share />
                     </div>
                 </div>
             </div>
