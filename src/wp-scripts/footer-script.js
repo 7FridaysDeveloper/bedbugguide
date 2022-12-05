@@ -1,9 +1,8 @@
-import React, {useLayoutEffect, useState} from "react";
+import React, { useLayoutEffect } from "react";
 import {useStaticQuery, graphql} from "gatsby";
 import parse from "html-react-parser";
 
 const FooterScript = () => {
-    const [script, setScript] = useState([]);
 
     const {wp: {themeGeneralSettings}} = useStaticQuery(graphql`
         query FooterScript {
@@ -26,7 +25,6 @@ const FooterScript = () => {
                 const script = document.createElement('script');
 
                 if(domNode.attribs.src?.includes('conversion')) {
-                    setScript([domNode.attribs.src])
                     return;
                 }
 
@@ -52,8 +50,9 @@ const FooterScript = () => {
         let isAppendScript = false;
         const appendScript = () => {
             isAppendScript = true;
-            document.head.appendChild(fragmentHeader)
-            document.body.appendChild(fragmentFooter)
+            return;
+            // document.head.appendChild(fragmentHeader)
+            // document.body.appendChild(fragmentFooter)
         }
 
         setTimeout(() => {
@@ -72,7 +71,25 @@ const FooterScript = () => {
     }, [])
     return (
         <>
-            {script.map((value) => <script defer key={value} src={value}></script>)}
+            {parse(themeGeneralSettings?.themeOptions.headerTrackingCodes, {
+                replace: (domNode) => {
+                    if(domNode.type === 'script') {
+                        if(domNode.attribs.src?.includes('conversion')) {
+                            return <script defer src={domNode.attribs.src}></script>
+                        }
+                        return <></>;
+
+                }
+            }})}
+            {parse(themeGeneralSettings?.themeOptions.footerTrackingCodes, {
+                replace: (domNode) => {
+                    if(domNode.type === 'script') {
+                        if(domNode.attribs.head !== undefined && domNode.attribs.src) {
+                            return <script defer src={domNode.attribs.src}></script>
+                        }
+                        return <></>;
+                    }
+                }})}
         </>
     );
 }
