@@ -10,9 +10,6 @@ import Tabs from "../static-sections/tabs";
 
 
 const Posts = ({posts, pageContext}) => {
-
-    console.log(posts);
-
     return (
         <section className="blog-posts">
             <div className="container">
