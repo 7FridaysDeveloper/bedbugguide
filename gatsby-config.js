@@ -16,7 +16,7 @@ const gatsbyRequiredRules = path.join(
 );
 module.exports = {
   siteMetadata: {
-    title: `7fridays`,
+    title: `Bedbugguide`,
     siteUrl: process.env.WORDPRESS,
   },
   plugins: [
@@ -27,7 +27,6 @@ module.exports = {
     "gatsby-plugin-optimize-svgs",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-preact",
-    "gatsby-plugin-react-helmet",
     {
       resolve: `gatsby-plugin-yoast-sitemap`,
       options: {
