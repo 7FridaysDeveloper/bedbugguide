@@ -4,13 +4,13 @@ const usePopularPosts = (limit = 4) => {
     const [popularPost, setPopularPosts] = useState([]);
 
     const getSessionPopularPosts = () => {
-        const posts =  localStorage.getItem('usePopularPosts');
+        const posts =  sessionStorage.getItem('usePopularPosts');
         if(posts !== null) return JSON.parse(posts);
         return null;
     }
 
     const setSessionPopularPosts = (posts) => {
-        localStorage.setItem('usePopularPosts', JSON.stringify(posts));
+        sessionStorage.setItem('usePopularPosts', JSON.stringify(posts));
         setPopularPosts(posts);
     }
 

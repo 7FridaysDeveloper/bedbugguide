@@ -1,8 +1,10 @@
-import React, {useLayoutEffect} from "react";
+import React, {useLayoutEffect, useState} from "react";
 import {useStaticQuery, graphql} from "gatsby";
 import parse from "html-react-parser";
 
 const FooterScript = () => {
+    const [script, setScript] = useState([]);
+
     const {wp: {themeGeneralSettings}} = useStaticQuery(graphql`
         query FooterScript {
           wp {
@@ -22,6 +24,12 @@ const FooterScript = () => {
         const replaceNode = (domNode, fragment) => {
             if(domNode.type === 'script') {
                 const script = document.createElement('script');
+
+                if(domNode.attribs.src?.includes('conversion')) {
+                    setScript([domNode.attribs.src])
+                    return;
+                }
+
                 if(domNode.attribs.src !== undefined) {
                     script.src = domNode.attribs.src;
                 }
@@ -62,6 +70,10 @@ const FooterScript = () => {
             }
         }, 4000)
     }, [])
-    return null;
+    return (
+        <>
+            {script.map((value) => <script defer key={value} src={value}></script>)}
+        </>
+    );
 }
 export default React.memo(FooterScript);

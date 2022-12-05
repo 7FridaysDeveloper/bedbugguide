@@ -2,7 +2,6 @@ import React from "react";
 import {useStaticQuery, graphql} from "gatsby";
 import Header from "src/components/header";
 import Seo, {SEOContext} from 'gatsby-plugin-wpgraphql-seo';
-import FooterScript from "../wp-scripts/footer-script";
 import Loadable from 'react-loadable';
 import ClipLoader from "react-spinners/ClipLoader";
 
@@ -113,7 +112,6 @@ const Index = ({children}) => {
             {/*    <meta property="og:locale" content={wp.seo.schema.inLanguage}/>*/}
             {/*    <meta name="og:site_name" content={wp.allSettings.generalSettingsTitle}/>*/}
             <Seo postSchema={JSON.parse(wp.seo.contentTypes.post.schema.raw)} />
-            <FooterScript />
             <div id="footer-script"></div>
         </>
     );

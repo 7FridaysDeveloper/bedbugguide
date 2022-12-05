@@ -2,9 +2,9 @@ import React from "react";
 import {graphql} from "gatsby";
 import Posts from "../../components/posts";
 import Seo from "gatsby-plugin-wpgraphql-seo";
+import FooterScript from "../../wp-scripts/footer-script";
 
 const AuthorPage = ({pageContext, data }) => {
-    console.log(pageContext)
     return (
         <>
             <div>
@@ -24,6 +24,7 @@ export default AuthorPage;
 export const Head = ({ data : { wpUser } }) => {
     return (
         <>
+            <FooterScript />
             <Seo
                 postSchema={JSON.parse(wpUser.seo?.schema?.raw)}
                 post={wpUser}

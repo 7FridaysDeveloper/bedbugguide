@@ -5,6 +5,7 @@ import RecentComments from "../../components/recent-comments";
 import Loadable from 'react-loadable';
 import ClipLoader from "react-spinners/ClipLoader";
 import Tabs from "../../components/static-sections/tabs";
+import FooterScript from "../../wp-scripts/footer-script";
 
 const Tags = Loadable({
     loader: () => import("../../components/tags"),
@@ -46,6 +47,7 @@ export default ArchivePage;
 export const Head = ({ data: { wp }}) => {
     return (
         <>
+            <FooterScript />
             <title>{`${wp.allSettings?.generalSettingsTitle} ${wp.allSettings?.generalSettingsDescription}`}</title>
             <meta name="description" content={wp.allSettings?.generalSettingsDescription}/>
             <meta name="og:description" content={wp.allSettings?.generalSettingsDescription}/>
