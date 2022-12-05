@@ -1,8 +1,10 @@
 import React from "react";
 import parse from "html-react-parser";
-import './style.css';
 import {youtubeParser} from "../../util/helpers";
 import YouTubeLazy from "../youtube";
+
+import './style.css';
+
 
 const TheContent = ({text, title}) => {
     if(!text) return null;
