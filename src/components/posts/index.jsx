@@ -9,13 +9,14 @@ import Tags from "../tags";
 
 
 const Posts = ({posts, pageContext, children, slug}) => {
+    console.log(posts)
     return (
         <section className="blog-posts">
             <div className="container">
                 <div className="grid-box">
                     <div className="left-wrapper">
                         {posts.map(
-                            ({title, databaseId, date, featuredImage, uri ,categories , excerpt, tags} ,index) => (
+                            ({title, databaseId, date, featuredImage, uri ,categories , excerpt} ,index) => (
                                 <Post
                                     index={index}
                                     key={databaseId}

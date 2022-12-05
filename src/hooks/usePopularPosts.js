@@ -17,11 +17,11 @@ const usePopularPosts = (limit = 4) => {
     useLayoutEffect(() => {
         const sessionPopularPost = getSessionPopularPosts();
         if(sessionPopularPost === null) {
-            fetch(process.env.GATSBY_API_URL+'/wp-json/wp/v2/popular_post')
+            fetch(process.env.GATSBY_API_URL+'/popular_post')
                 .then(res => res.json())
                 .then(posts => posts.map(post => {
                     return {
-                        title: post.title?.rendered,
+                        title: post.title,
                         cat: post?.cat,
                         id: post.id,
                         uri: post.uri,
@@ -30,7 +30,7 @@ const usePopularPosts = (limit = 4) => {
                 const newPosts = posts.map((post) => {
                     return {
                         ...post,
-                        categories: Array.isArray(post.cat) ? post.cat[0] : [],
+                        categories: Array.isArray(post.cat) ? post.cat : [],
                     }
                 })
 

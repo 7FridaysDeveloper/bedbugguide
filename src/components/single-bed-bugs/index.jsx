@@ -4,9 +4,8 @@ import {graphql, Link, useStaticQuery} from "gatsby";
 import './style.css';
 
 const BedBugs = () => {
-
     const data = useStaticQuery(graphql`
-    query TabsData {
+    query HowToKillBedBug {
       wp {
         themeGeneralSettings {
             themeOptions {
@@ -24,7 +23,7 @@ const BedBugs = () => {
         <div className="bed-bugs">
             <h4>HOW TO KILL BED BUGS:</h4>
             <div className="line"></div>
-            <Link to={data.wp.themeGeneralSettings.themeOptions.howToKillBedBug.url} >{parse(data.wp.themeGeneralSettings.themeOptions.howToKillBedBug.title)}</Link>
+            <Link to={data.wp?.themeGeneralSettings?.themeOptions?.howToKillBedBug.url} >{parse(data.wp?.themeGeneralSettings?.themeOptions?.howToKillBedBug.title)}</Link>
         </div>
     );
 }
