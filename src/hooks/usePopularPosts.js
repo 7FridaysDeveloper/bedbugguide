@@ -17,14 +17,14 @@ const usePopularPosts = (limit = 4) => {
     useLayoutEffect(() => {
         const sessionPopularPost = getSessionPopularPosts();
         if(sessionPopularPost === null) {
-            fetch(process.env.GATSBY_API_URL+'/posts?_embed=wp:term')
+            fetch(process.env.GATSBY_API_URL+'/wp-json/wp/v2/popular_post')
                 .then(res => res.json())
                 .then(posts => posts.map(post => {
                     return {
                         title: post.title?.rendered,
-                        cat: post?.['_embedded']['wp:term'],
+                        cat: post?.cat,
                         id: post.id,
-                        uri: '/'+post.slug,
+                        uri: post.uri,
                     }
                 })).then(posts => {
                 const newPosts = posts.map((post) => {
