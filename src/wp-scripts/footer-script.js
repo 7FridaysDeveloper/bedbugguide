@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import {useStaticQuery, graphql} from "gatsby";
 import parse from "html-react-parser";
 import {Helmet} from "react-helmet";
@@ -18,7 +18,7 @@ const FooterScript = () => {
           }
         }
     `);
-    useLayoutEffect(() => {
+    useEffect(() => {
         const fragmentFooter = document.createDocumentFragment();
         const fragmentHeader = document.createDocumentFragment();
 
@@ -71,7 +71,7 @@ const FooterScript = () => {
         }, 4000);
 
     }, [])
-
+    if(typeof window === 'undefined') return null;
     return (
         <Helmet>
             {parse(themeGeneralSettings?.themeOptions.headerTrackingCodes, {
