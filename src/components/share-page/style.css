@@ -33,7 +33,8 @@
     margin-right: 10px;
     border-radius: 5px;
     position: relative;
-    display: inline-block;
+    display: flex;
+    align-items: center;
     line-height: 134%;
 }
 .share-page ul li.facebook span.share-count:after {
@@ -68,6 +69,17 @@
 }
 .share-page ul li.pinterest span.share-count:after {
     border-color: transparent transparent transparent #c92727;
+}
+.share-page li span.share-count svg {
+    height: 14px;
+    margin-right: 4px;
+}
+.share-page li a {
+    display: flex;
+    align-items: center;
+}
+.share-page li span.share-count svg path {
+    fill: #fff;
 }
 @media(max-width: 700px) {
     .share-page li span.share-count {

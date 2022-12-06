@@ -40,6 +40,7 @@ const Footer = () => {
                     </Link>
                     <div className="share-us">
                         <Share />
+
                     </div>
                 </div>
             </div>
