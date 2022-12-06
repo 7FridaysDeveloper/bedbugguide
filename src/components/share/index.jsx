@@ -10,7 +10,7 @@ import './style.css';
 
 const Share = () => {
 
-    const url = window.location;
+    const url = process.env.CURRENT_URL;
 
     return(
         <div className="share">

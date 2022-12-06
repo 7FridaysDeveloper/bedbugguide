@@ -15,7 +15,7 @@ const PopularPosts = () => {
                 {popularPost.length === 0 ? <ClipLoader /> : popularPost.map(post => (
                     <div className="post-cat" key={post.id}>
                         <div className="post-category">
-                            <a href={'/'+post.categories[0].slug}>{post.categories[0]?.name}</a>
+                            <a href={'/category/'+post.categories[0].slug}>{post.categories[0]?.name}</a>
                         </div>
                         <h3 className="post-title">
                             <a href={post.uri}>{parse(post.title)}</a>
