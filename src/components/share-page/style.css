@@ -1,0 +1,88 @@
+.share-page {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #ccc;
+}
+.share-page ul {
+    width: 100%;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+.share-page p {
+    color: #1e1e1e;
+}
+.share-page ul li {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #000;
+    list-style: none;
+    width: 25%;
+    text-align: center;
+    line-height: 1;
+    list-style: none !important;
+}
+.share-page li.facebook span.share-count {
+    background-color: #20579b;
+}
+.share-page li span.share-count {
+    font-size: 12px;
+    color: #fff;
+    padding: 5px 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    position: relative;
+    display: inline-block;
+    line-height: 134%;
+}
+.share-page ul li.facebook span.share-count:after {
+    border-left-color: #20579b;
+}
+.share-page ul li span.share-count:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    border-width: 4px 0 4px 7px;
+    border-style: solid;
+    border-color: transparent transparent transparent #000;
+    margin-top: -5px;
+}
+
+.share-page ul li.twitter span.share-count {
+    background-color: #5fb9f1;
+}
+.share-page ul li.twitter span.share-count:after {
+    border-color: transparent transparent transparent #5fb9f1;
+}
+.share-page ul li.google span.share-count {
+    background-color: #9e1d1d;
+}
+.share-page ul li.google span.share-count:after {
+    border-color: transparent transparent transparent #9e1d1d;
+}
+.share-page ul li.pinterest span.share-count {
+    background-color: #c92727;
+}
+.share-page ul li.pinterest span.share-count:after {
+    border-color: transparent transparent transparent #c92727;
+}
+@media(max-width: 700px) {
+    .share-page li span.share-count {
+        margin-bottom: 5px;
+    }
+    .share-page ul li a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+@media(max-width: 450px) {
+    .share-page li span.share-count {
+        height: 46px;
+        display: flex;
+        align-items: center;
+    }
+}

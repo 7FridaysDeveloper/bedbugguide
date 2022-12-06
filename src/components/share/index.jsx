@@ -9,13 +9,16 @@ import './style.css';
 
 
 const Share = () => {
+
+    const url = window.location;
+
     return(
         <div className="share">
             <span>Share us:</span>
-            <Link to={'https://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.bedbugguide.com%2Fhow-to-identify-a-bed-bug%2F&amp;t=How%20to%20Identify%20a%20Bed%20Bug?'}><SvgFacebook/></Link>
-            <Link to={'https://twitter.com/share?url=https%3A%2F%2Fwww.bedbugguide.com%2Fhow-to-identify-a-bed-bug%2F&text=How%20to%20Identify%20a%20Bed%20Bug?&count=horizontal?'}><SvgTwitter/></Link>
-            <Link to={'https://plus.google.com/share?url=https%3A%2F%2Fwww.bedbugguide.com%2Fhow-to-identify-a-bed-bug%2F'}><SvgGoogle/></Link>
-            <Link to={'https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.bedbugguide.com%2Fhow-to-identify-a-bed-bug%2F&amp;media=&amp;description=How%20to%20Identify%20a%20Bed%20Bug?'}><SvgPinterest/></Link>
+            <Link to={`https://www.facebook.com/sharer.php?u=${url}`}><SvgFacebook/></Link>
+            <Link to={`https://twitter.com/share?url=${url}text=How%20to%20Identify%20a%20Bed%20Bug?&count=horizontal?`}><SvgTwitter/></Link>
+            <Link to={`https://plus.google.com/share?url=${url}`}><SvgGoogle/></Link>
+            <Link to={`https://pinterest.com/pin/create/button/?url=${url}`}><SvgPinterest/></Link>
 
         </div>
     )

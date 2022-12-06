@@ -123,3 +123,26 @@
 }
 
 /* end left-content */
+
+footer .popular-posts ul {
+    padding-top: 35px;
+    display: block;
+}
+footer .popular-posts ul li {
+    width: 100%;
+}
+footer .popular-posts .post-category a {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    font-style: normal;
+    color: #fff;
+    font-size: 10px;
+}
+footer .popular-posts .post-title a {
+    font-size: 14px;
+    font-weight: 400;
+}
+footer .popular-posts .post-title a:hover {
+    color:#eeeeee;
+}

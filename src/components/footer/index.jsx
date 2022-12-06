@@ -67,9 +67,8 @@ const Footer = () => {
                     </div>
                     <div className="item popular-posts">
                         <h4>Popular Posts</h4>
-                        <div className="line">
-                            <FooterPopularPost />
-                        </div>
+                        <div className="line"></div>
+                        <FooterPopularPost />
                     </div>
                     <div className="item our-step">
                         <h4>Our 3 step approach</h4>
