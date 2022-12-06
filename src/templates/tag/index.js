@@ -20,7 +20,9 @@ const TagPage = ({pageContext, data}) => {
 
 export default TagPage;
 
-export const Head = ({ data : { wpTag } }) => {
+export const Head = ({ data : { wpTag }, pageContext }) => {
+    const pageOf = pageContext.page > 1 ? ` - Page ${pageContext.page} of ${pageContext.totalPages}` : '';
+    wpTag.seo.title = `${wpTag.seo.title} ${pageOf}`
     return (
         <>
             <meta property="og:url" content={process.env.CURRENT_URL + wpTag.seo.opengraphUrl} />

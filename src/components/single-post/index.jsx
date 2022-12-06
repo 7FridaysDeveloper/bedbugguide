@@ -15,12 +15,12 @@ const SinglePost = (props) => {
     const [postSettings, setPostSettings] = useState(null);
 
     useEffect(() => {
-        fetch(`https://bedbugguide-server.a-max.uk/wp-json/posts-view/v1/${props.data?.post?.databaseId}`)
+        fetch(`${process.env.GATSBY_URL}/wp-json/posts-view/v1/${props.data?.post?.databaseId}`)
             .then(res => res.json())
             .then(setPostSettings);
 
         setTimeout(() => {
-            fetch(`https://bedbugguide-server.a-max.uk/wp-json/set-posts-view/v1/${props.data?.post?.databaseId}`)
+            fetch(`${process.env.GATSBY_URL}/wp-json/set-posts-view/v1/${props.data?.post?.databaseId}`)
                 .catch(console.log)
         }, 1000)
 
@@ -48,8 +48,13 @@ const SinglePost = (props) => {
             <SharePage/>
             <PrevNextPost previous={props.data?.previous} next={props.data?.next}/>
             <RelatedPosts posts={props.data.post?.related_posts}/>
-            <Comments count={postSettings?.comment_count}/>
-            <AddComments/>
+            {props.data.post.commentStatus === 'open' ?
+                <>
+                    <Comments count={postSettings?.comment_count} id={props.data?.post.databaseId}/>
+                    <AddComments id={props.data?.post.databaseId}/>
+                </>
+                : null}
+
         </div>
     )
 }

@@ -2,6 +2,7 @@ import React, { useReducer } from "react";
 
 const initialState = {
   headerHeight: 0,
+  modelSearch: false,
 };
 
 const ThemeContext = React.createContext(initialState);
@@ -10,6 +11,8 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "headerHeight":
       return { ...state, headerHeight: action.payload };
+    case 'modelSearch':
+      return { ...state, modelSearch: action.payload }
     default:
       throw new Error();
   }

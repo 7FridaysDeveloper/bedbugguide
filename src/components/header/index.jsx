@@ -4,7 +4,6 @@ import ThemeContext from "src/context/theme-context";
 import AnimateHeight from "react-animate-height";
 import HeaderMenu from "src/components/header/header-menu";
 import AnimatedUnderlineMenu from "src/components/header/animated-underline-menu";
-
 import MenuSvg from "src/images/svg/menu.svg";
 import SearchSvg from "src/images/svg/search.svg";
 
@@ -25,11 +24,17 @@ const Header = () => {
     }, [headerRef]);
 
 
-    const [isActive, setActive] = useState(false);
-
     const toggleClass = () => {
-        setActive(!isActive);
+        theme.dispatch({ type: 'modelSearch', payload: true })
     };
+
+    const formatToday = () => {
+        const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
+        const today  = new Date();
+
+        return (today.toLocaleDateString("en-US", options));
+
+    }
 
     return (
         <>
@@ -37,9 +42,9 @@ const Header = () => {
                 <div className="fixing">
                     <div className="top-header">
                         <div className="container-fluid-custom container">
-                            {/*<div className="time floatLeft">*/}
-                            {/*    {new Date()}*/}
-                            {/*</div>*/}
+                            <div className="time floatLeft">
+                                {formatToday()}
+                            </div>
                             <nav className="header-menu-desktop">
                                 <AnimatedUnderlineMenu />
                             </nav>

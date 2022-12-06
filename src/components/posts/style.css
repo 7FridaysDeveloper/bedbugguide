@@ -27,6 +27,10 @@
     grid-template-columns: 1fr 360px;
     grid-gap: 40px;
 }
+.blog-posts .blog-posts__loader {
+    display: flex;
+    justify-content: center;
+}
 .blog-posts .post-category > a {
     color: #e65100;
     font-size: 10px;
