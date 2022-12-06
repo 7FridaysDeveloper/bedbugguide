@@ -24,7 +24,7 @@ const BedBugs = () => {
         <div className="bed-bugs">
             <h4>HOW TO KILL BED BUGS:</h4>
             <div className="line"></div>
-            <Link to={data.wp.themeGeneralSettings.themeOptions.howToKillBedBug.url} >{parse(data.wp.themeGeneralSettings.themeOptions.howToKillBedBug.title)}</Link>
+            <Link to={data?.wp?.themeGeneralSettings?.themeOptions?.howToKillBedBug?.url} >{parse(data?.wp?.themeGeneralSettings?.themeOptions?.howToKillBedBug?.title)}</Link>
         </div>
     );
 }

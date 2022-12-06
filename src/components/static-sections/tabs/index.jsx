@@ -24,7 +24,7 @@ const Tabs = () => {
   `);
 
     const changeTab = (indexTab) => {
-        let contentText = data.wp.themeGeneralSettings.themeOptions.tabs[indexTab].text;
+        let contentText = data?.wp?.themeGeneralSettings?.themeOptions?.tabs[indexTab]?.text;
         setTabContent(contentText);
         setActive(indexTab);
     }
@@ -36,7 +36,7 @@ const Tabs = () => {
     return (
         <div className="tabs">
             <div className="left">
-                {data.wp.themeGeneralSettings.themeOptions.tabs.map(
+                {data?.wp?.themeGeneralSettings?.themeOptions?.tabs.map(
                     ({nameLabel} , index) => (
                         <button key={index} onClick={()=> changeTab(index)} className={isActive === index ? 'active': ''}>
                             {nameLabel}
