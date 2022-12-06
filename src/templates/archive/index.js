@@ -4,11 +4,7 @@ import Posts from "../../components/posts";
 import RecentComments from "../../components/recent-comments";
 import Loadable from 'react-loadable';
 import ClipLoader from "react-spinners/ClipLoader";
-
-const WordpressSearch = Loadable({
-    loader: () => import("../../components/wordpress-search"),
-    loading: ClipLoader,
-});
+import WordpressSearch from "../../components/wordpress-search";
 
 const Tabs = Loadable({
     loader: () => import("../../components/static-sections/tabs"),
