@@ -4,7 +4,7 @@ import './style.css';
 
 
 const SharePage = () => {
-    const url = window.location;
+    const url = process.env.CURRENT_URL;
     const title = "Title";
 
     return(
