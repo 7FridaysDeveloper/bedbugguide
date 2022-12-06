@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {graphql} from "gatsby";
 import Posts from "../../components/posts";
 import RecentComments from "../../components/recent-comments";
@@ -27,6 +27,15 @@ const BedBugsPosts = Loadable({
 });
 
 const ArchivePage = ({data, pageContext, location}) => {
+    const [show, setShow] = useState(false);
+    useEffect(() => {
+        const setShowBlocks = () => setShow(true)
+        addEventListener('scroll', setShowBlocks, { once: true });
+
+        setTimeout(() => {
+            setShowBlocks();
+        }, 150)
+    }, [])
 
     return (<>
             <div>
@@ -39,7 +48,7 @@ const ArchivePage = ({data, pageContext, location}) => {
                 </div>
                 <div className="footer-top-wrap">
                     <div className="container">
-                        <Tags/>
+                        {show ? <Tags/> : null }
                         <RecentComments/>
                         <BedBugsPosts/>
                         <BedBugProduct/>

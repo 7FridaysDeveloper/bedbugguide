@@ -7,14 +7,10 @@ import ClipLoader from "react-spinners/ClipLoader";
 import FooterScript from "../wp-scripts/footer-script";
 import {Helmet} from "react-helmet";
 import ThemeContext from "../context/theme-context";
+import Modal from "../components/modal";
 
 const Footer = Loadable({
     loader: () => import("../components/footer"),
-    loading: ClipLoader,
-});
-
-const Modal = Loadable({
-    loader: () => import("../components/modal"),
     loading: ClipLoader,
 });
 
