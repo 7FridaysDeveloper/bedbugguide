@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import TheContent from "../../components/the-content";
 import ReadMore from "../../components/read-more";
+import SharePage from "../../components/share-page";
 
 const Index = (props) => {
   const showSection = (props.data.page.sidebarSettings.sidebarSettings === "Show" ? true : false);
@@ -11,6 +12,7 @@ const Index = (props) => {
               <div className="grid-box">
                   <main>
                     <TheContent text={props?.data?.page?.content} title={props?.data?.page?.title} />
+                    <SharePage />
                   </main>
                   <aside>
                       {showSection === true ? <ReadMore /> : null}

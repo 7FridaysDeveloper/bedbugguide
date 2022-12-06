@@ -9,6 +9,9 @@
     display: flex;
     align-items: center;
 }
+.share-page p {
+    color: #1e1e1e;
+}
 .share-page ul li {
     display: flex;
     align-items: center;
