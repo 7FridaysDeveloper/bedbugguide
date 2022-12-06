@@ -5,7 +5,7 @@ import {navigate} from 'gatsby';
 import "./style.css";
 
 
-const Pagination = ({ currentPage, totalPage, postsPerPage, path = ''}) => {
+const Pagination = ({ currentPage, totalPage, postsPerPage, path = '/'}) => {
     const handlePageClick = async (page) => {
         const routeTo = page > 1 ?  `${path}page/${page}` : path || '/';
         await navigate(routeTo);

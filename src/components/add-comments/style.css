@@ -1,11 +1,13 @@
 .add-comments {
     padding-bottom: 60px;
 }
+
 .add-comments h2 {
     font-size: 23px;
     font-family: var(--second_font);
     color: #212121;
 }
+
 .add-comments .line {
     height: 2px;
     background: #ddd;
@@ -13,6 +15,7 @@
     position: relative;
     margin-bottom: 40px;
 }
+
 .add-comments .line:before {
     content: '';
     display: block;
@@ -23,9 +26,11 @@
     position: absolute;
     top: 0;
 }
+
 .add-comments form {
     max-width: 500px;
 }
+
 .add-comments textarea {
     color: #000;
     border: 1px solid #c6c6c6;
@@ -38,6 +43,7 @@
     color: #808080;
     outline: none;
 }
+
 .add-comments label {
     display: inline-block;
     text-transform: uppercase;
@@ -46,6 +52,7 @@
     font-weight: bold;
     margin-bottom: 8px;
 }
+
 .add-comments input {
     font-weight: 400;
     font-style: normal;
@@ -59,6 +66,7 @@
     margin-bottom: 15px;
     outline: none;
 }
+
 .add-comments #submit {
     width: auto;
     background-color: #c51818;
@@ -74,6 +82,15 @@
     transition: .3s;
     text-transform: uppercase;
 }
+
 .add-comments #submit:hover {
     opacity: .8 !important;
+}
+
+.add-comments .comments_success {
+    color: #4a934a;
+}
+
+.add-comments .comments_error {
+    color: darkred;
 }
