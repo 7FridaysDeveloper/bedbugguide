@@ -28,6 +28,7 @@ export const Head = ({ data : { wpCategory }, pageContext }) => {
     wpCategory.seo.title = `${wpCategory.seo.title} ${pageOf}`
     return (
         <>
+            <link rel="canonical" href={process.env.CURRENT_URL+wpCategory.uri}/>
             <meta property="og:url" content={process.env.CURRENT_URL + wpCategory.seo.opengraphUrl} />
             <Seo
                 postSchema={JSON.parse(wpCategory.seo?.schema?.raw)}
@@ -66,6 +67,7 @@ export const pageQuery = graphql`
         }
         count
         name
+        uri
     }
     allWpPost(
       sort: { fields: [date], order: DESC }

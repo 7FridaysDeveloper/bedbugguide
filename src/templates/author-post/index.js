@@ -31,6 +31,7 @@ export const Head = ({data: {wpUser}, pageContext}) => {
     wpUser.seo.title = `${wpUser.seo.title} ${pageOf}`
     return (
         <>
+            <link rel="canonical" href={process.env.CURRENT_URL+wpUser.uri}/>
             <Seo
                 postSchema={JSON.parse(wpUser.seo?.schema?.raw)}
                 post={wpUser}
@@ -45,6 +46,7 @@ export const pageQuery = graphql`
   wpUser(databaseId: {eq: $catId}) {
     id
     name
+    uri
     seo {
       metaDesc
       metaRobotsNofollow

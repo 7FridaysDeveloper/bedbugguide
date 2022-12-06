@@ -41,9 +41,11 @@ const Post = (props) => {
 export default Post;
 
 export const Head = ({data}) => {
+    console.log(data)
     const opengraphImage = data.post.seo?.opengraphImage
     return (
         <>
+            <link rel="canonical" href={process.env.CURRENT_URL+data.post.uri}/>
             <meta property="article:published_time" content={ data.post?.dateGmt}/>
             <meta property="article:modified_time" content={data.post?.modifiedGmt}/>
             <meta property="og:image" content={process.env.CURRENT_URL + opengraphImage?.publicUrl} />

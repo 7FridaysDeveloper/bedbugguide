@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React from "react";
 import {graphql} from "gatsby";
 import Posts from "../../components/posts";
 import RecentComments from "../../components/recent-comments";
@@ -27,12 +27,7 @@ const BedBugsPosts = Loadable({
 });
 
 const ArchivePage = ({data, pageContext, location}) => {
-    const [showPosts, setShowPosts] = useState(false);
-    useLayoutEffect(() => {
-        setShowPosts(true)
-    },[])
 
-    if(showPosts === false) return null
     return (<>
             <div>
                 {location.search === '' ?
@@ -61,6 +56,7 @@ export const Head = ({data: {wp}, location, pageContext}) => {
     const pageOf = pageContext.page > 1 ? `Page ${pageContext.page} of ${pageContext.totalPages}` : '';
     return (
         <>
+            <link rel="canonical" href={process.env.CURRENT_URL}/>
             {!location.pathname.includes('?s=') ?  <title>{`${wp.allSettings?.generalSettingsTitle} ${pageOf} ${wp.allSettings?.generalSettingsDescription}`}</title> : <title>You searched for  a - {wp.allSettings?.generalSettingsTitle}</title>}
             <meta name="description" content={wp.allSettings?.generalSettingsDescription}/>
             <meta name="og:description" content={wp.allSettings?.generalSettingsDescription}/>

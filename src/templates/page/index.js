@@ -52,6 +52,7 @@ export default Index;
 export const Head = ({ data: { page }}) => {
     return (
         <>
+            <link rel="canonical" href={process.env.CURRENT_URL+page.uri}/>
             <meta property="og:url" content={process.env.CURRENT_URL + page.seo.opengraphUrl} />
             <Seo
                 postSchema={JSON.parse(page.seo?.schema?.raw)}
@@ -94,6 +95,7 @@ export const pagesQuery = graphql`
       title
       content
       databaseId
+      uri
       commentStatus
       sidebarSettings {
           fieldGroupName
