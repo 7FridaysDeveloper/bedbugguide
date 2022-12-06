@@ -36,7 +36,6 @@ const restApiToGraphql = (post) => {
     }
 }
 export default function WordpressSearch({search, path, seo}) {
-    console.log(seo)
     const [loading, setLoading] = useState(true);
 
     const page = Number(path.replace(/\D+/g, '')) || 1;

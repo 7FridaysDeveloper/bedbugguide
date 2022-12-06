@@ -7,6 +7,9 @@ const ArchivePage = ({pageContext, data}) => {
     return (
         <>
             <div>
+                <div className="container">
+                    <h2 className="page_title_archive">Category Archives: {data.wpCategory?.name} </h2>
+                </div>
                 <Posts
                     slug={pageContext.uri}
                     posts={data.allWpPost.nodes}
@@ -62,6 +65,7 @@ export const pageQuery = graphql`
           twitterTitle
         }
         count
+        name
     }
     allWpPost(
       sort: { fields: [date], order: DESC }
