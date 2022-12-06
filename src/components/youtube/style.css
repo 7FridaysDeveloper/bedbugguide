@@ -1,6 +1,7 @@
 .youtube-component {
     position: relative;
     background: #000000;
+    max-width: 100%;
 }
 .youtube-component div,
 .youtube-component img {

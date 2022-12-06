@@ -9,6 +9,7 @@ import AddComments from "../add-comments";
 import Comments from "../comments";
 import YouTubeLazy from "../youtube";
 import {youtubeParser} from '../../util/helpers'
+import SharePage from "../share-page";
 
 const SinglePost = (props) => {
     const [postSettings, setPostSettings] = useState(null);
@@ -44,10 +45,7 @@ const SinglePost = (props) => {
                 }
             })}</div>
             <Tags tags={props.data.post.tags}/>
-            <div className="share">
-                <p>Does anyone you know battle with bed bugs? Share us with them:</p>
-                <div className="line black"></div>
-            </div>
+            <SharePage/>
             <PrevNextPost previous={props.data?.previous} next={props.data?.next}/>
             <RelatedPosts posts={props.data.post?.related_posts}/>
             <Comments count={postSettings?.comment_count}/>

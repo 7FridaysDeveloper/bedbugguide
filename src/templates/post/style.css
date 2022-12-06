@@ -72,12 +72,11 @@
 .single-post .text-content a:hover {
     color: #c51818;
 }
-
-.share {
-    color: #1e1e1e;
-}
 @media (max-width: 991px) {
     .single-post .grid-box {
         display: block;
+    }
+    .single-post h1 {
+        font-size: 30px;
     }
 }
