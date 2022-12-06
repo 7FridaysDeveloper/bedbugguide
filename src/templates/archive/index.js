@@ -4,7 +4,16 @@ import Posts from "../../components/posts";
 import RecentComments from "../../components/recent-comments";
 import Loadable from 'react-loadable';
 import ClipLoader from "react-spinners/ClipLoader";
-import Tabs from "../../components/static-sections/tabs";
+
+const WordpressSearch = Loadable({
+    loader: () => import("../../components/wordpress-search"),
+    loading: ClipLoader,
+});
+
+const Tabs = Loadable({
+    loader: () => import("../../components/static-sections/tabs"),
+    loading: ClipLoader,
+});
 
 const Tags = Loadable({
     loader: () => import("../../components/tags"),
@@ -21,19 +30,22 @@ const BedBugsPosts = Loadable({
     loading: ClipLoader,
 });
 
-const ArchivePage = ({ data, pageContext }) => {
+const ArchivePage = ({data, pageContext, location}) => {
     return (<>
             <div>
-                <Posts posts={data.allWpPost.nodes} pageContext={pageContext}/>
+                {location.search === '' ?
+                    <Posts posts={data.allWpPost.nodes} pageContext={pageContext}/> :
+                    <WordpressSearch search={location.search} path={location.pathname} seo={data.wp.allSettings?.generalSettingsTitle}/>
+                }
                 <div className="container">
-                    <Tabs />
+                    <Tabs/>
                 </div>
                 <div className="footer-top-wrap">
                     <div className="container">
-                        <Tags />
-                        <RecentComments />
-                        <BedBugsPosts />
-                        <BedBugProduct />
+                        <Tags/>
+                        <RecentComments/>
+                        <BedBugsPosts/>
+                        <BedBugProduct/>
                     </div>
                 </div>
             </div>
@@ -43,10 +55,11 @@ const ArchivePage = ({ data, pageContext }) => {
 
 export default ArchivePage;
 
-export const Head = ({ data: { wp }}) => {
+export const Head = ({data: {wp}, location, pageContext}) => {
+    const pageOf = pageContext.page > 1 ? `Page ${pageContext.page} of ${pageContext.totalPages}` : '';
     return (
         <>
-            <title>{`${wp.allSettings?.generalSettingsTitle} ${wp.allSettings?.generalSettingsDescription}`}</title>
+            {!location.pathname.includes('?s=') ?  <title>{`${wp.allSettings?.generalSettingsTitle} ${pageOf} ${wp.allSettings?.generalSettingsDescription}`}</title> : <title>You searched for  a - {wp.allSettings?.generalSettingsTitle}</title>}
             <meta name="description" content={wp.allSettings?.generalSettingsDescription}/>
             <meta name="og:description" content={wp.allSettings?.generalSettingsDescription}/>
             <meta name="og:title" content={wp.allSettings?.generalSettingsTitle}/>

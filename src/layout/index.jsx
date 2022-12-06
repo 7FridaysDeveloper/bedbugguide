@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import {useStaticQuery, graphql} from "gatsby";
 import Header from "src/components/header";
 import Seo, {SEOContext} from 'gatsby-plugin-wpgraphql-seo';
@@ -6,16 +6,22 @@ import Loadable from 'react-loadable';
 import ClipLoader from "react-spinners/ClipLoader";
 import FooterScript from "../wp-scripts/footer-script";
 import {Helmet} from "react-helmet";
+import ThemeContext from "../context/theme-context";
 
 const Footer = Loadable({
     loader: () => import("../components/footer"),
     loading: ClipLoader,
 });
 
+const Modal = Loadable({
+    loader: () => import("../components/modal"),
+    loading: ClipLoader,
+});
+
 import "../styles/global.css";
 
-const Index = ({children, ...rest}) => {
-    console.log(rest)
+const Index = ({children}) => {
+    const theme = useContext(ThemeContext);
     const {
         wp,
     } = useStaticQuery(graphql`
@@ -108,6 +114,7 @@ const Index = ({children, ...rest}) => {
     return (
         <>
             <FooterScript/>
+            { theme?.state?.modelSearch ? <Modal/> : null }
             <Header/>
             <SEOContext.Provider value={wp}>
                 {children}

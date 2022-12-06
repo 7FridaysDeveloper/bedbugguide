@@ -15,7 +15,7 @@ const Post = ({title, featuredImage, uri, categories, excerpt, index}) => {
                     {categories.nodes.slice(0, 4).map((cat, index, array) => (
                         <Link to={cat.uri} key={cat.id}>{cat.name} {index < array.length - 1 ? ',' : null}</Link>
                     ))}
-                    <h3><Link to={uri} partiallyActive={true}>{title}</Link></h3>
+                    <h3><Link to={uri} partiallyActive={true}>{parse(title)}</Link></h3>
                     <div className="excerpt">
                         {parse(excerpt)}
                     </div>

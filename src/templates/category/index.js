@@ -20,7 +20,9 @@ const ArchivePage = ({pageContext, data}) => {
 
 export default ArchivePage;
 
-export const Head = ({ data : { wpCategory } }) => {
+export const Head = ({ data : { wpCategory }, pageContext }) => {
+    const pageOf = pageContext.page > 1 ? ` - Page ${pageContext.page} of ${pageContext.totalPages}` : '';
+    wpCategory.seo.title = `${wpCategory.seo.title} ${pageOf}`
     return (
         <>
             <meta property="og:url" content={process.env.CURRENT_URL + wpCategory.seo.opengraphUrl} />

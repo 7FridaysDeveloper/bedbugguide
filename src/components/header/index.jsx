@@ -4,7 +4,6 @@ import ThemeContext from "src/context/theme-context";
 import AnimateHeight from "react-animate-height";
 import HeaderMenu from "src/components/header/header-menu";
 import AnimatedUnderlineMenu from "src/components/header/animated-underline-menu";
-
 import MenuSvg from "src/images/svg/menu.svg";
 import SearchSvg from "src/images/svg/search.svg";
 
@@ -25,10 +24,8 @@ const Header = () => {
     }, [headerRef]);
 
 
-    const [isActive, setActive] = useState(false);
-
     const toggleClass = () => {
-        setActive(!isActive);
+        theme.dispatch({ type: 'modelSearch', payload: true })
     };
 
     const formatToday = () => {

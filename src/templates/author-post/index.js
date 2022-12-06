@@ -20,13 +20,16 @@ const AuthorPage = ({pageContext, data }) => {
 
 export default AuthorPage;
 
-export const Head = ({ data : { wpUser } }) => {
+export const Head = ({ data : { wpUser }, pageContext }) => {
+    const pageOf = pageContext.page > 1 ? ` - Page ${pageContext.page} of ${pageContext.totalPages}` : '';
+    wpUser.seo.title = `${wpUser.seo.title} ${pageOf}`
     return (
         <>
             <Seo
                 postSchema={JSON.parse(wpUser.seo?.schema?.raw)}
                 post={wpUser}
             />
+            <title>{wpUser.seo.title} {pageOf}</title>
         </>
     );
 }
