@@ -31,15 +31,23 @@ const Header = () => {
         setActive(!isActive);
     };
 
+    const formatToday = () => {
+        const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
+        const today  = new Date();
+
+        return (today.toLocaleDateString("en-US", options));
+
+    }
+
     return (
         <>
             <header ref={headerRef}>
                 <div className="fixing">
                     <div className="top-header">
                         <div className="container-fluid-custom container">
-                            {/*<div className="time floatLeft">*/}
-                            {/*    {new Date()}*/}
-                            {/*</div>*/}
+                            <div className="time floatLeft">
+                                {formatToday()}
+                            </div>
                             <nav className="header-menu-desktop">
                                 <AnimatedUnderlineMenu />
                             </nav>

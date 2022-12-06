@@ -50,8 +50,13 @@ const SinglePost = (props) => {
             </div>
             <PrevNextPost previous={props.data?.previous} next={props.data?.next}/>
             <RelatedPosts posts={props.data.post?.related_posts}/>
-            <Comments count={postSettings?.comment_count} id={props.data?.post.databaseId}/>
-            <AddComments id={props.data?.post.databaseId}/>
+            {props.data.post.commentStatus === 'open' ?
+                <>
+                    <Comments count={postSettings?.comment_count} id={props.data?.post.databaseId}/>
+                    <AddComments id={props.data?.post.databaseId}/>
+                </>
+                : null}
+
         </div>
     )
 }

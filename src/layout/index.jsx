@@ -5,6 +5,7 @@ import Seo, {SEOContext} from 'gatsby-plugin-wpgraphql-seo';
 import Loadable from 'react-loadable';
 import ClipLoader from "react-spinners/ClipLoader";
 import FooterScript from "../wp-scripts/footer-script";
+import {Helmet} from "react-helmet";
 
 const Footer = Loadable({
     loader: () => import("../components/footer"),
@@ -12,6 +13,7 @@ const Footer = Loadable({
 });
 
 import "../styles/global.css";
+
 const Index = ({children}) => {
     const {
         wp,
@@ -104,16 +106,18 @@ const Index = ({children}) => {
   `);
     return (
         <>
-            <FooterScript />
-            <Header />
+            <FooterScript/>
+            <Header/>
             <SEOContext.Provider value={wp}>
                 {children}
             </SEOContext.Provider>
-             <Footer />
-            {/*    <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8"/>*/}
-            {/*    <meta property="og:locale" content={wp.seo.schema.inLanguage}/>*/}
-            {/*    <meta name="og:site_name" content={wp.allSettings.generalSettingsTitle}/>*/}
-            <Seo postSchema={JSON.parse(wp.seo.contentTypes.post.schema.raw)} />
+            <Footer/>
+            <Helmet>
+                <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8"/>
+                <meta property="og:locale" content={wp.seo.schema.inLanguage}/>
+                <meta name="og:site_name" content={wp.allSettings.generalSettingsTitle}/>
+                <Seo postSchema={JSON.parse(wp.seo.contentTypes.post.schema.raw)}/>
+            </Helmet>
             <div id="footer-script"></div>
         </>
     );

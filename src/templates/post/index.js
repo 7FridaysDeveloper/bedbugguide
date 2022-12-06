@@ -46,7 +46,7 @@ export const Head = ({data}) => {
         <>
             <meta property="article:published_time" content={ data.post.dateGmt}/>
             <meta property="article:modified_time" content={data.post.modifiedGmt}/>
-            <meta property="og:image" content={process.env.CURRENT_URL + opengraphImage.publicUrl} />
+            <meta property="og:image" content={process.env.CURRENT_URL + opengraphImage?.publicUrl} />
             <meta property="og:image:width" content={opengraphImage.width} />
             <meta property="og:image:height" content={opengraphImage.height} />
             <meta property="og:image:type" content={opengraphImage.mimeType} />
@@ -109,6 +109,7 @@ export const pageQuery = graphql`
       modifiedGmt
       dateGmt
       uri
+      commentStatus
       excerpt
       title
       categories {

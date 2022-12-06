@@ -4,6 +4,7 @@ import TheContent from "../../components/the-content";
 import ReadMore from "../../components/read-more";
 import Loadable from "react-loadable";
 import ClipLoader from "react-spinners/ClipLoader";
+import Seo from "gatsby-plugin-wpgraphql-seo";
 
 const Comments = Loadable({
     loader: () => import("../../components/comments"),
@@ -18,7 +19,6 @@ const AddComments = Loadable({
 const Index = (props) => {
     const showSection = (props.data.page.sidebarSettings.sidebarSettings === "Show" ? true : false);
     const [postSettings, setPostSettings] = useState(null);
-
     useEffect(() => {
         fetch(`${process.env.GATSBY_URL}/wp-json/posts-view/v1/${props.data?.page?.databaseId}`)
             .then(res => res.json())
@@ -35,7 +35,7 @@ const Index = (props) => {
                     <aside>
                         {showSection === true ? <ReadMore/> : null}
                     </aside>
-                    {props.data.page?.databaseId === 380 ?
+                    {props.data.page.commentStatus === 'open' ?
                         <>
                             <Comments count={postSettings?.comment_count} id={props.data?.page.databaseId} type={'page'}/>
                             <AddComments id={props.data?.page.databaseId}/>
@@ -49,15 +49,52 @@ const Index = (props) => {
 
 export default Index;
 
+export const Head = ({ data: { page }}) => {
+    return (
+        <>
+            <meta property="og:url" content={process.env.CURRENT_URL + page.seo.opengraphUrl} />
+            <Seo
+                postSchema={JSON.parse(page.seo?.schema?.raw)}
+                post={page}
+            />
+        </>
+    );
+}
 
 export const pagesQuery = graphql`
   query PageById(
     $id: String!
   ) {
     page: wpPage(id: { eq: $id }) {
+       seo {
+          canonical
+          cornerstone
+          focuskw
+          metaDesc
+          metaKeywords
+          metaRobotsNofollow
+          metaRobotsNoindex
+          opengraphAuthor
+          opengraphDescription
+          opengraphModifiedTime
+          opengraphPublishedTime
+          opengraphPublisher
+          opengraphSiteName
+          opengraphTitle
+          opengraphType
+          opengraphUrl
+          readingTime
+          title
+          twitterDescription
+          twitterTitle
+          schema {
+            raw
+          }
+      }
       title
       content
       databaseId
+      commentStatus
       sidebarSettings {
           fieldGroupName
           sidebarSettings
