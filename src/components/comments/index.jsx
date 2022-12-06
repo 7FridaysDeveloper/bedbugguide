@@ -3,7 +3,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import parse from "html-react-parser";
 import './style.css';
 
-const Comments = ({ count = '0', id}) => {
+const Comments = ({ count = '0', id, type = 'post'}) => {
     if (count === '0') return null;
 
     const [comments, setComments] = useState([]);
@@ -12,7 +12,7 @@ const Comments = ({ count = '0', id}) => {
     const [hideShowMore, setHideShowMore] = useState(true);
 
     useEffect(() => {
-        fetch(`${process.env.GATSBY_API_URL}/comments?post=${id}&page=${currentPage}`)
+        fetch(`${process.env.GATSBY_API_URL}/comments?post=${id}&${type}=${currentPage}`)
             .then(res => {
                 if(Number(res.headers.get('x-wp-totalpages')) === currentPage) {
                     setHideShowMore(false);

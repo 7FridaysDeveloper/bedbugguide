@@ -8,7 +8,7 @@ import Tags from "../tags";
 
 
 
-const Posts = ({posts, pageContext, children, slug}) => {
+const Posts = ({posts, pageContext, children, slug = '/'}) => {
     return (
         <section className="blog-posts">
             <div className="container">

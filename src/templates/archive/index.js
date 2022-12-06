@@ -24,7 +24,7 @@ const BedBugsPosts = Loadable({
 const ArchivePage = ({ data, pageContext }) => {
     return (<>
             <div>
-                <Posts posts={data.allWpPost.nodes} pageContext={pageContext} slug={''}/>
+                <Posts posts={data.allWpPost.nodes} pageContext={pageContext}/>
                 <div className="container">
                     <Tabs />
                 </div>

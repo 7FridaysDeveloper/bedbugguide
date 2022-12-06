@@ -50,7 +50,7 @@ const SinglePost = (props) => {
             </div>
             <PrevNextPost previous={props.data?.previous} next={props.data?.next}/>
             <RelatedPosts posts={props.data.post?.related_posts}/>
-            <Comments count={postSettings?.comment_count} id={props.data?.post.databaseId}/>
+            <Comments count={postSettings?.comment_count} id={props.data?.page.databaseId}/>
             <AddComments id={props.data?.post.databaseId}/>
         </div>
     )
