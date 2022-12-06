@@ -6,7 +6,6 @@ import {navigate} from 'gatsby';
 import "./style.css";
 
 const Pagination = ({ currentPage, totalPage, postsPerPage, path = '/', changePagination}) => {
-    console.log(currentPage, totalPage, postsPerPage)
     const handlePageClick = async (page) => {
 
         if(changePagination === null) {

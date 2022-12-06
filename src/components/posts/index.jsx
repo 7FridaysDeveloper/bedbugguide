@@ -8,12 +8,13 @@ import ClipLoader from "react-spinners/ClipLoader";
 
 import "./style.css";
 
-const Posts = ({posts, pageContext, children, slug = '/', changePagination = null, loading = false}) => {
+const Posts = ({posts, pageContext, children, slug = '/', changePagination = null, loading = false, html}) => {
     return (
         <section className="blog-posts">
             <div className="container">
                 <div className="grid-box">
                     <div className="left-wrapper">
+                        {html}
                         {loading ? <div className="blog-posts__loader"><ClipLoader /></div> :
                             <>
                                 {posts.map(

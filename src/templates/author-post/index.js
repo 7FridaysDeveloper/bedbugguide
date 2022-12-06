@@ -3,11 +3,17 @@ import {graphql} from "gatsby";
 import Posts from "../../components/posts";
 import Seo from "gatsby-plugin-wpgraphql-seo";
 
-const AuthorPage = ({pageContext, data }) => {
+const AuthorPage = ({pageContext, data}) => {
     return (
         <>
             <div>
                 <Posts
+                    html={<>
+                        <h2 className="page_title_archive-author">{data.wpUser.name}</h2>
+                        <div className="page_wrapper_subtitle_archive-author">
+                            <h4 className="page_subtitle_archive-author">All Posts from {data.wpUser.name}</h4>
+                        </div>
+                    </>}
                     slug={pageContext.uri}
                     posts={data.allWpPost.nodes}
                     pageContext={pageContext}
@@ -20,7 +26,7 @@ const AuthorPage = ({pageContext, data }) => {
 
 export default AuthorPage;
 
-export const Head = ({ data : { wpUser }, pageContext }) => {
+export const Head = ({data: {wpUser}, pageContext}) => {
     const pageOf = pageContext.page > 1 ? ` - Page ${pageContext.page} of ${pageContext.totalPages}` : '';
     wpUser.seo.title = `${wpUser.seo.title} ${pageOf}`
     return (
@@ -38,6 +44,7 @@ export const pageQuery = graphql`
   query MyQueryUser($offset: Int!, $postsPerPage: Int!, $catId: Int!) {
   wpUser(databaseId: {eq: $catId}) {
     id
+    name
     seo {
       metaDesc
       metaRobotsNofollow
