@@ -14,7 +14,8 @@ const Footer = Loadable({
 
 import "../styles/global.css";
 
-const Index = ({children}) => {
+const Index = ({children, ...rest}) => {
+    console.log(rest)
     const {
         wp,
     } = useStaticQuery(graphql`
@@ -116,8 +117,8 @@ const Index = ({children}) => {
                 <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8"/>
                 <meta property="og:locale" content={wp.seo.schema.inLanguage}/>
                 <meta name="og:site_name" content={wp.allSettings.generalSettingsTitle}/>
-                <Seo postSchema={JSON.parse(wp.seo.contentTypes.post.schema.raw)}/>
             </Helmet>
+            <Seo postSchema={JSON.parse(wp.seo.contentTypes.post.schema.raw)}/>
             <div id="footer-script"></div>
         </>
     );

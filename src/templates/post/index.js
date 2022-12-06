@@ -44,13 +44,13 @@ export const Head = ({data}) => {
     const opengraphImage = data.post.seo?.opengraphImage
     return (
         <>
-            <meta property="article:published_time" content={ data.post.dateGmt}/>
-            <meta property="article:modified_time" content={data.post.modifiedGmt}/>
+            <meta property="article:published_time" content={ data.post?.dateGmt}/>
+            <meta property="article:modified_time" content={data.post?.modifiedGmt}/>
             <meta property="og:image" content={process.env.CURRENT_URL + opengraphImage?.publicUrl} />
-            <meta property="og:image:width" content={opengraphImage.width} />
-            <meta property="og:image:height" content={opengraphImage.height} />
-            <meta property="og:image:type" content={opengraphImage.mimeType} />
-            <Seo post={data.post} postSchema={data.post.seo.schema.raw}/>
+            <meta property="og:image:width" content={opengraphImage?.width} />
+            <meta property="og:image:height" content={opengraphImage?.height} />
+            <meta property="og:image:type" content={opengraphImage?.mimeType} />
+            <Seo post={data.post} postSchema={data.post?.seo?.schema?.raw}/>
         </>
     )
 }
