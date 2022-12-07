@@ -14,3 +14,10 @@ export function youtubeParser(url){
   var match = url.match(regExp);
   return (match&&match[7].length==11)? match[7] : false;
 }
+
+
+export const formatToday = () => {
+  const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
+  const today  = new Date();
+  return (today.toLocaleDateString("en-US", options));
+}

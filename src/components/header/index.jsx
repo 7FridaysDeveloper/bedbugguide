@@ -6,6 +6,7 @@ import HeaderMenu from "src/components/header/header-menu";
 import AnimatedUnderlineMenu from "src/components/header/animated-underline-menu";
 import MenuSvg from "src/images/svg/menu.svg";
 import SearchSvg from "src/images/svg/search.svg";
+import { formatToday } from "../../util/helpers";
 
 import "./style.css";
 
@@ -27,14 +28,6 @@ const Header = () => {
     const toggleClass = () => {
         theme.dispatch({ type: 'modelSearch', payload: true })
     };
-
-    const formatToday = () => {
-        const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
-        const today  = new Date();
-
-        return (today.toLocaleDateString("en-US", options));
-
-    }
 
     return (
         <>

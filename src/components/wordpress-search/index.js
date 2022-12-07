@@ -67,7 +67,7 @@ export default function WordpressSearch({search, path, seo}) {
         await navigate(routeTo);
     }
     return (
-        <>
+        <div>
             <Helmet>
                 {<title>You searched for  a {paginationSettings.page > 1 ? `Page ${paginationSettings.page} of ${paginationSettings.totalPages}` : ''} - {seo}</title>}
             </Helmet>
@@ -75,6 +75,6 @@ export default function WordpressSearch({search, path, seo}) {
                 <h2 className="page_title_archive">Search Results for: {search.replace('?s=', '')} </h2>
             </div>
             <Posts posts={posts} loading={loading} pageContext={paginationSettings} changePagination={changePage}/>
-        </>
+        </div>
     )
 }

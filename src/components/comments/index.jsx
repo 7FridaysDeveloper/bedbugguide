@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import parse from "html-react-parser";
+import dayjs from "dayjs";
 import './style.css';
 
 const Comments = ({ count = '0', id }) => {
@@ -33,8 +34,8 @@ const Comments = ({ count = '0', id }) => {
                 <h2>{count} COMMENTS</h2>
                 <div className="line"></div>
                 {comments.map(comment => (
-                    <div className="item" key={comments.id}>
-                        <div className="date">1{comment.date}</div>
+                    <div className="item" key={comment.id}>
+                        <div className="date">{dayjs(comment.date).format('D MMM, h:s A')}</div>
                         <h5 className="name">{comment.author_name}</h5>
                         <div className="text">
                             {parse(comment.content?.rendered || '')}

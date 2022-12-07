@@ -26,19 +26,14 @@
     opacity: 1!important;
 }
 :root {
-    --main_color:#212121;
-    --bg_header: #212121;
     --link_color: #e65100;
     --second_color: #2f3643;
     --second_dark_color: #3f4755;
     --third_dark_color: #667185;
     --light_color: #edf3f6;
-    --hover_color: #ffa32b;
     --second_hover_color: #fff;
-    --title_color: #2f3643;
     --nav_color:#9E9E9E;
     --nav_color_hover:#fff;
-    --text_color: #757575;
     --text_resp_color: #fff;
     --big_bord_rad: 160px;
     --med_bord_rad: 100px;
