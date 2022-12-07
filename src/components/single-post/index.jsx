@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useRef} from "react";
 import parse from "html-react-parser";
 import SingleCategory from "../single-category";
 import Statistic from "../single-statistic";
@@ -10,9 +10,14 @@ import Comments from "../comments";
 import YouTubeLazy from "../youtube";
 import {youtubeParser} from '../../util/helpers'
 import SharePage from "../share-page";
+import ModalImg from "../modal-img/index"
 
+//eslint-disable-next-line
+const regex = new RegExp(/^(http(s)?:\/\/)[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/);
 const SinglePost = (props) => {
     const [postSettings, setPostSettings] = useState(null);
+    const postBodyRef = useRef(null);
+    const [isOpenModalImg, setIsOpenModalImg] = useState('');
 
     useEffect(() => {
         fetch(`${process.env.GATSBY_URL}/wp-json/posts-view/v1/${props.data?.post?.databaseId}`)
@@ -25,14 +30,31 @@ const SinglePost = (props) => {
         }, 1000)
 
     }, [])
+
+    const openModalImg = (e) => {
+        const target = e.target;
+        if(target.parentNode?.nodeName === 'A' && target.parentNode?.href.match(regex)) return;
+        e.preventDefault();
+        const srcset = target.closest('[data-gatsby-image-wrapper]')?.querySelector('div > img:not([role="presentation"])')?.srcset;
+        const img = srcset ? srcset : target.src;
+        if(img) {
+            setIsOpenModalImg(img)
+        }
+    }
+
+    useEffect(() => {
+        postBodyRef.current.addEventListener('click', openModalImg, false)
+        return () =>  postBodyRef.current.removeEventListener('click', openModalImg, false)
+    }, [])
     return (
         <div className="left-content">
+            {isOpenModalImg ? <ModalImg src={isOpenModalImg} close={setIsOpenModalImg} /> : null }
             <SingleCategory categories={props.data?.post?.categories?.nodes}/>
             <h1 className="post-title">{props.data?.post?.title}</h1>
             <div className="line"></div>
             <Statistic author={props.data?.post?.author?.node} date={props.data?.post?.date}
                        postSettings={postSettings}/>
-            <div className="text-content">{parse(props.data?.post?.content || '', {
+            <div className="text-content" ref={postBodyRef}>{parse(props.data?.post?.content || '', {
                 replace: domNode => {
                     if (domNode.name === 'iframe' && youtubeParser(domNode.attribs.src)) {
                         return (

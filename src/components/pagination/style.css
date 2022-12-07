@@ -6,6 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    padding-left: 0;
 }
 .pagination-wrapper .wrap a {
     padding: 10px;
@@ -20,5 +21,22 @@
     background: #c51818;
     border-color: #c51818;
     color: #fff;
+    margin: 0 3px;
+}
+.pagination-wrapper .list.disabled {
+    display: none;
+}
+.pagination-wrapper .flex-pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.pagination-wrapper .flex-pagination div.list {
+    padding: 10px;
+    color: #000;
+    display: inline-block;
+    border: solid 1px #ddd;
+    line-height: 100%;
+    text-align: center;
     margin: 0 3px;
 }

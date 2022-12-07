@@ -13,6 +13,9 @@
     grid-template-columns: 1fr 365px;
     grid-gap: 30px;
 }
+.single-post .gatsby-image-wrapper a {
+    display: none;
+}
 .line {
     height: 3px;
     width: 100%;
