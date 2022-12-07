@@ -48,7 +48,13 @@ const Tabs = () => {
             <div className="right">
                 <div className="text-content">
                     <div className="content-tab">
-                        {parse(tabContent)}
+                        {parse(tabContent, {
+                            replace: (domNode) => {
+                                if(domNode.name === 'img') {
+                                    domNode.attribs.loading = 'lazy';
+                                }
+                            }
+                        })}
                     </div>
                 </div>
             </div>

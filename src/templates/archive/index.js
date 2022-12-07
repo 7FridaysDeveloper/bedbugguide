@@ -10,8 +10,6 @@ import BedBugProduct from "../../components/bed-bug-products"
 import BedBugsPosts from "../../components/bed-bugs-recent-posts";
 
 const ArchivePage = ({data, pageContext, location}) => {
-
-
     return (<>
             <div>
                 {location.search === '' ?

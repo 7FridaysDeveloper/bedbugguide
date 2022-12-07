@@ -5,6 +5,8 @@ import ReadMore from "../../components/read-more";
 import Loadable from "react-loadable";
 import ClipLoader from "react-spinners/ClipLoader";
 import Seo from "gatsby-plugin-wpgraphql-seo";
+import parse from "html-react-parser";
+import txt from '/static/1.txt'
 
 const Comments = Loadable({
     loader: () => import("../../components/comments"),
@@ -15,11 +17,16 @@ const AddComments = Loadable({
     loading: ClipLoader,
 });
 
-
+const txtimport = (name) => import(`/static/${name}.txt`).then((e) => {
+    console.log(e)
+})
 const Index = (props) => {
+    console.log(txt)
+
     const showSection = (props.data.page.sidebarSettings.sidebarSettings === "Show" ? true : false);
     const [postSettings, setPostSettings] = useState(null);
     useEffect(() => {
+        txtimport('1');
         fetch(`${process.env.GATSBY_URL}/wp-json/posts-view/v1/${props.data?.page?.databaseId}`)
             .then(res => res.json())
             .then(setPostSettings);
@@ -30,6 +37,7 @@ const Index = (props) => {
             <div className="container">
                 <div className="grid-box">
                     <main>
+                        {parse(txt)}
                         <TheContent text={props?.data?.page?.content} title={props?.data?.page?.title}/>
                     </main>
                     <aside>
