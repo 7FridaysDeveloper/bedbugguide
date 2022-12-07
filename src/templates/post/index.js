@@ -12,6 +12,7 @@ import Seo from "gatsby-plugin-wpgraphql-seo";
 import './style.css';
 
 
+
 const Post = (props) => {
     return (
         <div className="single-post">

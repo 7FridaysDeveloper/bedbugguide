@@ -17,7 +17,6 @@ const About = () => {
     }
   `);
 
-
     return(
         <div className="about">
             {parse(data.wp.themeGeneralSettings?.themeOptions?.aboutBedbugguide || '')}

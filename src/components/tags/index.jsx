@@ -22,7 +22,7 @@ const Tags = ({tags = null}) => {
             <h4>tags</h4>
             <div className="line"></div>
             <div className="tags-wrap">
-                {dataTags.nodes.map(
+                {dataTags?.nodes?.map(
                     ({uri, name, count}) => (
                         <a href={uri} key={uri} style={{fontSize: (count > 12) ? count / 2.4 : 12}}>
                             {name}

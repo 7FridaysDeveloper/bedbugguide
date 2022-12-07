@@ -18,6 +18,7 @@ const ArchivePage = ({data, pageContext, location}) => {
                     <WordpressSearch search={location.search} path={location.pathname} seo={data.wp.allSettings?.generalSettingsTitle}/>
                 }
                 <div className="container">
+                    <About/>
                     <Tabs/>
                 </div>
                 <div className="footer-top-wrap">

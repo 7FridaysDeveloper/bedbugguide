@@ -1,28 +1,32 @@
 import React from "react";
 import {Link} from "gatsby";
+import SvgFacebook from '../../images/svg/fb.svg';
+import SvgTwitter from '../../images/svg/twitter.svg';
+import SvgGoogle from '../../images/svg/google.svg';
+import SvgPinterest from '../../images/svg/pinterest.svg';
 import './style.css';
 
 
-const SharePage = () => {
+const SharePage = ({image , title}) => {
     const url = process.env.CURRENT_URL;
-    const title = "Title";
-
+    let imageSrc = image?.node?.localFile?.childImageSharp?.gatsbyImageData?.images?.fallback?.src;
+    const imageURL = imageSrc !== undefined ? url + imageSrc : '';
     return(
         <div className="share-page">
             <p>Does anyone you know battle with bed bugs? Share us with them:</p>
             <div className="line black"></div>
             <ul>
                 <li className="facebook">
-                    <Link target="_blank" to={`https://www.facebook.com/sharer/sharer.php?u=${url}`}><span className="share-count">Shares: 34.7k </span> Facebook</Link>
+                    <Link target="_blank" to={`https://www.facebook.com/sharer/sharer.php?u=${url}`}><span className="share-count"><SvgFacebook/> Shares: 34.7k </span> Facebook</Link>
                 </li>
                 <li className="twitter">
-                    <Link target="_blank" to={`https://twitter.com/intent/tweet?url=${url}&text=${title}&count=horizontal`}><span className="share-count">Shares: 35 </span> Twitter</Link>
+                    <Link target="_blank" to={`https://twitter.com/intent/tweet?url=${url}&text=${title}&count=horizontal`}><span className="share-count"><SvgTwitter/> Shares: 35 </span> Twitter</Link>
                 </li>
                 <li className="google">
-                    <Link target="_blank" to={`https://plus.google.com/share?url=${url}`}><span className="share-count"> Shares: 119 </span> Google+</Link>
+                    <Link target="_blank" to={`https://plus.google.com/share?url=${url}`}><span className="share-count"><SvgGoogle /> Shares: 119 </span> Google+</Link>
                 </li>
                 <li className="pinterest">
-                    <Link target="_blank" to={`https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.bedbugguide.com%2Fhow-to-identify-a-bed-bug%2F&amp;media=https://www.bedbugguide.com/wp-content/uploads/2022/11/3229987793_enormous_bug_zoomed_under_the_magnifying_glass__on_a_bedroom_mattress_-2.png&amp;description=How%20to%20Identify%20a%20Bed%20Bug?`}><span className="share-count"> Shares: 213 </span> Pinterest+</Link>
+                    <Link target="_blank" to={`https://pinterest.com/pin/create/button/?url=${url}&amp;media=${imageURL}&amp;description=${title}?`}><span className="share-count"><SvgPinterest/> Shares: 213 </span> Pinterest+</Link>
                 </li>
             </ul>
         </div>
