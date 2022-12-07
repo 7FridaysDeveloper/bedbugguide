@@ -10,6 +10,13 @@ const Comments = Loadable({
     loader: () => import("../../components/comments"),
     loading: ClipLoader,
 });
+
+
+const SharePage = Loadable({
+    loader: () => import("../../components/share-page"),
+    loading: ClipLoader,
+});
+
 const AddComments = Loadable({
     loader: () => import("../../components/add-comments"),
     loading: ClipLoader,
@@ -17,6 +24,8 @@ const AddComments = Loadable({
 
 
 const Index = (props) => {
+
+    console.log(props , '12312');
     const showSection = (props.data.page.sidebarSettings.sidebarSettings === "Show" ? true : false);
     const [postSettings, setPostSettings] = useState(null);
     useEffect(() => {
@@ -31,6 +40,7 @@ const Index = (props) => {
                 <div className="grid-box">
                     <main>
                         <TheContent text={props?.data?.page?.content} title={props?.data?.page?.title}/>
+                        <SharePage title={props.data.page.title}/>
                     </main>
                     <aside>
                         {showSection === true ? <ReadMore/> : null}
