@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useRef } from "react";
 import {graphql} from "gatsby";
+import useOnScreen from "../../hooks/usOneScreen";
 import Posts from "../../components/posts";
 import RecentComments from "../../components/recent-comments";
 import WordpressSearch from "../../components/wordpress-search";
-import Tags from "../../components/tags";
 import Tabs from "../../components/static-sections/tabs";
 import About from "../../components/static-sections/about";
 import BedBugProduct from "../../components/bed-bug-products"
 import BedBugsPosts from "../../components/bed-bugs-recent-posts";
+import Loadable from "react-loadable";
+import ClipLoader from "react-spinners/ClipLoader";
+
+
+const Tags = Loadable({
+    loader: () => import("../../components/tags"),
+    loading: ClipLoader,
+});
 
 const ArchivePage = ({data, pageContext, location}) => {
+    const tagsRef = useRef(null);
+    const isVisible = useOnScreen(tagsRef)
+
+
     return (<>
             <div>
                 {location.search === '' ?
@@ -21,8 +33,8 @@ const ArchivePage = ({data, pageContext, location}) => {
                     <Tabs/>
                 </div>
                 <div className="footer-top-wrap">
-                    <div className="container">
-                        <Tags/>
+                    <div className="container" ref={tagsRef}>
+                        {isVisible ? <Tags /> : null}
                         <RecentComments/>
                         <BedBugsPosts/>
                         <BedBugProduct/>

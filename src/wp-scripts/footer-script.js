@@ -4,8 +4,6 @@ import parse from "html-react-parser";
 import {Helmet} from "react-helmet";
 
 const FooterScript = () => {
-
-
     const {wp: {themeGeneralSettings}} = useStaticQuery(graphql`
         query FooterScript {
           wp {

@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
 }
+
 .bed-bugs-posts .cat a {
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -10,16 +11,19 @@
     font-size: 10px;
     color: #e65100;
 }
+
 .bed-bugs-posts .item:first-child h3 {
     font-size: 16px;
     color: #000;
     margin: 5px 0;
     font-weight: 700;
 }
+
 .bed-bugs-posts .flex-box {
     display: flex;
     flex-direction: column;
 }
+
 .bed-bugs-posts .item h3 {
     font-size: 14px;
     color: #000;
@@ -28,6 +32,7 @@
     margin-left: 65px;
 
 }
+
 .bed-bugs-posts .item .flex {
     display: flex;
     align-items: center;
@@ -37,21 +42,26 @@
     font-size: 13px;
     margin-bottom: 20px;
 }
+
 .bed-bugs-posts .cat {
     margin-bottom: 8px;
 }
+
 .bed-bugs-posts .item .date svg {
     width: 15px;
     flex-shrink: 0;
     margin-right: 4px;
 }
+
 .bed-bugs-posts .item .date svg path {
     fill: #a9a9a9;
 }
+
 .bed-bugs-posts .item .author a {
     font-size: 14px;
     margin-right: 12px;
 }
+
 .bed-bugs-posts .item .date {
     display: flex;
     align-items: center;

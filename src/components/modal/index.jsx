@@ -1,7 +1,8 @@
 import React, {useContext, useRef} from "react";
 import {navigate} from 'gatsby';
-import './style.css';
 import ThemeContext from "../../context/theme-context";
+
+import './style.css';
 
 const Modal = () => {
     const theme = useContext(ThemeContext);

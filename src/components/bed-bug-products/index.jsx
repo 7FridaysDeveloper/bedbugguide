@@ -1,6 +1,7 @@
 import React from "react";
 import {graphql, useStaticQuery, Link} from "gatsby";
 import SvgCalendar from "../../images/svg/calendar.svg";
+
 import './style.css';
 
 const BedBugProduct = () => {

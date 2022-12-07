@@ -1,7 +1,8 @@
 import React from "react";
-import './style.css';
 import PrevPost from "./prev-post";
 import NextPost from "./next-post";
+
+import './style.css';
 
 const PrevNextPost = ({previous , next}) => {
     return (

@@ -19,9 +19,12 @@ const Pagination = ({ currentPage, totalPage, postsPerPage, path = '/', changePa
     return (
         <div className="pagination-wrapper">
             <div className="container">
+                {totalPage > 1 ? <div className="list">Page {currentPage} of {totalPage} </div> : null}
                 {totalPage > 1 ? (
                     <PaginationJs
                        //nextPageText={<ArrowPagination />}
+                        nextPageText={'« First'}
+                        lastPageText={'Last »'}
                         hideFirstLastPages={true}
                         //prevPageText={<ArrowPagination style={{ transform: "rotate(180deg)" }} />}
                         innerClass="wrap"

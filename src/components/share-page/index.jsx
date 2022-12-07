@@ -4,8 +4,8 @@ import SvgFacebook from '../../images/svg/fb.svg';
 import SvgTwitter from '../../images/svg/twitter.svg';
 import SvgGoogle from '../../images/svg/google.svg';
 import SvgPinterest from '../../images/svg/pinterest.svg';
-import './style.css';
 
+import './style.css';
 
 const SharePage = ({image , title}) => {
     const url = process.env.CURRENT_URL;

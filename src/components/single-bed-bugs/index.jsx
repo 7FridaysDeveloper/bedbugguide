@@ -1,6 +1,7 @@
 import React from "react";
 import parse from "html-react-parser";
 import {graphql, Link, useStaticQuery} from "gatsby";
+
 import './style.css';
 
 const BedBugs = () => {

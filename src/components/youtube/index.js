@@ -1,7 +1,9 @@
 import React, {useState} from "react";
 import YouTube from 'react-youtube';
 import YoutubePlaySvg from '../../images/svg/youtube-play.svg'
+
 import './style.css'
+
 export default function YouTubeLazy({videoId, style}) {
     const [show, setShow] = useState(false);
     const showVideo = () => setShow(true);

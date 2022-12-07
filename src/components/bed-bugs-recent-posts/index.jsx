@@ -1,9 +1,9 @@
 import React from "react";
-import './style.css';
 import {graphql, useStaticQuery, Link} from "gatsby";
 //import FeaturedImage from "../posts/featured-image";
-
 import SvgCalendar from '../../images/svg/calendar.svg';
+
+import './style.css';
 
 const BedBugsPosts = () => {
     const data = useStaticQuery(graphql`

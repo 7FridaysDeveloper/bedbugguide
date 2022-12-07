@@ -9,9 +9,8 @@ import Tags from "../../components/tags";
 import BedBugsPosts from "../../components/bed-bugs-recent-posts";
 import BedBugProduct from "../../components/bed-bug-products";
 import Seo from "gatsby-plugin-wpgraphql-seo";
+
 import './style.css';
-
-
 
 const Post = (props) => {
     return (

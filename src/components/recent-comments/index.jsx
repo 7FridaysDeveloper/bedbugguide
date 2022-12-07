@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 //import ClipLoader from "react-spinners/ClipLoader";
 import {Link} from "gatsby";
 import parse from "html-react-parser";
+
 import './style.css';
 
 const RecentComments = () => {

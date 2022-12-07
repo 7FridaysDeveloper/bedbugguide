@@ -5,7 +5,6 @@ import YouTubeLazy from "../youtube";
 
 import './style.css';
 
-
 const TheContent = ({text, title}) => {
     if(!text) return null;
     return(

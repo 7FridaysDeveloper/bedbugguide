@@ -9,6 +9,7 @@
     align-items: center;
     flex-wrap: wrap;
 }
+
 .tags .line {
     height: 2px;
     background: #ddd;
@@ -16,6 +17,7 @@
     position: relative;
     margin-bottom: 40px;
 }
+
 .tags .line:after {
     content: '';
     display: block;
@@ -26,6 +28,7 @@
     position: absolute;
     top: 0;
 }
+
 .tags a {
     color: #000;
     margin-right: 5px;

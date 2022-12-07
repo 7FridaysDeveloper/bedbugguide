@@ -1,7 +1,8 @@
 import React from "react";
 import {graphql, useStaticQuery} from "gatsby";
-import './style.css';
 import parse from "html-react-parser";
+
+import './style.css';
 
 const About = () => {
 

@@ -2,6 +2,7 @@ import React from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import usePopularPosts from "../../hooks/usePopularPosts";
 import parse from "html-react-parser";
+
 import './style.css';
 
 const PopularPosts = () => {
