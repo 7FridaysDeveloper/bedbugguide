@@ -21,7 +21,7 @@ const SharePage = Loadable({
 
 
 const Index = (props) => {
-    
+
     const showSection = (props.data.page.sidebarSettings.sidebarSettings === "Show" ? true : false);
     const [postSettings, setPostSettings] = useState(null);
     useEffect(() => {
