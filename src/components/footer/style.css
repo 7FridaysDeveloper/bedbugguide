@@ -74,6 +74,7 @@ footer .footer-center .line:before {
     height: 2px;
     width: 40%;
     right: 0;
+    left: auto;
     background: #ddd;
     z-index: 1;
 }
@@ -85,10 +86,10 @@ footer ul li a svg {
     top: 3px;
 }
 footer ul li a {
-    font-size: 11px;
+    font-size: 13px;
     color: #fff;
     display: flex;
-    line-height: 1.9;
+    line-height: 1.5;
 }
 footer ul li a:hover {
     color: #eeeeee;
