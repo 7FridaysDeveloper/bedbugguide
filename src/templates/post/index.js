@@ -41,7 +41,6 @@ const Post = (props) => {
 export default Post;
 
 export const Head = ({data}) => {
-    console.log(data)
     const opengraphImage = data.post.seo?.opengraphImage
     return (
         <>

@@ -11,9 +11,14 @@
     color: #e65100;
 }
 .bed-bugs-posts .item:first-child h3 {
-    font-size: 19px;
+    font-size: 16px;
     color: #000;
     margin: 5px 0;
+    font-weight: 700;
+}
+.bed-bugs-posts .item h3 {
+    font-weight: 400;
+    font-size: 14px;
 }
 .bed-bugs-posts .flex-box {
     display: flex;

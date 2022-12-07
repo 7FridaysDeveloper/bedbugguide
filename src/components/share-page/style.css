@@ -69,6 +69,9 @@
 .share-page ul li.pinterest span.share-count:after {
     border-color: transparent transparent transparent #c92727;
 }
+.share-page ul {
+    margin-top: 0;
+}
 @media(max-width: 700px) {
     .share-page li span.share-count {
         margin-bottom: 5px;

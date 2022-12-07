@@ -10,6 +10,24 @@
     flex-wrap: wrap;
 }
 
+.tags .line {
+    height: 2px;
+    background: #ddd;
+    width: 100%;
+    position: relative;
+    margin-bottom: 40px;
+}
+.tags .line:before {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 50%;
+    left: 25%;
+    background: #000;
+    position: absolute;
+    top: 0;
+}
+
 .tags a {
     color: #000;
     margin-right: 5px;

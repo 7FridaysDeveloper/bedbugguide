@@ -24,6 +24,9 @@
     grid-template-columns: 1fr 360px;
     grid-gap: 30px;
 }
+.content main {
+    margin-bottom: 20px;
+}
 .the-content img.alignright {
     display: inline;
     margin-left: 20px;

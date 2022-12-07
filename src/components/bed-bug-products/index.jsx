@@ -39,7 +39,7 @@ const BedBugProduct = () => {
     const arr = data.allWpPost.nodes.slice(0, 6);
     return(
         <div className="bed-bugs-products">
-            <h4>GET RID OF BED BUGS RECENT POSTS</h4>
+            <h4>BED BUG PRODUCTS</h4>
             <div className="line"></div>
             <div className="flex-box">
                 {arr.map(
