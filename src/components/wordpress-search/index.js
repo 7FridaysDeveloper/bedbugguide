@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import Posts from "../posts";
 import {Helmet} from "react-helmet";
 import {navigate} from "gatsby";
+import parse from "html-react-parser";
 
 const restApiToGraphql = (post) => {
     const embed = post?._embedded;
@@ -72,7 +73,7 @@ export default function WordpressSearch({search, path, seo}) {
                 {<title>You searched for  a {paginationSettings.page > 1 ? `Page ${paginationSettings.page} of ${paginationSettings.totalPages}` : ''} - {seo}</title>}
             </Helmet>
             <div className="container">
-                <h2 className="page_title_archive">Search Results for: {search.replace('?s=', '')} </h2>
+                <h2 className="page_title_archive">Search Results for: {parse(search.replace('?s=', ''))} </h2>
             </div>
             <Posts posts={posts} loading={loading} pageContext={paginationSettings} changePagination={changePage}/>
         </div>
