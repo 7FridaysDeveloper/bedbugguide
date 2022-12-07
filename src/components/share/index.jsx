@@ -20,7 +20,7 @@ const Share = () => {
         <div className="share">
             <span>Share us:</span>
             <Link to={`https://www.facebook.com/sharer.php?u=${url}`}><SvgFacebook/></Link>
-            <Link to={`https://twitter.com/share?url=${url}text=How%20to%20Identify%20a%20Bed%20Bug?&count=horizontal?`}><SvgTwitter/></Link>
+            <Link to={`https://twitter.com/share?url=${url}text=?&count=horizontal?`}><SvgTwitter/></Link>
             <Link to={`https://plus.google.com/share?url=${url}`}><SvgGoogle/></Link>
             <Link to={`https://pinterest.com/pin/create/button/?url=${url}`}><SvgPinterest/></Link>
 
