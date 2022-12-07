@@ -1,6 +1,9 @@
 .single-post {
     margin-top: 50px;
 }
+.single-post .gatsby-image-wrapper-constrained > div {
+    display: flex!important;
+}
 .single-post h1 {
     font-weight: 700;
     color: #000000;
