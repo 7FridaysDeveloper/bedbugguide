@@ -5,6 +5,7 @@ import RecentComments from "../../components/recent-comments";
 import WordpressSearch from "../../components/wordpress-search";
 import Tags from "../../components/tags";
 import Tabs from "../../components/static-sections/tabs";
+import About from "../../components/static-sections/about";
 import BedBugProduct from "../../components/bed-bug-products"
 import BedBugsPosts from "../../components/bed-bugs-recent-posts";
 

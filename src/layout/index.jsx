@@ -115,6 +115,7 @@ const Index = ({children}) => {
             { theme?.state?.modelSearch ? <Modal/> : null }
             <Header/>
             <SEOContext.Provider value={wp}>
+                <div>3213123123</div>
                 {children}
             </SEOContext.Provider>
             <Footer/>
