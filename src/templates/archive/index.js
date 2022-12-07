@@ -1,41 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {graphql} from "gatsby";
 import Posts from "../../components/posts";
 import RecentComments from "../../components/recent-comments";
-import Loadable from 'react-loadable';
-import ClipLoader from "react-spinners/ClipLoader";
 import WordpressSearch from "../../components/wordpress-search";
-
-const Tabs = Loadable({
-    loader: () => import("../../components/static-sections/tabs"),
-    loading: ClipLoader,
-});
-
-const Tags = Loadable({
-    loader: () => import("../../components/tags"),
-    loading: ClipLoader,
-});
-
-const BedBugProduct = Loadable({
-    loader: () => import("../../components/bed-bug-products"),
-    loading: ClipLoader,
-});
-
-const BedBugsPosts = Loadable({
-    loader: () => import("../../components/bed-bugs-recent-posts"),
-    loading: ClipLoader,
-});
+import Tags from "../../components/tags";
+import Tabs from "../../components/static-sections/tabs";
+import BedBugProduct from "../../components/bed-bug-products"
+import BedBugsPosts from "../../components/bed-bugs-recent-posts";
 
 const ArchivePage = ({data, pageContext, location}) => {
-    const [show, setShow] = useState(false);
-    useEffect(() => {
-        const setShowBlocks = () => setShow(true)
-        addEventListener('scroll', setShowBlocks, { once: true });
 
-        setTimeout(() => {
-            setShowBlocks();
-        }, 150)
-    }, [])
 
     return (<>
             <div>
@@ -48,7 +22,7 @@ const ArchivePage = ({data, pageContext, location}) => {
                 </div>
                 <div className="footer-top-wrap">
                     <div className="container">
-                        {show ? <Tags/> : null }
+                        <Tags/>
                         <RecentComments/>
                         <BedBugsPosts/>
                         <BedBugProduct/>

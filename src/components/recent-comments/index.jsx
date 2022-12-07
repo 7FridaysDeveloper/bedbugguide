@@ -33,4 +33,4 @@ const RecentComments = () => {
     )
 }
 
-export default RecentComments;
+export default React.memo(RecentComments);
