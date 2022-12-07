@@ -74,6 +74,7 @@ footer .footer-center .line:before {
     height: 2px;
     width: 40%;
     right: 0;
+    left: auto;
     background: #ddd;
     z-index: 1;
 }
