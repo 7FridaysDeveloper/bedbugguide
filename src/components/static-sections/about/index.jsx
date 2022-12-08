@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import {graphql, useStaticQuery} from "gatsby";
 import './style.css';
 
 const About = () => {
-
+    const contentRef = useRef(null);
     const data = useStaticQuery(graphql`
     query AboutData {
       wp {
@@ -16,8 +16,12 @@ const About = () => {
     }
   `);
 
+    useEffect(() => {
+        contentRef.current = data.wp.themeGeneralSettings?.themeOptions?.aboutBedbugguide;
+    }, [])
+
     return(
-        <div className="about" dangerouslySetInnerHTML={{__html: data.wp.themeGeneralSettings?.themeOptions?.aboutBedbugguide }}>
+        <div className="about" ref={contentRef}>
         </div>
     )
 }

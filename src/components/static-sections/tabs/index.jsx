@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {graphql, useStaticQuery} from "gatsby";
 
 import './style.css';
 
 const Tabs = () => {
-    const [tabContent, setTabContent] = useState('');
+    const tabRef = useRef(null)
     const [isActive, setActive] = useState(false);
     const data = useStaticQuery(graphql`
     query TabsData {
@@ -23,8 +23,7 @@ const Tabs = () => {
   `);
 
     const changeTab = (indexTab) => {
-        let contentText = data.wp.themeGeneralSettings.themeOptions.tabs[indexTab].text;
-        setTabContent(contentText);
+        tabRef.current.innerHTML = data.wp.themeGeneralSettings.themeOptions.tabs[indexTab].text;
         setActive(indexTab);
     }
 
@@ -46,7 +45,7 @@ const Tabs = () => {
             </div>
             <div className="right">
                 <div className="text-content">
-                    <div className="content-tab" dangerouslySetInnerHTML={{ __html: tabContent}}>
+                    <div className="content-tab" ref={tabRef}>
                     </div>
                 </div>
             </div>
