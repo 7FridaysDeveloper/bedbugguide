@@ -1,19 +1,16 @@
-import React, {useRef} from "react";
+import React from "react";
 //import Post from "./post";
 //import Pagination from "../pagination";
-import PopularPosts from "../popular-posts";
-import Categories from "../categoties";
+// import PopularPosts from "../popular-posts";
+// import Categories from "../categoties";
 import ClipLoader from "react-spinners/ClipLoader";
-import useOnScreen from "../../hooks/usOneScreen";
-import Tags from "../tags"
+//import Tags from "../tags"
 
 import "./style.css";
 
 
 const Posts = ({posts, pageContext, children, slug = '/', changePagination = null, loading = false, html}) => {
-    const tagsRef = useRef(null);
-    const isVisible = useOnScreen(tagsRef)
-    console.log(posts)
+    console.log(posts, pageContext, slug, changePagination)
     return (
         <section className="blog-posts">
             <div className="container">
@@ -46,11 +43,11 @@ const Posts = ({posts, pageContext, children, slug = '/', changePagination = nul
                             </>
                         }
                     </div>
-                    <aside ref={tagsRef}>
-                        <PopularPosts/>
-                        <Categories/>
-                        {isVisible ? <Tags /> : null}
-                    </aside>
+                    {/*<aside ref={tagsRef}>*/}
+                    {/*    <PopularPosts/>*/}
+                    {/*    <Categories/>*/}
+                    {/*    {isVisible ? <Tags /> : null}*/}
+                    {/*</aside>*/}
                 </div>
             </div>
             <div className="container bottom-blog-post">
@@ -60,4 +57,4 @@ const Posts = ({posts, pageContext, children, slug = '/', changePagination = nul
     );
 };
 
-export default React.memo(Posts);
+export default Posts;
