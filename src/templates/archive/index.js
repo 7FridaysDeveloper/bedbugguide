@@ -10,11 +10,7 @@ import BedBugsPosts from "../../components/bed-bugs-recent-posts";
 import RecentComments from "../../components/recent-comments";
 import BedBugProduct from "../../components/bed-bug-products";
 import Tags from "../../components/tags";
-
-const Footer = Loadable({
-    loader: () => import("../../components/footer"),
-    loading: ClipLoader,
-});
+import Footer from "../../components/footer";
 
 import "../../styles/global.css";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -22,7 +18,6 @@ import ClipLoader from "react-spinners/ClipLoader";
 const ArchivePage = ({data, pageContext}) => {
 
     return (<>
-            <Header />
             <div>
                 <Posts posts={data.allWpPost.nodes} pageContext={pageContext}/>
                 <div className="container">
