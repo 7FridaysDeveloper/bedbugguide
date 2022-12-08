@@ -1,9 +1,7 @@
 import React from 'react';
 
 export const wrapRootElement = ({element}) => {
-  return (
-        {element}
-  )
+  return element
 };
 
 export const wrapPageElement = ({element}) => {
