@@ -8,7 +8,6 @@ import FooterScript from "../wp-scripts/footer-script";
 import {Helmet} from "react-helmet";
 import ThemeContext from "../context/theme-context";
 import Modal from "../components/modal";
-import Footer from "../components/footer";
 const Footer = Loadable({
     loader: () => import("../components/footer"),
     loading: ClipLoader,
