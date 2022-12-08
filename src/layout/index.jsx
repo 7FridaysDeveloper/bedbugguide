@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import {useStaticQuery, graphql} from "gatsby";
-//import Header from "src/components/header";
+import Header from "src/components/header";
 import Seo, {SEOContext} from 'gatsby-plugin-wpgraphql-seo';
 import FooterScript from "../wp-scripts/footer-script";
 import {Helmet} from "react-helmet";
@@ -105,7 +105,7 @@ const Index = ({children}) => {
         <>
             <FooterScript/>
             { theme?.state?.modelSearch ? <Modal/> : null }
-            {/*<Header/>*/}
+            <Header/>
             <SEOContext.Provider value={wp}>
                 {children}
             </SEOContext.Provider>
