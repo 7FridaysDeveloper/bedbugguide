@@ -1,16 +1,32 @@
 import React from "react";
 import parse from "html-react-parser";
-import { Link } from "gatsby";
-import usePopularPosts from "../hooks/usePopularPosts";
+import {graphql, Link, useStaticQuery} from "gatsby";
+//import usePopularPosts from "../hooks/usePopularPosts";
 
 const FooterPopularPost = () => {
-    const popularPost = usePopularPosts(8);
+    const { allWpPost } = useStaticQuery(graphql`
+    query PopularPostsFooter {
+      allWpPost(limit: 8) {
+        nodes {
+          uri
+          title
+          databaseId
+          categories {
+            nodes {
+              uri
+              name
+            }
+          }
+        }
+      }
+    }
+  `);
     return (
         <ul>
-            {popularPost.map(post => (
-                <li className="post-cat" key={post.id}>
+            {allWpPost?.nodes.map(post => (
+                <li className="post-cat" key={post.databaseId}>
                     <div className="post-category">
-                        <Link to={'/category/' + post.categories[0].slug}>{post.categories[0]?.name}</Link>
+                        <Link to={'/category/' + post.categories?.nodes[0]?.uri}>{post.categories?.nodes[0]?.name}</Link>
                     </div>
                     <h3 className="post-title">
                         <Link to={post.uri}>{parse(post.title)}</Link>
