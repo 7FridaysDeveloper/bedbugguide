@@ -73,4 +73,4 @@ const BedBugProduct = () => {
     )
 }
 
-export default BedBugProduct;
+export default React.memo(BedBugProduct);

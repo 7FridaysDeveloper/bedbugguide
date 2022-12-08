@@ -4,7 +4,7 @@ import {graphql, useStaticQuery } from "gatsby";
 import "./style.css";
 
 const Tags = ({tags = null}) => {
-
+    console.log('tag')
     const data = useStaticQuery(graphql`
     query AllWpTags {
       allWpTag(sort: {order: DESC, fields: count}, limit: 45) {
@@ -34,4 +34,4 @@ const Tags = ({tags = null}) => {
     )
 }
 
-export default Tags;
+export default React.memo(Tags);

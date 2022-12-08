@@ -55,4 +55,4 @@ const Tabs = () => {
 }
 
 
-export default Tabs;
+export default React.memo(Tabs);

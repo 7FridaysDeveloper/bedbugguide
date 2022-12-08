@@ -11,6 +11,7 @@ import "./style.css";
 
 
 const Header = () => {
+    console.log('Header')
     const theme = useContext(ThemeContext);
     const headerRef = useRef(null);
     const [isOpeMobileMenu, setOpenMobileMenu] = useState(false);
@@ -95,4 +96,4 @@ const Header = () => {
 };
 
 
-export default Header;
+export default React.memo(Header);

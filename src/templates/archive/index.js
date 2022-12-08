@@ -4,7 +4,7 @@ import Header from "src/components/header";
 import useOnScreen from "../../hooks/usOneScreen";
 import Posts from "../../components/posts";
 import Footer from "../../components/footer";
-import WordpressSearch from "../../components/wordpress-search";
+//import WordpressSearch from "../../components/wordpress-search";
 import About from "../../components/static-sections/about";
 import Tabs from "../../components/static-sections/tabs";
 import BedBugsPosts from "../../components/bed-bugs-recent-posts";
@@ -14,7 +14,8 @@ import Tags from "../../components/tags";
 
 import "../../styles/global.css";
 
-const ArchivePage = ({data, pageContext, location}) => {
+const ArchivePage = ({data, pageContext}) => {
+    console.log(22222)
     const tagsRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
     const visible = useOnScreen(tagsRef);
@@ -26,21 +27,16 @@ const ArchivePage = ({data, pageContext, location}) => {
     return (<>
             <Header />
             <div>
-                {location.search === '' ?
-                    <Posts posts={data.allWpPost.nodes} pageContext={pageContext}/> :
-                    <WordpressSearch search={location.search} path={location.pathname} seo={data.wp.allSettings?.generalSettingsTitle}/>
-                }
+                <Posts posts={data.allWpPost.nodes} pageContext={pageContext}/>
                 <div className="container">
                     <About/>
                     <Tabs/>
                 </div>
                 <div className="footer-top-wrap">
                     <div className="container" ref={tagsRef}>
-                        {isVisible ? <>
-                            <Tags />
-                            <RecentComments/>
-                            <BedBugsPosts/>
-                        </> : null}
+                        <Tags />
+                        <RecentComments/>
+                        <BedBugsPosts/>
                         <BedBugProduct/>
                     </div>
                 </div>
@@ -50,7 +46,7 @@ const ArchivePage = ({data, pageContext, location}) => {
     );
 };
 
-export default ArchivePage;
+export default React.memo(ArchivePage);
 
 export const Head = ({data: {wp}, location, pageContext}) => {
     const pageOf = pageContext.page > 1 ? `Page ${pageContext.page} of ${pageContext.totalPages}` : '';
