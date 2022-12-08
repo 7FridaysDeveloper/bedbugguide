@@ -3,10 +3,13 @@ import Post from "./post";
 import Pagination from "../pagination";
 import PopularPosts from "../popular-posts";
 import Categories from "../categoties";
-import Tags from "../tags";
 import ClipLoader from "react-spinners/ClipLoader";
-
+const Tags = Loadable({
+    loader: () => import("../tags"),
+    loading: ClipLoader,
+});
 import "./style.css";
+import Loadable from "react-loadable";
 
 const Posts = ({posts, pageContext, children, slug = '/', changePagination = null, loading = false, html}) => {
     return (
