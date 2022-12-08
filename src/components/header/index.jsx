@@ -5,6 +5,7 @@ import HeaderMenu from "src/components/header/header-menu";
 import MenuSvg from "src/images/svg/menu.svg";
 import SearchSvg from "src/images/svg/search.svg";
 import { formatToday } from "../../util/helpers";
+import AnimateHeight from "react-animate-height";
 import {graphql, useStaticQuery} from "gatsby";
 import "./style.css";
 
@@ -14,6 +15,7 @@ const Header = () => {
     const headerRef = useRef(null);
     const [isOpeMobileMenu, setOpenMobileMenu] = useState(false);
     const toggleMobileMenu = () => {
+        console.log(2222)
         setOpenMobileMenu(!isOpeMobileMenu);
     };
 
@@ -61,9 +63,15 @@ const Header = () => {
                             </div>
                         </div>
                     </div>
-                    {/*<nav className="header-menu-mobile">*/}
-                    {/*        <HeaderMenu />*/}
-                    {/*</nav>*/}
+                    <nav className="header-menu-mobile">
+                        <AnimateHeight
+                            duration={500}
+                            id="animation-height-header"
+                            height={isOpeMobileMenu ? "auto" : 0}
+                        >
+                            <HeaderMenu />
+                        </AnimateHeight>
+                    </nav>
                     <div className="bottom-header">
                         <div className="container">
                             <a href={"/"} className="header_logo-item">
