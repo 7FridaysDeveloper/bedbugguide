@@ -2,8 +2,8 @@ import React from "react";
 import {graphql, useStaticQuery, Link } from "gatsby";
 import {StaticImage} from "gatsby-plugin-image";
 import SharePage from "../share-page";
-// import FooterCenter from "./footer-center";
-// import FooterBoottom from "./footer-bottom";
+import FooterCenter from "./footer-center";
+import FooterBoottom from "./footer-bottom";
 import "./style.css";
 
 
@@ -36,8 +36,8 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            {/*<FooterCenter />*/}
-            {/*<FooterBoottom />*/}
+            <FooterCenter />
+            <FooterBoottom />
         </footer>
     );
 };

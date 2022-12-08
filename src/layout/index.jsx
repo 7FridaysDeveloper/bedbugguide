@@ -105,11 +105,11 @@ const Index = ({children}) => {
         <>
             <FooterScript/>
             { theme?.state?.modelSearch ? <Modal/> : null }
-            <Header/>
+            {/*<Header/>*/}
             <SEOContext.Provider value={wp}>
                 {children}
             </SEOContext.Provider>
-             <Footer/>
+            <Footer/>
             <Helmet>
                 <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8"/>
                 <meta property="og:locale" content={wp.seo.schema.inLanguage}/>
