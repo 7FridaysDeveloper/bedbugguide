@@ -1,5 +1,5 @@
 import React from "react";
-import {graphql, useStaticQuery, Link} from "gatsby";
+import {graphql, useStaticQuery} from "gatsby";
 
 import './style.css';
 
@@ -28,10 +28,10 @@ const Categories = () => {
                             <li key={uri}>
                                 <div className="number">{index+1}</div>
                                 <div className="summary">
-                                    <Link to={uri}>
+                                    <a href={uri}>
                                         {name}
                                         <small> {count} Articles</small>
-                                    </Link>
+                                    </a>
                                 </div>
                             </li>
                         )

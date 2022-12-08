@@ -14,7 +14,7 @@ const Comments = ({ count = '0', id }) => {
     const [hideShowMore, setHideShowMore] = useState(true);
 
     useEffect(() => {
-        fetch(`${process.env.GATSBY_API_URL}/comments?post=${id}&page=${currentPage}`)
+        fetch(`${process.env.GATSBY_API_URL}/comments?post=${id}&per_page=100`)
             .then(res => {
                 if(Number(res.headers.get('x-wp-totalpages')) === currentPage) {
                     setHideShowMore(false);

@@ -16,7 +16,6 @@ const FooterCenter = () => {
                 <div className="item categories">
                     <h4>Categories</h4>
                     <div className="line">
-
                     </div>
                     <AllCategories />
                 </div>
