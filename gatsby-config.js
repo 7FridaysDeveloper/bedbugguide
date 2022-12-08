@@ -98,19 +98,19 @@ module.exports = {
           requestConcurrency: 1,
           //perPage: 20000,
         },
-        // type: {
-        //   __all: {
-        //     limit: 51,
-        //   },
-        // },
+        type: {
+          __all: {
+            limit: 21,
+          },
+        },
       }
     },
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: require.resolve(`./src/layout/index.jsx`),
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-layout`,
+    //   options: {
+    //     component: require.resolve(`./src/layout/index.jsx`),
+    //   },
+    // },
     {
       resolve: "gatsby-source-filesystem",
       options: {
