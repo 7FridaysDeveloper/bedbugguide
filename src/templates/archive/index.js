@@ -3,6 +3,7 @@ import {graphql} from "gatsby";
 import Header from "src/components/header";
 import useOnScreen from "../../hooks/usOneScreen";
 import Posts from "../../components/posts";
+import Footer from "../../components/footer";
 import WordpressSearch from "../../components/wordpress-search";
 import About from "../../components/static-sections/about";
 import Tabs from "../../components/static-sections/tabs";
@@ -44,6 +45,7 @@ const ArchivePage = ({data, pageContext, location}) => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     );
 };
