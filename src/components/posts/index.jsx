@@ -56,4 +56,4 @@ const Posts = ({posts, pageContext, children, slug = '/', changePagination = nul
     );
 };
 
-export default React.memo(Posts);
+export default Posts;

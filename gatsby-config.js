@@ -91,17 +91,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-images`,
-          },
-          `gatsby-remark-lazy-load`,
-        ]
-      }
-    },
-    {
       resolve: "gatsby-source-wordpress",
       options: {
         url: `${process.env.WORDPRESS}/graphql`,
