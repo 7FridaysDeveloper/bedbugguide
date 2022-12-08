@@ -68,9 +68,9 @@ const Header = () => {
                             </div>
                         </div>
                     </div>
-                    <nav className="header-menu-mobile">
-                            <HeaderMenu />
-                    </nav>
+                    {/*<nav className="header-menu-mobile">*/}
+                    {/*        <HeaderMenu />*/}
+                    {/*</nav>*/}
                     <div className="bottom-header">
                         <div className="container">
                             <a href={"/"} className="header_logo-item">
