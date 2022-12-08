@@ -1,5 +1,6 @@
 import React from "react";
 import {graphql, useStaticQuery, Link} from "gatsby";
+//import FeaturedImage from "../posts/featured-image";
 import SvgCalendar from '../../images/svg/calendar.svg';
 
 import './style.css';
@@ -64,7 +65,7 @@ const BedBugsPosts = () => {
                                  </div>
                                  :
                                  <div className="wrap">
-                                     <h3><a href={uri} >{title}</a></h3>
+                                     <h3><Link to={uri} >{title}</Link></h3>
                                  </div>
                              }
                          </div>

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+//import ClipLoader from "react-spinners/ClipLoader";
+import {Link} from "gatsby";
 import parse from "html-react-parser";
 
 import './style.css';
@@ -25,7 +27,7 @@ const RecentComments = () => {
             {comments.map(comm => (
                 <div className="flex-box" key={comm.id}>
                     <span>{parse(comm.author_name || '')} on </span>
-                    <a href={comm.uri}>{parse(comm.postTitle || '')}</a>
+                    <Link to={comm.uri}>{parse(comm.postTitle || '')}</Link>
                 </div>
             ))}
         </div>

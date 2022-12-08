@@ -10,6 +10,7 @@ import RecentComments from "../../components/recent-comments";
 import BedBugProduct from "../../components/bed-bug-products";
 import Tags from "../../components/tags";
 
+import "../../styles/global.css";
 
 const ArchivePage = ({data, pageContext, location}) => {
     const tagsRef = useRef(null);

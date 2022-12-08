@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {graphql, useStaticQuery} from "gatsby";
-//import parse from "html-react-parser";
+import parse from "html-react-parser";
 
 import './style.css';
 
@@ -48,7 +48,13 @@ const Tabs = () => {
             <div className="right">
                 <div className="text-content">
                     <div className="content-tab">
-                        {tabContent}
+                        {parse(tabContent, {
+                            replace: (domNode) => {
+                                if(domNode.name === 'img') {
+                                    domNode.attribs.loading = 'lazy';
+                                }
+                            }
+                        })}
                     </div>
                 </div>
             </div>
