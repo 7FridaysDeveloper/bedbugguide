@@ -1,12 +1,12 @@
 import React, {useContext} from "react";
 import {useStaticQuery, graphql} from "gatsby";
-import Header from "src/components/header";
+//import Header from "src/components/header";
 import Seo, {SEOContext} from 'gatsby-plugin-wpgraphql-seo';
 import FooterScript from "../wp-scripts/footer-script";
-import {Helmet} from "react-helmet";
+//import {Helmet} from "react-helmet";
 import ThemeContext from "../context/theme-context";
 import Modal from "../components/modal";
-import Footer from "../components/footer";
+//import Footer from "../components/footer";
 
 import "../styles/global.css";
 
@@ -105,16 +105,16 @@ const Index = ({children}) => {
         <>
             <FooterScript/>
             { theme?.state?.modelSearch ? <Modal/> : null }
-            <Header/>
+            {/*<Header/>*/}
             <SEOContext.Provider value={wp}>
                 {children}
             </SEOContext.Provider>
-            <Footer/>
-            <Helmet>
-                <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8"/>
-                <meta property="og:locale" content={wp.seo.schema.inLanguage}/>
-                <meta name="og:site_name" content={wp.allSettings.generalSettingsTitle}/>
-            </Helmet>
+            {/*<Footer/>*/}
+            {/*<Helmet>*/}
+            {/*    <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8"/>*/}
+            {/*    <meta property="og:locale" content={wp.seo.schema.inLanguage}/>*/}
+            {/*    <meta name="og:site_name" content={wp.allSettings.generalSettingsTitle}/>*/}
+            {/*</Helmet>*/}
             <Seo postSchema={JSON.parse(wp.seo.contentTypes.post.schema.raw)}/>
             <div id="footer-script"></div>
         </>
