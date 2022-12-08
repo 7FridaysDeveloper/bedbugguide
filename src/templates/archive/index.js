@@ -1,6 +1,5 @@
 import React from "react";
 import {graphql} from "gatsby";
-import useOnScreen from "../../hooks/usOneScreen";
 import Posts from "../../components/posts";
 //import WordpressSearch from "../../components/wordpress-search";
 import About from "../../components/static-sections/about";
@@ -11,7 +10,7 @@ import BedBugProduct from "../../components/bed-bug-products";
 import Tags from "../../components/tags";
 
 
-const ArchivePage = ({data, pageContext, location}) => {
+const ArchivePage = ({data, pageContext}) => {
     return (<>
             <div>
                 <Posts posts={data.allWpPost.nodes} pageContext={pageContext}/> :
@@ -26,11 +25,9 @@ const ArchivePage = ({data, pageContext, location}) => {
                 </div>
                 <div className="footer-top-wrap">
                     <div className="container">
-                        <>
-                            <Tags />
-                            <RecentComments/>
-                            <BedBugsPosts/>
-                        </>
+                        <Tags />
+                        <RecentComments/>
+                        <BedBugsPosts/>
                         <BedBugProduct/>
                     </div>
                 </div>
