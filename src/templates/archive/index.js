@@ -3,7 +3,6 @@ import {graphql} from "gatsby";
 import Header from "src/components/header";
 import Posts from "../../components/posts";
 //import WordpressSearch from "../../components/wordpress-search";
-import Loadable from "react-loadable";
 import About from "../../components/static-sections/about";
 import Tabs from "../../components/static-sections/tabs";
 import BedBugsPosts from "../../components/bed-bugs-recent-posts";
@@ -13,11 +12,11 @@ import Tags from "../../components/tags";
 import Footer from "../../components/footer";
 
 import "../../styles/global.css";
-import ClipLoader from "react-spinners/ClipLoader";
 
 const ArchivePage = ({data, pageContext}) => {
 
     return (<>
+            <Header/>
             <div>
                 <Posts posts={data.allWpPost.nodes} pageContext={pageContext}/>
                 <div className="container">
@@ -26,14 +25,14 @@ const ArchivePage = ({data, pageContext}) => {
                 </div>
                 <div className="footer-top-wrap">
                     <div className="container">
-                        <Tags />
+                        <Tags/>
                         <RecentComments/>
                         <BedBugsPosts/>
                         <BedBugProduct/>
                     </div>
                 </div>
             </div>
-            <Footer />
+            <Footer/>
         </>
     );
 };
@@ -45,7 +44,8 @@ export const Head = ({data: {wp}, location, pageContext}) => {
     const themeOptions = wp.themeGeneralSettings?.themeOptions;
     return (
         <>
-            <style dangerouslySetInnerHTML={{ __html: `
+            <style dangerouslySetInnerHTML={{
+                __html: `
                 :root {
                     --bg_header: ${themeOptions.mainBackground};
                     --hover_color: ${themeOptions.hoverColor};
@@ -53,10 +53,13 @@ export const Head = ({data: {wp}, location, pageContext}) => {
                     --title_color: ${themeOptions.titleColor};
                     --text_color: ${themeOptions.bodyTextColor};
                 }
-            `}}>
+            `
+            }}>
             </style>
             <link rel="canonical" href={process.env.CURRENT_URL}/>
-            {!location.pathname.includes('?s=') ?  <title>{`${wp.allSettings?.generalSettingsTitle} ${pageOf} ${wp.allSettings?.generalSettingsDescription}`}</title> : <title>You searched for  a - {wp.allSettings?.generalSettingsTitle}</title>}
+            {!location.pathname.includes('?s=') ?
+                <title>{`${wp.allSettings?.generalSettingsTitle} ${pageOf} ${wp.allSettings?.generalSettingsDescription}`}</title> :
+                <title>You searched for a - {wp.allSettings?.generalSettingsTitle}</title>}
             <meta name="description" content={wp.allSettings?.generalSettingsDescription}/>
             <meta name="og:description" content={wp.allSettings?.generalSettingsDescription}/>
             <meta name="og:title" content={wp.allSettings?.generalSettingsTitle}/>
