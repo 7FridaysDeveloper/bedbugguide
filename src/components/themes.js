@@ -18,16 +18,13 @@ export default function ThemesSettings () {
       }
     }
   `);
-    const { themeOptions } = themeGeneralSettings
+    const { themeOptions } = themeGeneralSettings;
+    console.log(themeOptions)
     return (
         <Helmet style={[{
             "cssText": `
                :root {
-                   --bg_header: ${themeOptions.mainBackground};
-                   --hover_color: ${themeOptions.hoverColor};
-                   --main_color: ${themeOptions.mainColor};
-                   --title_color: ${themeOptions.titleColor};
-                   --text_color: ${themeOptions.bodyTextColor};
+     
                }
             `
         }]}/>

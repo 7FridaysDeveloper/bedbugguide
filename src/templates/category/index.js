@@ -23,11 +23,23 @@ const ArchivePage = ({pageContext, data}) => {
 
 export default ArchivePage;
 
-export const Head = ({ data : { wpCategory }, pageContext }) => {
+export const Head = ({ data : { wpCategory, wp }, pageContext }) => {
     const pageOf = pageContext.page > 1 ? ` - Page ${pageContext.page} of ${pageContext.totalPages}` : '';
     wpCategory.seo.title = `${wpCategory.seo.title} ${pageOf}`
+    const themeOptions = wp.themeGeneralSettings?.themeOptions;
+
     return (
         <>
+            <style dangerouslySetInnerHTML={{ __html: `
+                :root {
+                    --bg_header: ${themeOptions.mainBackground};
+                    --hover_color: ${themeOptions.hoverColor};
+                    --main_color: ${themeOptions.mainColor};
+                    --title_color: ${themeOptions.titleColor};
+                    --text_color: ${themeOptions.bodyTextColor};
+                }
+            `}}>
+            </style>
             <link rel="canonical" href={process.env.CURRENT_URL+wpCategory.uri}/>
             <meta property="og:url" content={process.env.CURRENT_URL + wpCategory.seo.opengraphUrl} />
             <Seo
@@ -68,6 +80,17 @@ export const pageQuery = graphql`
         count
         name
         uri
+    }
+    wp {
+      themeGeneralSettings {
+          themeOptions {
+            bodyTextColor
+            hoverColor
+            mainColor
+            mainBackground
+            titleColor
+          }
+      }
     }
     allWpPost(
       sort: { fields: [date], order: DESC }

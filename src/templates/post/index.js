@@ -41,10 +41,21 @@ const Post = (props) => {
 export default Post;
 
 export const Head = ({data}) => {
-    console.log(data)
-    const opengraphImage = data.post.seo?.opengraphImage
+    const opengraphImage = data.post.seo?.opengraphImage;
+    const themeOptions = data.wp.themeGeneralSettings?.themeOptions;
+
     return (
         <>
+            <style dangerouslySetInnerHTML={{ __html: `
+                :root {
+                    --bg_header: ${themeOptions.mainBackground};
+                    --hover_color: ${themeOptions.hoverColor};
+                    --main_color: ${themeOptions.mainColor};
+                    --title_color: ${themeOptions.titleColor};
+                    --text_color: ${themeOptions.bodyTextColor};
+                }
+            `}}>
+            </style>
             <link rel="canonical" href={process.env.CURRENT_URL+data.post.uri}/>
             <meta property="article:published_time" content={ data.post?.dateGmt}/>
             <meta property="article:modified_time" content={data.post?.modifiedGmt}/>
@@ -63,6 +74,17 @@ export const pageQuery = graphql`
     $previousPostId: String
     $nextPostId: String
   ) {
+  wp {
+      themeGeneralSettings {
+          themeOptions {
+            bodyTextColor
+            hoverColor
+            mainColor
+            mainBackground
+            titleColor
+          }
+      }
+    }
     post: wpPost(id: { eq: $id }) {
         seo {
             canonical

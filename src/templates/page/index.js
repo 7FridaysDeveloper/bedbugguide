@@ -76,10 +76,21 @@ const Index = ({data: {page}}) => {
 
 export default Index;
 
-export const Head = ({data: {page}}) => {
+export const Head = ({data: {page, wp}}) => {
+    const themeOptions = wp.themeGeneralSettings?.themeOptions;
 
     return (
         <>
+            <style dangerouslySetInnerHTML={{ __html: `
+                :root {
+                    --bg_header: ${themeOptions.mainBackground};
+                    --hover_color: ${themeOptions.hoverColor};
+                    --main_color: ${themeOptions.mainColor};
+                    --title_color: ${themeOptions.titleColor};
+                    --text_color: ${themeOptions.bodyTextColor};
+                }
+            `}}>
+            </style>
             <link rel="canonical" href={process.env.CURRENT_URL + page.uri}/>
             <meta property="og:url" content={process.env.CURRENT_URL + page.seo.opengraphUrl}/>
             <Seo
@@ -94,6 +105,17 @@ export const pagesQuery = graphql`
   query PageById(
     $id: String!
   ) {
+    wp {
+      themeGeneralSettings {
+          themeOptions {
+            bodyTextColor
+            hoverColor
+            mainColor
+            mainBackground
+            titleColor
+          }
+      }
+    }
     page: wpPage(id: { eq: $id }) {
        seo {
           canonical

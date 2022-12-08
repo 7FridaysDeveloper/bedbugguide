@@ -23,11 +23,23 @@ const TagPage = ({pageContext, data}) => {
 
 export default TagPage;
 
-export const Head = ({ data : { wpTag }, pageContext }) => {
+export const Head = ({ data : { wpTag, wp }, pageContext }) => {
     const pageOf = pageContext.page > 1 ? ` - Page ${pageContext.page} of ${pageContext.totalPages}` : '';
-    wpTag.seo.title = `${wpTag.seo.title} ${pageOf}`
+    wpTag.seo.title = `${wpTag.seo.title} ${pageOf}`;
+    const themeOptions = wp.themeGeneralSettings?.themeOptions;
+
     return (
         <>
+            <style dangerouslySetInnerHTML={{ __html: `
+                :root {
+                    --bg_header: ${themeOptions.mainBackground};
+                    --hover_color: ${themeOptions.hoverColor};
+                    --main_color: ${themeOptions.mainColor};
+                    --title_color: ${themeOptions.titleColor};
+                    --text_color: ${themeOptions.bodyTextColor};
+                }
+            `}}>
+            </style>
             <link rel="canonical" href={process.env.CURRENT_URL+wpTag.uri}/>
             <meta property="og:url" content={process.env.CURRENT_URL + wpTag.seo.opengraphUrl} />
             <Seo
@@ -40,6 +52,17 @@ export const Head = ({ data : { wpTag }, pageContext }) => {
 
 export const pageQuery = graphql`
   query MyQueryTag($offset: Int!, $postsPerPage: Int!, $catId: Int!) {
+  wp {
+      themeGeneralSettings {
+          themeOptions {
+            bodyTextColor
+            hoverColor
+            mainColor
+            mainBackground
+            titleColor
+          }
+      }
+    }
   wpTag(databaseId: {eq: $catId}) {
     id
     seo {

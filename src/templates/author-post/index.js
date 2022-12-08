@@ -26,11 +26,23 @@ const AuthorPage = ({pageContext, data}) => {
 
 export default AuthorPage;
 
-export const Head = ({data: {wpUser}, pageContext}) => {
+export const Head = ({data: {wpUser, wp}, pageContext}) => {
     const pageOf = pageContext.page > 1 ? ` - Page ${pageContext.page} of ${pageContext.totalPages}` : '';
     wpUser.seo.title = `${wpUser.seo.title} ${pageOf}`
+    const themeOptions = wp.themeGeneralSettings?.themeOptions;
+
     return (
         <>
+            <style dangerouslySetInnerHTML={{ __html: `
+                :root {
+                    --bg_header: ${themeOptions.mainBackground};
+                    --hover_color: ${themeOptions.hoverColor};
+                    --main_color: ${themeOptions.mainColor};
+                    --title_color: ${themeOptions.titleColor};
+                    --text_color: ${themeOptions.bodyTextColor};
+                }
+            `}}>
+            </style>
             <link rel="canonical" href={process.env.CURRENT_URL+wpUser.uri}/>
             <Seo
                 postSchema={JSON.parse(wpUser.seo?.schema?.raw)}
@@ -43,6 +55,17 @@ export const Head = ({data: {wpUser}, pageContext}) => {
 
 export const pageQuery = graphql`
   query MyQueryUser($offset: Int!, $postsPerPage: Int!, $catId: Int!) {
+  wp {
+      themeGeneralSettings {
+          themeOptions {
+            bodyTextColor
+            hoverColor
+            mainColor
+            mainBackground
+            titleColor
+          }
+      }
+    }
   wpUser(databaseId: {eq: $catId}) {
     id
     name

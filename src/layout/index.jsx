@@ -8,7 +8,6 @@ import FooterScript from "../wp-scripts/footer-script";
 import {Helmet} from "react-helmet";
 import ThemeContext from "../context/theme-context";
 import Modal from "../components/modal";
-import ThemesSettings from "../components/themes";
 
 const Footer = Loadable({
     loader: () => import("../components/footer"),
@@ -110,7 +109,6 @@ const Index = ({children}) => {
   `);
     return (
         <>
-            <ThemesSettings />
             <FooterScript/>
             { theme?.state?.modelSearch ? <Modal/> : null }
             <Header/>
