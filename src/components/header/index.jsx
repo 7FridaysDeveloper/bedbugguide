@@ -1,7 +1,9 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import {StaticImage} from "gatsby-plugin-image";
 import ThemeContext from "src/context/theme-context";
+import AnimateHeight from "react-animate-height";
 import HeaderMenu from "src/components/header/header-menu";
+import AnimatedUnderlineMenu from "src/components/header/animated-underline-menu";
 import MenuSvg from "src/images/svg/menu.svg";
 import SearchSvg from "src/images/svg/search.svg";
 import { formatToday } from "../../util/helpers";
@@ -16,12 +18,12 @@ const Header = () => {
     const toggleMobileMenu = () => {
         setOpenMobileMenu(!isOpeMobileMenu);
     };
-    // useEffect(() => {
-    //     theme.dispatch({
-    //         type: "headerHeight",
-    //         payload: headerRef.current?.offsetHeight,
-    //     });
-    // }, [headerRef]);
+    useEffect(() => {
+        theme.dispatch({
+            type: "headerHeight",
+            payload: headerRef.current?.offsetHeight,
+        });
+    }, [headerRef]);
 
 
     const toggleClass = () => {
@@ -55,7 +57,7 @@ const Header = () => {
                                 {data.wp?.themeGeneralSettings?.themeOptions?.enableCurrentDateTime === 'On' ? formatToday() : ''}
                             </div>
                             <nav className="header-menu-desktop">
-                                <HeaderMenu />
+                                <AnimatedUnderlineMenu />
                             </nav>
                             <div
                                 className="mobileMenu"
@@ -68,7 +70,13 @@ const Header = () => {
                         </div>
                     </div>
                     <nav className="header-menu-mobile">
-                        <HeaderMenu />
+                        <AnimateHeight
+                            duration={500}
+                            id="animation-height-header"
+                            height={isOpeMobileMenu ? "auto" : 0}
+                        >
+                            <HeaderMenu />
+                        </AnimateHeight>
                     </nav>
                     <div className="bottom-header">
                         <div className="container">
@@ -94,4 +102,4 @@ const Header = () => {
 };
 
 
-export default Header;
+export default React.memo(Header);
