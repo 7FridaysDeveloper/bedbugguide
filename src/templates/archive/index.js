@@ -21,7 +21,7 @@ const ArchivePage = ({data, pageContext, location}) => {
     const tagsRef = useRef(null);
     const isVisible = useOnScreen(tagsRef)
 
-
+    console.log(isVisible)
     return (<>
             <div>
                 {location.search === '' ?
