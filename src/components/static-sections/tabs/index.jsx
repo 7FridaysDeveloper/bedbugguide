@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import {graphql, useStaticQuery} from "gatsby";
-import parse from "html-react-parser";
 
 import './style.css';
 

@@ -1,7 +1,6 @@
 import React from "react";
 import FeaturedImage from "./featured-image";
 import {Link} from "gatsby";
-import parse from "html-react-parser";
 
 const Post = ({title, featuredImage, uri, categories, excerpt, index}) => {
     return (
@@ -15,7 +14,7 @@ const Post = ({title, featuredImage, uri, categories, excerpt, index}) => {
                     {categories.nodes.slice(0, 4).map((cat, index, array) => (
                         <Link to={cat.uri} key={cat.id}>{cat.name} {index < array.length - 1 ? ',' : null}</Link>
                     ))}
-                    <h3><Link to={uri} partiallyActive={true}>{parse(title)}</Link></h3>
+                    <h3><Link to={uri} partiallyActive={true}>{title}</Link></h3>
                     <div className="excerpt" dangerouslySetInnerHTML={{ __html: excerpt}}>
                     </div>
                 </div>
