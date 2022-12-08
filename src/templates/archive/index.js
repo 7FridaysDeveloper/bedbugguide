@@ -2,15 +2,34 @@ import React, { useRef } from "react";
 import {graphql} from "gatsby";
 import useOnScreen from "../../hooks/usOneScreen";
 import Posts from "../../components/posts";
-import RecentComments from "../../components/recent-comments";
 import WordpressSearch from "../../components/wordpress-search";
-import Tabs from "../../components/static-sections/tabs";
-import About from "../../components/static-sections/about";
-import BedBugProduct from "../../components/bed-bug-products"
-import BedBugsPosts from "../../components/bed-bugs-recent-posts";
 import Loadable from "react-loadable";
 import ClipLoader from "react-spinners/ClipLoader";
 
+const About = Loadable({
+    loader: () => import("../../components/static-sections/about"),
+    loading: ClipLoader,
+});
+
+const Tabs = Loadable({
+    loader: () => import("../../components/static-sections/tabs"),
+    loading: ClipLoader,
+});
+
+const BedBugProduct = Loadable({
+    loader: () => import("../../components/bed-bug-products"),
+    loading: ClipLoader,
+});
+
+const RecentComments = Loadable({
+    loader: () => import("../../components/recent-comments"),
+    loading: ClipLoader,
+});
+
+const BedBugsPosts = Loadable({
+    loader: () => import("../../components/bed-bugs-recent-posts"),
+    loading: ClipLoader,
+});
 
 const Tags = Loadable({
     loader: () => import("../../components/tags"),
