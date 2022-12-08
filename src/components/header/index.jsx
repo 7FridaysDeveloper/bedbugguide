@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
 import {StaticImage} from "gatsby-plugin-image";
 import ThemeContext from "src/context/theme-context";
-import HeaderMenu from "src/components/header/header-menu";
+//import HeaderMenu from "src/components/header/header-menu";
 import AnimatedUnderlineMenu from "src/components/header/animated-underline-menu";
 import MenuSvg from "src/images/svg/menu.svg";
 import SearchSvg from "src/images/svg/search.svg";
