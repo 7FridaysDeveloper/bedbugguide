@@ -1,6 +1,6 @@
 import React from "react";
 import {graphql} from "gatsby";
-//import Posts from "../../components/posts";
+import Posts from "../../components/posts";
 //import WordpressSearch from "../../components/wordpress-search";
 // import About from "../../components/static-sections/about";
 // import Tabs from "../../components/static-sections/tabs";
@@ -14,7 +14,7 @@ const ArchivePage = ({data, pageContext}) => {
     console.log(data, pageContext)
     return (<>
             <div>
-                {/*<Posts posts={data.allWpPost.nodes} pageContext={pageContext}/>*/}
+                <Posts posts={data.allWpPost.nodes} pageContext={pageContext}/>
 
                 {/*{location.search === '' ?*/}
                 {/*    <Posts posts={data.allWpPost.nodes} pageContext={pageContext}/> :*/}

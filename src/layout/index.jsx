@@ -4,14 +4,12 @@ import Header from "src/components/header";
 //import Seo, {SEOContext} from 'gatsby-plugin-wpgraphql-seo';
 //import FooterScript from "../wp-scripts/footer-script";
 //import {Helmet} from "react-helmet";
-import ThemeContext from "../context/theme-context";
 import Modal from "../components/modal";
 //import Footer from "../components/footer";
 
 import "../styles/global.css";
 
 const Index = ({children}) => {
-    const theme = useContext(ThemeContext);
     const {
         wp,
     } = useStaticQuery(graphql`
