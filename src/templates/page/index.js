@@ -49,7 +49,7 @@ const Index = ({data: {page}}) => {
     if(show === false) return null;
     return (
         <>
-            <div className="content">
+            <div className="content page-content">
                 <div className="container">
                     <div id="upxif"></div>
                     <div className="grid-box">
