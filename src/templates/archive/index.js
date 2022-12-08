@@ -1,50 +1,19 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef } from "react";
 import {graphql} from "gatsby";
 import useOnScreen from "../../hooks/usOneScreen";
 import Posts from "../../components/posts";
 import WordpressSearch from "../../components/wordpress-search";
-import Loadable from "react-loadable";
-import ClipLoader from "react-spinners/ClipLoader";
+import About from "../../components/static-sections/about";
+import Tabs from "../../components/static-sections/tabs";
+import BedBugsPosts from "../../components/bed-bugs-recent-posts";
+import RecentComments from "../../components/recent-comments";
+import BedBugProduct from "../../components/bed-bug-products";
+import Tags from "../../components/tags";
 
-const About = Loadable({
-    loader: () => import("../../components/static-sections/about"),
-    loading: ClipLoader,
-});
-
-const Tabs = Loadable({
-    loader: () => import("../../components/static-sections/tabs"),
-    loading: ClipLoader,
-});
-
-const BedBugProduct = Loadable({
-    loader: () => import("../../components/bed-bug-products"),
-    loading: ClipLoader,
-});
-
-const RecentComments = Loadable({
-    loader: () => import("../../components/recent-comments"),
-    loading: ClipLoader,
-});
-
-const BedBugsPosts = Loadable({
-    loader: () => import("../../components/bed-bugs-recent-posts"),
-    loading: ClipLoader,
-});
-
-const Tags = Loadable({
-    loader: () => import("../../components/tags"),
-    loading: ClipLoader,
-});
 
 const ArchivePage = ({data, pageContext, location}) => {
     const tagsRef = useRef(null);
     const isVisible = useOnScreen(tagsRef)
-    const [show, setShow] = useState(false);
-    useEffect(() => {
-        setTimeout(() => {
-            setShow(true);
-        }, 50)
-    }, [])
     return (<>
             <div>
                 {location.search === '' ?
@@ -57,12 +26,12 @@ const ArchivePage = ({data, pageContext, location}) => {
                 </div>
                 <div className="footer-top-wrap">
                     <div className="container" ref={tagsRef}>
-                        {isVisible ? <Tags /> : null}
-                        {show ? <>
+                        {isVisible ? <>
+                            <Tags />
                             <RecentComments/>
                             <BedBugsPosts/>
-                            <BedBugProduct/>
                         </> : null}
+                        <BedBugProduct/>
                     </div>
                 </div>
             </div>

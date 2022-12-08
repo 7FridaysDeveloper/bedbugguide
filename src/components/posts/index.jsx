@@ -4,12 +4,9 @@ import Pagination from "../pagination";
 import PopularPosts from "../popular-posts";
 import Categories from "../categoties";
 import ClipLoader from "react-spinners/ClipLoader";
-import Loadable from "react-loadable";
 import useOnScreen from "../../hooks/usOneScreen";
-const Tags = Loadable({
-    loader: () => import("../tags"),
-    loading: ClipLoader,
-});
+import Tags from "../tags"
+
 import "./style.css";
 
 
