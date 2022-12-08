@@ -28,4 +28,4 @@ const PopularPosts = () => {
     );
 };
 
-export default React.memo(PopularPosts);
+export default PopularPosts;

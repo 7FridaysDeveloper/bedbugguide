@@ -39,4 +39,4 @@ const FooterCenter = () => {
     )
 }
 
-export default React.memo(FooterCenter);
+export default FooterCenter;
