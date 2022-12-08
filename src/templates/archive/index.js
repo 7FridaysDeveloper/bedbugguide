@@ -3,6 +3,8 @@ import {graphql} from "gatsby";
 import useOnScreen from "../../hooks/usOneScreen";
 import Posts from "../../components/posts";
 import WordpressSearch from "../../components/wordpress-search";
+import About from "../../components/static-sections/about";
+import Tabs from "../../components/static-sections/tabs";
 import BedBugsPosts from "../../components/bed-bugs-recent-posts";
 import RecentComments from "../../components/recent-comments";
 import BedBugProduct from "../../components/bed-bug-products";
@@ -24,6 +26,10 @@ const ArchivePage = ({data, pageContext, location}) => {
                     <Posts posts={data.allWpPost.nodes} pageContext={pageContext}/> :
                     <WordpressSearch search={location.search} path={location.pathname} seo={data.wp.allSettings?.generalSettingsTitle}/>
                 }
+                <div className="container">
+                    <About/>
+                    <Tabs/>
+                </div>
                 <div className="footer-top-wrap">
                     <div className="container" ref={tagsRef}>
                         {isVisible ? <>
