@@ -27,7 +27,7 @@ const RecentComments = () => {
             {comments.map(comm => (
                 <div className="flex-box" key={comm.id}>
                     <span>{parse(comm.author_name || '')} on </span>
-                    <Link to={comm.uri}>{parse(comm.postTitle || '')}</Link>
+                    <Link to={comm.uri} dangerouslySetInnerHTML={{ __html: comm.postTitle || ''}}></Link>
                 </div>
             ))}
         </div>

@@ -2,8 +2,8 @@ import React from "react";
 import {graphql} from "gatsby";
 import Header from "src/components/header";
 import Posts from "../../components/posts";
-import Footer from "../../components/footer";
 //import WordpressSearch from "../../components/wordpress-search";
+import Loadable from "react-loadable";
 import About from "../../components/static-sections/about";
 import Tabs from "../../components/static-sections/tabs";
 import BedBugsPosts from "../../components/bed-bugs-recent-posts";
@@ -11,7 +11,13 @@ import RecentComments from "../../components/recent-comments";
 import BedBugProduct from "../../components/bed-bug-products";
 import Tags from "../../components/tags";
 
+const Footer = Loadable({
+    loader: () => import("../../components/footer"),
+    loading: ClipLoader,
+});
+
 import "../../styles/global.css";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const ArchivePage = ({data, pageContext}) => {
 
