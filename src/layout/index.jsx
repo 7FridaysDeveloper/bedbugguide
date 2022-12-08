@@ -103,7 +103,7 @@ const Index = ({children}) => {
   `);
     return (
         <>
-            <FooterScript/>
+            {/*<FooterScript/>*/}
             { theme?.state?.modelSearch ? <Modal/> : null }
             {/*<Header/>*/}
             <SEOContext.Provider value={wp}>

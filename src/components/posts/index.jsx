@@ -1,6 +1,6 @@
 import React, {useRef} from "react";
 //import Post from "./post";
-import Pagination from "../pagination";
+//import Pagination from "../pagination";
 import PopularPosts from "../popular-posts";
 import Categories from "../categoties";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -36,13 +36,13 @@ const Posts = ({posts, pageContext, children, slug = '/', changePagination = nul
                                 {/*        />*/}
                                 {/*    )*/}
                                 {/*)}*/}
-                                <Pagination
-                                    changePagination={changePagination}
-                                    path={slug}
-                                    currentPage={pageContext.page}
-                                    totalPage={pageContext.totalPages}
-                                    postsPerPage={pageContext.postsPerPage}
-                                />
+                                {/*<Pagination*/}
+                                {/*    changePagination={changePagination}*/}
+                                {/*    path={slug}*/}
+                                {/*    currentPage={pageContext.page}*/}
+                                {/*    totalPage={pageContext.totalPages}*/}
+                                {/*    postsPerPage={pageContext.postsPerPage}*/}
+                                {/*/>*/}
                             </>
                         }
                     </div>
