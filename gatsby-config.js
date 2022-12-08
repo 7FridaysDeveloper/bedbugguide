@@ -91,11 +91,11 @@ module.exports = {
           requestConcurrency: 1,
           //perPage: 20000,
         },
-        type: {
-          __all: {
-            limit: 21,
-          },
-        },
+        // type: {
+        //   __all: {
+        //     limit: 21,
+        //   },
+        // },
       }
     },
     // {
