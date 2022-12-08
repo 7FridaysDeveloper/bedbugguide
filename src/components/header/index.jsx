@@ -38,8 +38,7 @@ const Header = () => {
           }
         }
      `);
-    /*const LogoImg = data.wp?.themeGeneralSettings?.themeOptions?.siteLogo?.sourceUrl;
-    console.log(LogoImg , 'logo');*/
+
     return (
         <>
             <header ref={headerRef}>
