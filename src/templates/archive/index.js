@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import {graphql} from "gatsby";
 import useOnScreen from "../../hooks/usOneScreen";
 import Posts from "../../components/posts";
@@ -39,8 +39,12 @@ const Tags = Loadable({
 const ArchivePage = ({data, pageContext, location}) => {
     const tagsRef = useRef(null);
     const isVisible = useOnScreen(tagsRef)
-
-    console.log(isVisible)
+    const [show, setShow] = useState(false);
+    useEffect(() => {
+        setTimeout(() => {
+            setShow(true);
+        }, 50)
+    }, [])
     return (<>
             <div>
                 {location.search === '' ?
@@ -54,9 +58,11 @@ const ArchivePage = ({data, pageContext, location}) => {
                 <div className="footer-top-wrap">
                     <div className="container" ref={tagsRef}>
                         {isVisible ? <Tags /> : null}
-                        <RecentComments/>
-                        <BedBugsPosts/>
-                        <BedBugProduct/>
+                        {show ? <>
+                            <RecentComments/>
+                            <BedBugsPosts/>
+                            <BedBugProduct/>
+                        </> : null}
                     </div>
                 </div>
             </div>
