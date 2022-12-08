@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, { useState, useRef  } from "react";
 import {StaticImage} from "gatsby-plugin-image";
-import ThemeContext from "src/context/theme-context";
+//import ThemeContext from "src/context/theme-context";
 //import HeaderMenu from "src/components/header/header-menu";
 import AnimatedUnderlineMenu from "src/components/header/animated-underline-menu";
 import MenuSvg from "src/images/svg/menu.svg";
@@ -12,22 +12,16 @@ import "./style.css";
 
 const Header = () => {
     console.log('Header')
-    const theme = useContext(ThemeContext);
     const headerRef = useRef(null);
     const [isOpeMobileMenu, setOpenMobileMenu] = useState(false);
     const toggleMobileMenu = () => {
         setOpenMobileMenu(!isOpeMobileMenu);
     };
-    useEffect(() => {
-        theme.dispatch({
-            type: "headerHeight",
-            payload: headerRef.current?.offsetHeight,
-        });
-    }, [headerRef]);
+
 
 
     const toggleClass = () => {
-        theme.dispatch({ type: 'modelSearch', payload: true })
+        //theme.dispatch({ type: 'modelSearch', payload: true })
     };
 
     const data = useStaticQuery(graphql`

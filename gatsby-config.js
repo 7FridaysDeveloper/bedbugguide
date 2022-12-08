@@ -112,14 +112,5 @@ module.exports = {
       },
       __key: "images",
     },
-    // {
-    //   resolve: `gatsby-plugin-purgecss`,
-    //   options: {
-    //     printRejected: true,
-    //     develop: true,
-    //   },
-    // },
-    // "gatsby-plugin-webpack-bundle-analyser-v2",
-    // "gatsby-plugin-perf-budgets",
   ],
 };

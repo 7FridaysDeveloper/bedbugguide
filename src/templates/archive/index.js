@@ -1,7 +1,6 @@
-import React, { useRef, useState, useEffect } from "react";
+import React from "react";
 import {graphql} from "gatsby";
 import Header from "src/components/header";
-import useOnScreen from "../../hooks/usOneScreen";
 import Posts from "../../components/posts";
 import Footer from "../../components/footer";
 //import WordpressSearch from "../../components/wordpress-search";
@@ -15,15 +14,7 @@ import Tags from "../../components/tags";
 import "../../styles/global.css";
 
 const ArchivePage = ({data, pageContext}) => {
-    console.log(22222)
-    const tagsRef = useRef(null);
-    const [isVisible, setIsVisible] = useState(false);
-    const visible = useOnScreen(tagsRef);
-    useEffect(() => {
-        if(isVisible === false) {
-            setIsVisible(visible);
-        }
-    }, [visible])
+
     return (<>
             <Header />
             <div>
@@ -33,7 +24,7 @@ const ArchivePage = ({data, pageContext}) => {
                     <Tabs/>
                 </div>
                 <div className="footer-top-wrap">
-                    <div className="container" ref={tagsRef}>
+                    <div className="container">
                         <Tags />
                         <RecentComments/>
                         <BedBugsPosts/>
