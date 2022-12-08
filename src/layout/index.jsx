@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import {useStaticQuery, graphql} from "gatsby";
 import Header from "src/components/header";
-import Seo, {SEOContext} from 'gatsby-plugin-wpgraphql-seo';
+//import Seo, {SEOContext} from 'gatsby-plugin-wpgraphql-seo';
 //import FooterScript from "../wp-scripts/footer-script";
 //import {Helmet} from "react-helmet";
 import ThemeContext from "../context/theme-context";
@@ -106,17 +106,14 @@ const Index = ({children}) => {
             {/*<FooterScript/>*/}
             { theme?.state?.modelSearch ? <Modal/> : null }
             <Header/>
-            <SEOContext.Provider value={wp}>
-                {children}
-            </SEOContext.Provider>
+            {children}
             {/*<Footer/>*/}
             {/*<Helmet>*/}
             {/*    <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8"/>*/}
             {/*    <meta property="og:locale" content={wp.seo.schema.inLanguage}/>*/}
             {/*    <meta name="og:site_name" content={wp.allSettings.generalSettingsTitle}/>*/}
             {/*</Helmet>*/}
-            <Seo postSchema={JSON.parse(wp.seo.contentTypes.post.schema.raw)}/>
-            <div id="footer-script"></div>
+            {/*<Seo postSchema={JSON.parse(wp.seo.contentTypes.post.schema.raw)}/>*/}
         </>
     );
 };
