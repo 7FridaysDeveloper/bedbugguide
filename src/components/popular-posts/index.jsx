@@ -1,7 +1,7 @@
 import React from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import usePopularPosts from "../../hooks/usePopularPosts";
-import parse from "html-react-parser";
+//import parse from "html-react-parser";
 
 import './style.css';
 
@@ -19,7 +19,7 @@ const PopularPosts = () => {
                             <a href={'/category/'+post.categories[0].slug}>{post.categories[0]?.name}</a>
                         </div>
                         <h3 className="post-title">
-                            <a href={post.uri}>{parse(post.title)}</a>
+                            <a href={post.uri}>{post.title}</a>
                         </h3>
                     </div>
                 ))}

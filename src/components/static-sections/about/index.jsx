@@ -1,6 +1,6 @@
 import React from "react";
 import {graphql, useStaticQuery} from "gatsby";
-import parse from "html-react-parser";
+//import parse from "html-react-parser";
 
 import './style.css';
 
@@ -20,7 +20,7 @@ const About = () => {
 
     return(
         <div className="about">
-            {parse(data.wp.themeGeneralSettings?.themeOptions?.aboutBedbugguide || '')}
+            {data.wp.themeGeneralSettings?.themeOptions?.aboutBedbugguide}
         </div>
     )
 }
