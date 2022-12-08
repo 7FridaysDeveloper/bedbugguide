@@ -101,6 +101,7 @@ const Index = ({children}) => {
       }
     }
   `);
+    console.log(wp)
     return (
         <>
             {/*<FooterScript/>*/}

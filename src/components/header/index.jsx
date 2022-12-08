@@ -1,9 +1,7 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
 import {StaticImage} from "gatsby-plugin-image";
 import ThemeContext from "src/context/theme-context";
-import AnimateHeight from "react-animate-height";
 import HeaderMenu from "src/components/header/header-menu";
-import AnimatedUnderlineMenu from "src/components/header/animated-underline-menu";
 import MenuSvg from "src/images/svg/menu.svg";
 import SearchSvg from "src/images/svg/search.svg";
 import { formatToday } from "../../util/helpers";
@@ -57,7 +55,7 @@ const Header = () => {
                                 {data.wp?.themeGeneralSettings?.themeOptions?.enableCurrentDateTime === 'On' ? formatToday() : ''}
                             </div>
                             <nav className="header-menu-desktop">
-                                <AnimatedUnderlineMenu />
+                                <HeaderMenu />
                             </nav>
                             <div
                                 className="mobileMenu"
@@ -70,13 +68,7 @@ const Header = () => {
                         </div>
                     </div>
                     <nav className="header-menu-mobile">
-                        <AnimateHeight
-                            duration={500}
-                            id="animation-height-header"
-                            height={isOpeMobileMenu ? "auto" : 0}
-                        >
-                            <HeaderMenu />
-                        </AnimateHeight>
+                        <HeaderMenu />
                     </nav>
                     <div className="bottom-header">
                         <div className="container">
