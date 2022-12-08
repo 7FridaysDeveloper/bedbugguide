@@ -56,7 +56,7 @@ const Index = ({data: {page}}) => {
                         <main>
                             <TheContent text={page.databaseId === 380 ? txtContent : page?.content}
                                         title={page?.title}/>
-                            <SharePage title={page.title}/>
+                            <SharePage title={page.title} slug={page.uri}/>
                         </main>
                         <aside>
                             {showSection === true ? <ReadMore/> : null}

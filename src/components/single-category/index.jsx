@@ -9,7 +9,7 @@ const SingleCategory = (categories) => {
                 ({name, uri}, index) => (
                     <a href={uri} key={index}>
                         {name}
-                        {/*{index === categories.categories.length ? ' , ' : ' '}*/}
+                        {index === categories.categories.length-1 ? ' ' : ' , '}
                     </a>
                 )
             )}

@@ -2,10 +2,11 @@ import React from "react";
 import {graphql, useStaticQuery, Link } from "gatsby";
 import {StaticImage} from "gatsby-plugin-image";
 import FolderSvg from "src/images/svg/folder.svg";
-import Share from "../share";
 import FooterPopularPost from "../footer-popular-post";
+import SharePage from "../share-page";
 
 import "./style.css";
+
 
 const Footer = () => {
 
@@ -23,9 +24,12 @@ const Footer = () => {
           uri
         }
       }
+      wpPage {
+        uri
+        title
+      }
     }
   `);
-
     return (
         <footer>
             <div className="footer-top">
@@ -39,8 +43,7 @@ const Footer = () => {
                         />
                     </Link>
                     <div className="share-us">
-                        <Share />
-
+                        <SharePage slug={data.wpPage?.uri} title={data.wpPage?.title}/>
                     </div>
                 </div>
             </div>

@@ -7,8 +7,9 @@ import AnimatedUnderlineMenu from "src/components/header/animated-underline-menu
 import MenuSvg from "src/images/svg/menu.svg";
 import SearchSvg from "src/images/svg/search.svg";
 import { formatToday } from "../../util/helpers";
-
+import {graphql, useStaticQuery} from "gatsby";
 import "./style.css";
+
 
 const Header = () => {
     const theme = useContext(ThemeContext);
@@ -29,6 +30,23 @@ const Header = () => {
         theme.dispatch({ type: 'modelSearch', payload: true })
     };
 
+    const data = useStaticQuery(graphql`
+        query HeaderSettings {
+          wp {
+            id
+            themeGeneralSettings {
+              themeOptions {
+                enableCurrentDateTime
+                siteLogo {
+                  sourceUrl
+                }
+              }
+            }
+          }
+        }
+     `);
+    /*const LogoImg = data.wp?.themeGeneralSettings?.themeOptions?.siteLogo?.sourceUrl;
+    console.log(LogoImg , 'logo');*/
     return (
         <>
             <header ref={headerRef}>
@@ -36,7 +54,7 @@ const Header = () => {
                     <div className="top-header">
                         <div className="container-fluid-custom container">
                             <div className="time floatLeft">
-                                {formatToday()}
+                                {data.wp?.themeGeneralSettings?.themeOptions?.enableCurrentDateTime === 'On' ? formatToday() : ''}
                             </div>
                             <nav className="header-menu-desktop">
                                 <AnimatedUnderlineMenu />

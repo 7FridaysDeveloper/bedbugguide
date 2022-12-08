@@ -67,7 +67,7 @@ const SinglePost = (props) => {
                 }
             })}</div>
             <Tags tags={props.data.post.tags}/>
-            <SharePage image={props.data?.post?.featuredImage} title={props.data?.post?.title} />
+            <SharePage image={props.data?.post?.featuredImage} title={props.data?.post?.title} slug={props.data?.post?.uri} />
             <PrevNextPost previous={props.data?.previous} next={props.data?.next}/>
             <RelatedPosts posts={props.data.post?.related_posts}/>
             {props.data.post.commentStatus === 'open' ?

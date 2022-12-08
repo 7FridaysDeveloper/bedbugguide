@@ -31,7 +31,8 @@
     background: #000;
 }
 .single-post .text-content p,
-.single-post .text-content li {
+.single-post .text-content li,
+.single-post .text-content{
     padding-bottom: 20px;
     color: #000;
     font-size: 18px;

@@ -82,6 +82,58 @@
 .share-page li span.share-count svg path {
     fill: #fff;
 }
+
+footer .share-page {
+    border: none;
+    margin-bottom: 0;
+}
+footer .share-page .facebook svg {
+    margin-right: 5px !important;
+    margin-left: 4px;
+}
+footer .share-page .line.black {
+    display: none;
+}
+footer .share-page p {
+    display: none;
+}
+footer .share-page li a {
+    font-size: 0;
+}
+.share-page ul span {
+    display: none;
+}
+footer .share-page li span.share-count {
+    background-color: transparent !important;
+    font-size: 0 !important;
+    padding: 0;
+    margin: 0;
+}
+footer .share-page ul span {
+    display: flex;
+    padding-top: 4px;
+}
+footer .share-page ul {
+    width: auto;
+}
+footer .share-page ul li {
+    width: auto;
+}
+footer .share-page li span.share-count svg {
+    margin-right: 13px;
+    width: 16px;
+    height: 17px;
+}
+footer .share-page li span.share-count svg path {
+    fill: #969696;
+    transition: .3s;
+}
+footer .share-page li span.share-count svg:hover path {
+    fill: #fff;
+}
+footer .share-page ul li span.share-count:after {
+    display: none;
+}
 @media(max-width: 700px) {
     .share-page li span.share-count {
         margin-bottom: 5px;
