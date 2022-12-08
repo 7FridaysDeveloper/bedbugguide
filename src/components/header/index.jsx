@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, { useState, useRef, useContext } from "react";
 import {StaticImage} from "gatsby-plugin-image";
 import ThemeContext from "src/context/theme-context";
 import HeaderMenu from "src/components/header/header-menu";
@@ -16,12 +16,12 @@ const Header = () => {
     const toggleMobileMenu = () => {
         setOpenMobileMenu(!isOpeMobileMenu);
     };
-    useEffect(() => {
-        theme.dispatch({
-            type: "headerHeight",
-            payload: headerRef.current?.offsetHeight,
-        });
-    }, [headerRef]);
+    // useEffect(() => {
+    //     theme.dispatch({
+    //         type: "headerHeight",
+    //         payload: headerRef.current?.offsetHeight,
+    //     });
+    // }, [headerRef]);
 
 
     const toggleClass = () => {

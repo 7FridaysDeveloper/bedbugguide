@@ -1,10 +1,10 @@
-import React, {useContext} from "react";
+import React from "react";
 import {useStaticQuery, graphql} from "gatsby";
 import Header from "src/components/header";
 //import Seo, {SEOContext} from 'gatsby-plugin-wpgraphql-seo';
 //import FooterScript from "../wp-scripts/footer-script";
 //import {Helmet} from "react-helmet";
-import Modal from "../components/modal";
+//import Modal from "../components/modal";
 //import Footer from "../components/footer";
 
 import "../styles/global.css";
@@ -103,7 +103,7 @@ const Index = ({children}) => {
     return (
         <>
             {/*<FooterScript/>*/}
-            { theme?.state?.modelSearch ? <Modal/> : null }
+            {/*{ theme?.state?.modelSearch ? <Modal/> : null }*/}
             <Header/>
             {children}
             {/*<Footer/>*/}
