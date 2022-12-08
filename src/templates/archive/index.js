@@ -1,8 +1,8 @@
-import React, { useRef, useState, useEffect } from "react";
+import React from "react";
 import {graphql} from "gatsby";
 import useOnScreen from "../../hooks/usOneScreen";
 import Posts from "../../components/posts";
-import WordpressSearch from "../../components/wordpress-search";
+//import WordpressSearch from "../../components/wordpress-search";
 import About from "../../components/static-sections/about";
 import Tabs from "../../components/static-sections/tabs";
 import BedBugsPosts from "../../components/bed-bugs-recent-posts";
@@ -12,31 +12,25 @@ import Tags from "../../components/tags";
 
 
 const ArchivePage = ({data, pageContext, location}) => {
-    const tagsRef = useRef(null);
-    const [isVisible, setIsVisible] = useState(false);
-    const visible = useOnScreen(tagsRef);
-    useEffect(() => {
-        if(isVisible === false) {
-            setIsVisible(visible);
-        }
-    }, [visible])
     return (<>
             <div>
-                {location.search === '' ?
-                    <Posts posts={data.allWpPost.nodes} pageContext={pageContext}/> :
-                    <WordpressSearch search={location.search} path={location.pathname} seo={data.wp.allSettings?.generalSettingsTitle}/>
-                }
+                <Posts posts={data.allWpPost.nodes} pageContext={pageContext}/> :
+
+                {/*{location.search === '' ?*/}
+                {/*    <Posts posts={data.allWpPost.nodes} pageContext={pageContext}/> :*/}
+                {/*    <WordpressSearch search={location.search} path={location.pathname} seo={data.wp.allSettings?.generalSettingsTitle}/>*/}
+                {/*}*/}
                 <div className="container">
                     <About/>
                     <Tabs/>
                 </div>
                 <div className="footer-top-wrap">
-                    <div className="container" ref={tagsRef}>
-                        {isVisible ? <>
+                    <div className="container">
+                        <>
                             <Tags />
                             <RecentComments/>
                             <BedBugsPosts/>
-                        </> : null}
+                        </>
                         <BedBugProduct/>
                     </div>
                 </div>
