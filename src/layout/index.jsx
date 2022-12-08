@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext} from "react";
 import {useStaticQuery, graphql} from "gatsby";
 import Header from "src/components/header";
 import Seo, {SEOContext} from 'gatsby-plugin-wpgraphql-seo';
@@ -12,13 +12,6 @@ import "../styles/global.css";
 
 const Index = ({children}) => {
     const theme = useContext(ThemeContext);
-    const [show, setShow] = useState(false);
-
-    useEffect(() => {
-        setTimeout(() => {
-            setShow(true);
-        }, 50)
-    }, [])
     const {
         wp,
     } = useStaticQuery(graphql`
@@ -116,7 +109,7 @@ const Index = ({children}) => {
             <SEOContext.Provider value={wp}>
                 {children}
             </SEOContext.Provider>
-            { show ? <Footer/> : null }
+             <Footer/>
             <Helmet>
                 <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8"/>
                 <meta property="og:locale" content={wp.seo.schema.inLanguage}/>
