@@ -47,14 +47,7 @@ const Tabs = () => {
             </div>
             <div className="right">
                 <div className="text-content">
-                    <div className="content-tab">
-                        {parse(tabContent, {
-                            replace: (domNode) => {
-                                if(domNode.name === 'img') {
-                                    domNode.attribs.loading = 'lazy';
-                                }
-                            }
-                        })}
+                    <div className="content-tab" dangerouslySetInnerHTML={{ __html: tabContent}}>
                     </div>
                 </div>
             </div>
