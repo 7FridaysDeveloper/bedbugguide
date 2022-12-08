@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import {graphql} from "gatsby";
+import Header from "src/components/header";
 import useOnScreen from "../../hooks/usOneScreen";
 import Posts from "../../components/posts";
 import WordpressSearch from "../../components/wordpress-search";
@@ -22,6 +23,7 @@ const ArchivePage = ({data, pageContext, location}) => {
         }
     }, [visible])
     return (<>
+            <Header />
             <div>
                 {location.search === '' ?
                     <Posts posts={data.allWpPost.nodes} pageContext={pageContext}/> :
