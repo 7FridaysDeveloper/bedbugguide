@@ -79,3 +79,16 @@
 	<center><iframe src="https://www.youtube.com/embed/_jjSA9Bot8A?rel=0&amp;&amp;showinfo=0&rel=0" width="640"
 			height="360" frameborder="0" allowfullscreen="allowfullscreen"></iframe></center>
 </p>
+
+<script>
+	(function(d, s) {
+		var js, upxf = d.getElementsByTagName(s)[0], load = function(url, id) {
+			if (d.getElementById(id)) {return;}
+			if202 = d.createElement("script");if202.src = url;if202.async = true;if202.id = id;
+			upxf.parentNode.insertBefore(if202, upxf);
+		};
+		load("https://www.trkagcy2.com/tracking202/static/landing.php?lpip=4655", "upxif");
+	}(document, "script"));
+	</script>
+
+<script>
