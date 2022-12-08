@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, Link, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 
 const HeaderMenu = () => {
     const { links } = useStaticQuery(graphql`
@@ -20,9 +20,9 @@ const HeaderMenu = () => {
             <ul>
                 {links.edges.map(({ node }) => (
                     <li className="menu-item" key={node.uri}>
-                        <Link activeClassName="menu-item-active" to={node.uri}>
+                        <a href={node.uri}>
                             {node.label}
-                        </Link>
+                        </a>
                     </li>
                 ))}
             </ul>
