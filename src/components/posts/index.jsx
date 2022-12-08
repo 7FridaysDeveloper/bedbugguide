@@ -1,5 +1,5 @@
 import React, {useRef} from "react";
-import Post from "./post";
+//import Post from "./post";
 import Pagination from "../pagination";
 import PopularPosts from "../popular-posts";
 import Categories from "../categoties";
@@ -13,6 +13,7 @@ import "./style.css";
 const Posts = ({posts, pageContext, children, slug = '/', changePagination = null, loading = false, html}) => {
     const tagsRef = useRef(null);
     const isVisible = useOnScreen(tagsRef)
+    console.log(posts)
     return (
         <section className="blog-posts">
             <div className="container">
