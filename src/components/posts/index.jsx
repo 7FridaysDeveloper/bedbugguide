@@ -21,20 +21,20 @@ const Posts = ({posts, pageContext, children, slug = '/', changePagination = nul
                         {html}
                         {loading ? <div className="blog-posts__loader"><ClipLoader /></div> :
                             <>
-                                {posts.map(
-                                    ({title, databaseId, date, featuredImage, uri, categories, excerpt}, index) => (
-                                        <Post
-                                            index={index}
-                                            key={databaseId}
-                                            title={title}
-                                            date={date}
-                                            featuredImage={featuredImage?.node.localFile}
-                                            uri={uri}
-                                            categories={categories}
-                                            excerpt={excerpt}
-                                        />
-                                    )
-                                )}
+                                {/*{posts.map(*/}
+                                {/*    ({title, databaseId, date, featuredImage, uri, categories, excerpt}, index) => (*/}
+                                {/*        <Post*/}
+                                {/*            index={index}*/}
+                                {/*            key={databaseId}*/}
+                                {/*            title={title}*/}
+                                {/*            date={date}*/}
+                                {/*            featuredImage={featuredImage?.node.localFile}*/}
+                                {/*            uri={uri}*/}
+                                {/*            categories={categories}*/}
+                                {/*            excerpt={excerpt}*/}
+                                {/*        />*/}
+                                {/*    )*/}
+                                {/*)}*/}
                                 <Pagination
                                     changePagination={changePagination}
                                     path={slug}
