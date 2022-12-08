@@ -1,17 +1,21 @@
-import React from "react";
+import React, {useRef} from "react";
 import Post from "./post";
 import Pagination from "../pagination";
 import PopularPosts from "../popular-posts";
 import Categories from "../categoties";
 import ClipLoader from "react-spinners/ClipLoader";
+import Loadable from "react-loadable";
+import useOnScreen from "../../hooks/usOneScreen";
 const Tags = Loadable({
     loader: () => import("../tags"),
     loading: ClipLoader,
 });
 import "./style.css";
-import Loadable from "react-loadable";
+
 
 const Posts = ({posts, pageContext, children, slug = '/', changePagination = null, loading = false, html}) => {
+    const tagsRef = useRef(null);
+    const isVisible = useOnScreen(tagsRef)
     return (
         <section className="blog-posts">
             <div className="container">
@@ -44,10 +48,10 @@ const Posts = ({posts, pageContext, children, slug = '/', changePagination = nul
                             </>
                         }
                     </div>
-                    <aside>
+                    <aside ref={tagsRef}>
                         <PopularPosts/>
                         <Categories/>
-                        <Tags/>
+                        {isVisible ? <Tags /> : null}
                     </aside>
                 </div>
             </div>
