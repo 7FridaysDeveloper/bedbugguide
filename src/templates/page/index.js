@@ -1,10 +1,12 @@
-import React, {useEffect, useState, useLayoutEffect} from "react";
+import React, {useEffect, useState, useLayoutEffect, useContext} from "react";
 import {graphql} from "gatsby";
 import TheContent from "../../components/the-content";
 import ReadMore from "../../components/read-more";
 import Loadable from "react-loadable";
 import ClipLoader from "react-spinners/ClipLoader";
 import Seo from "gatsby-plugin-wpgraphql-seo";
+import ThemeContext from "../../context/theme-context";
+
 
 const Comments = Loadable({
     loader: () => import("../../components/comments"),
@@ -28,6 +30,7 @@ const Index = ({data: {page}}) => {
     const [postSettings, setPostSettings] = useState(null);
     const [txtContent, setTxtContent] = useState('');
     const [show, setShow] = useState(false);
+    const theme = useContext(ThemeContext);
 
     useEffect(() => {
         fetch(`${process.env.GATSBY_URL}/wp-json/posts-view/v1/${page?.databaseId}`)
@@ -45,6 +48,13 @@ const Index = ({data: {page}}) => {
     useLayoutEffect(() => {
         setShow(true);
     }, [])
+
+    useEffect(() => {
+        theme.dispatch({
+            type: "headerAdvertorial",
+            payload: !!page?.advertorialHeader?.hideOrShow,
+        });
+    }, []);
 
     if(show === false) return null;
     return (
@@ -78,7 +88,6 @@ export default Index;
 
 export const Head = ({data: {page, wp}}) => {
     const themeOptions = wp.themeGeneralSettings?.themeOptions;
-
     return (
         <>
             <style dangerouslySetInnerHTML={{ __html: `
@@ -116,6 +125,7 @@ export const pagesQuery = graphql`
           }
       }
     }
+    
     page: wpPage(id: { eq: $id }) {
        seo {
           canonical
@@ -151,6 +161,10 @@ export const pagesQuery = graphql`
           fieldGroupName
           sidebarSettings
       }
+     
+        advertorialHeader {
+          hideOrShow
+        }
     }
   }
 `;

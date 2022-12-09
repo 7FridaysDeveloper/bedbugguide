@@ -125,6 +125,13 @@ header .container-fluid-custom .menu-item {
     letter-spacing: 0;
     padding: 0 15px;
 }
+header .top-header-label {
+    display: flex;
+    justify-content: center;
+    color: #666;
+    font-size: 13px;
+    padding: 3px 10px;
+}
 header nav > .menu-header-menu-container > ul > li > a.menu-item-active {
     color: var(--nav_color_hover) !important;
 }
