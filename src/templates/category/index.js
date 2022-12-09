@@ -2,10 +2,12 @@ import React from "react";
 import {graphql} from "gatsby";
 import Posts from "../../components/posts";
 import Seo from "gatsby-plugin-wpgraphql-seo";
-
+import Header from "../../components/header";
+import Footer from "../../components/footer"
 const ArchivePage = ({pageContext, data}) => {
     return (
         <>
+            <Header />
             <div>
                 <div className="container">
                     <h2 className="page_title_archive">Category Archives: {data.wpCategory?.name} </h2>
@@ -16,7 +18,7 @@ const ArchivePage = ({pageContext, data}) => {
                     pageContext={pageContext}
                 />
             </div>
-
+            <Footer />
         </>
     );
 };
