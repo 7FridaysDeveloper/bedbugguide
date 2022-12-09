@@ -4,6 +4,9 @@
 .single-post .gatsby-image-wrapper-constrained > div {
     display: flex!important;
 }
+.single-post .wp-caption img {
+    height: auto;
+}
 .single-post h1 {
     font-weight: 700;
     color: #000000;
@@ -13,7 +16,7 @@
 }
 .single-post .grid-box {
     display: grid;
-    grid-template-columns: 1fr 365px;
+    grid-template-columns: calc(100% - 395px) 365px;
     grid-gap: 30px;
 }
 .single-post .gatsby-image-wrapper a {
@@ -37,10 +40,23 @@
     color: #000;
     font-size: 18px;
 }
+.single-post .text-content h2 {
+    font-size: 28px;
+    font-weight: 400;
+}
+.single-post .text-content h2 a {
+    text-decoration: underline;
+    color: #00f;
+}
+.single-post .text-content
 .single-post .text-content ol li {
     list-style: decimal;
     margin-bottom: 4px;
     padding-bottom: 0;
+}
+
+.single-post .text-content div {
+    max-width: 100%;
 }
 .single-post .text-content a {
     color: #000;

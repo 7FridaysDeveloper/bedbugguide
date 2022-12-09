@@ -1,4 +1,3 @@
-
 .comments-list {
     padding-bottom: 40px;
 }
@@ -32,6 +31,7 @@
 .comments .text a {
     text-decoration: underline;
     color: #33F;
+    word-break: break-all;
 }
 .comments .line {
     height: 2px;
