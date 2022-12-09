@@ -21,11 +21,16 @@
 }
 .content .grid-box {
     display: grid;
-    grid-template-columns: 1fr 360px;
+    grid-template-columns: calc(100% - 390px) 360px;
     grid-gap: 30px;
 }
 .the-content img.alignright {
     display: inline;
     margin-left: 20px;
     margin-bottom: 20px;
+}
+@media(max-width: 991px) {
+    .content .grid-box {
+        grid-template-columns: 100%;
+    }
 }

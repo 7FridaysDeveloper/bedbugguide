@@ -147,6 +147,7 @@ export const pageQuery = graphql`
          node {
              name
              uri
+             firstName
          }
       }
       tags {

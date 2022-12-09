@@ -44,13 +44,19 @@ const Header = () => {
             }
           }
         }
+        
      `);
-    /*const LogoImg = data.wp?.themeGeneralSettings?.themeOptions?.siteLogo?.sourceUrl;
-    console.log(LogoImg , 'logo');*/
+    /*const LogoImg = data.wp?.themeGeneralSettings?.themeOptions?.siteLogo?.sourceUrl; */
     return (
         <>
             <header ref={headerRef}>
                 <div className="fixing">
+                    {theme?.state?.headerAdvertorial === true ?
+                        <div className="top-header-label">
+                            Advertorial
+                        </div>
+                        : null
+                    }
                     <div className="top-header">
                         <div className="container-fluid-custom container">
                             <div className="time floatLeft">

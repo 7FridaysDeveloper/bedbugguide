@@ -1,3 +1,6 @@
+.read-more {
+    margin-bottom: 50px;
+}
 .read-more h2 {
     text-transform: uppercase;
     text-align: center;
@@ -9,9 +12,12 @@
     font-size: 12px;
     font-family: var(--text_font);
 }
+.read-more .gatsby-image-wrapper {
+    margin: 10px 0;
+}
 .read-more p {
     font-size: 14px;
-    margin-bottom: 15px;
+    margin-bottom: 0;
     font-weight: 400;
     font-style: normal;
     color: #1e1e1e;
@@ -36,7 +42,13 @@
     height: 2px;
     width: 50%;
     left: 25%;
-    background: red;
+    background: #212121;
     position: absolute;
     top: 0;
+}
+.read-more a {
+    color: #0000EE;
+}
+.read-more b {
+    color: #1e1e1e;
 }
