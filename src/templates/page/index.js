@@ -26,6 +26,8 @@ const AddComments = Loadable({
 
 const textImportFile = (name = '1') => import(`/static/${name}.txt`).then(text => text)
 const Index = ({data: {page}}) => {
+
+
     const showSection = (page.sidebarSettings.sidebarSettings === "Show");
     const [postSettings, setPostSettings] = useState(null);
     const [txtContent, setTxtContent] = useState('');
@@ -39,7 +41,7 @@ const Index = ({data: {page}}) => {
     }, [])
 
     useEffect(() => {
-        if (page.databaseId === 380) {
+        if (page.databaseId === 106) {
             textImportFile().then(res => setTxtContent(res.default))
         }
 
@@ -64,19 +66,19 @@ const Index = ({data: {page}}) => {
                     <div id="upxif"></div>
                     <div className="grid-box">
                         <main>
-                            <TheContent text={page.databaseId === 380 ? txtContent : page?.content}
+                            <TheContent text={page.databaseId === 106 ? txtContent : page?.content}
                                         title={page?.title}/>
                             <SharePage title={page.title} slug={page.uri}/>
+                            {page.commentStatus === 'open' ?
+                                <>
+                                    <Comments count={postSettings?.comment_count} id={page.databaseId} type={'page'}/>
+                                    <AddComments id={page.databaseId}/>
+                                </> :
+                                null}
                         </main>
                         <aside>
                             {showSection === true ? <ReadMore/> : null}
                         </aside>
-                        {page.commentStatus === 'open' ?
-                            <>
-                                <Comments count={postSettings?.comment_count} id={page.databaseId} type={'page'}/>
-                                <AddComments id={page.databaseId}/>
-                            </> :
-                            null}
                     </div>
                 </div>
             </div>
