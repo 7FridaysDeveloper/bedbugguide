@@ -22,7 +22,7 @@ const Comments = ({ count = '0', id }) => {
                 setLoading(false);
                 return res.json();
             })
-            .then((data) => setComments([...comments, ...data]))
+            .then((data) => setComments([...comments, ...data].reverse()))
     }, [currentPage]);
 
     const showMoreComments = () => {
