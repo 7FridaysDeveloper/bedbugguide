@@ -11,6 +11,7 @@
 .blog-posts .item .img {
     position: relative;
     padding-top: 65%;
+    background: #c0c0c0;
     overflow: hidden;
     width: 360px;
 }
