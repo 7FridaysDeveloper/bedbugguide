@@ -16,8 +16,7 @@ const Post = ({title, featuredImage, uri, categories, excerpt, index}) => {
                         <Link to={cat.uri} key={cat.id}>{cat.name} {index < array.length - 1 ? ',' : null}</Link>
                     ))}
                     <h3><Link to={uri} partiallyActive={true}>{parse(title)}</Link></h3>
-                    <div className="excerpt">
-                        {parse(excerpt)}
+                    <div className="excerpt" dangerouslySetInnerHTML={{__html: excerpt}}>
                     </div>
                 </div>
             </div>

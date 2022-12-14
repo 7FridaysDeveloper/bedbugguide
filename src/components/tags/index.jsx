@@ -17,9 +17,7 @@ const Tags = ({tags = null}) => {
     }
   `);
 
-
-
-
+    data.allWpTag?.nodes.sort((a, b) => a.name.localeCompare(b.name))
     const dataTags = tags ? tags : data.allWpTag;
     return (
         <div className="tags">
@@ -27,8 +25,9 @@ const Tags = ({tags = null}) => {
             <div className="line"></div>
             <div className="tags-wrap">
                 {dataTags?.nodes?.map(
-                    ({uri, name, count} , index) => (
-                        <Link style={{fontSize: Math.round(((count - 1) / ((count + 8) / 14)) + 8 ) }} key={index} to={uri}> {name}{count} </Link>
+                    ({uri, name, count}, index) => (
+                        <Link style={{fontSize: ((count - 1) / ((count + 8) / 16)) + 8 + 'pt'}} key={index}
+                              to={uri}> {name} </Link>
                     )
                 )}
             </div>
