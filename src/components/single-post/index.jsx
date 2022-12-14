@@ -14,6 +14,12 @@ import ModalImg from "../modal-img/index"
 
 //eslint-disable-next-line
 const regex = new RegExp(/^(http(s)?:\/\/)[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/);
+
+
+function replaceNbsps(str) {
+    const re = new RegExp(String.fromCharCode(160), "g");
+    return str.replace(re, " ");
+}
 const SinglePost = (props) => {
     const [postSettings, setPostSettings] = useState(null);
     const postBodyRef = useRef(null);
@@ -63,6 +69,10 @@ const SinglePost = (props) => {
                                 style={{height: domNode.attribs.height+'px', width: domNode.attribs.width+'px'}}
                             />
                         )
+                    }
+                    if(domNode.type === 'text') {
+                        domNode.nodeValue = replaceNbsps(domNode.nodeValue);
+                        return domNode;
                     }
                 }
             })}</div>
