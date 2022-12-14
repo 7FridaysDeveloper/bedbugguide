@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
-const HeaderMenu = () => {
+const HeaderMenu = ({closeMenu}) => {
     const { links } = useStaticQuery(graphql`
     query MenuHeader {
       links: allWpMenuItem(filter: { locations: { eq: HEADER_MENU } }) {
@@ -20,7 +20,7 @@ const HeaderMenu = () => {
             <ul>
                 {links.edges.map(({ node }) => (
                     <li className="menu-item" key={node.uri}>
-                        <a href={node.uri}>
+                        <a href={node.uri} onClick={closeMenu}>
                             {node.label}
                         </a>
                     </li>

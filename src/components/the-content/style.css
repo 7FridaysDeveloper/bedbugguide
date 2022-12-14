@@ -29,6 +29,9 @@
     margin-left: 20px;
     margin-bottom: 20px;
 }
+.single-post .text-content p:empty {
+    display: none;
+}
 @media(max-width: 991px) {
     .content .grid-box {
         grid-template-columns: 100%;

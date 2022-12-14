@@ -81,7 +81,7 @@ const Header = () => {
                             id="animation-height-header"
                             height={isOpeMobileMenu ? "auto" : 0}
                         >
-                            <HeaderMenu />
+                            <HeaderMenu closeMenu={toggleMobileMenu} />
                         </AnimateHeight>
                     </nav>
                     <div className="bottom-header">
