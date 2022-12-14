@@ -72,7 +72,7 @@ const Index = ({data: {page}}) => {
                             {page.commentStatus === 'open' ?
                                 <>
                                     <Comments count={postSettings?.comment_count} id={page.databaseId} type={'page'}/>
-                                    {page.databaseId !== 106 ? <AddComments id={page.databaseId}/> : null }
+                                    <AddComments id={page.databaseId}/>
                                 </> :
                                 null}
                         </main>
