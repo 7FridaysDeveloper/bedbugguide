@@ -6,7 +6,6 @@ import CommentSvg from "src/images/svg/comment.svg";
 import './style.css';
 
 const Statistic = ({author, date, postSettings}) => {
-    console.log(author);
     return (
         <div className="single-statistic">
             <div className="author">

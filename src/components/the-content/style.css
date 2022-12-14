@@ -34,3 +34,19 @@
         grid-template-columns: 100%;
     }
 }
+@media(max-width: 767px) {
+    .the-content p {
+        display: inline-block;
+    }
+    .the-content p a {
+        display: block;
+    }
+    .the-content img.alignright {
+        margin: 10px auto auto;
+        display: block;
+    }
+    .the-content img.alignleft {
+        margin: 10px auto auto;
+        display: block;
+    }
+}

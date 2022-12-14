@@ -20,6 +20,7 @@ const BedBugsPosts = () => {
               id
               name
               uri
+              firstName
             }
           }
           date(formatString: "MMM D, YYYY")
@@ -36,7 +37,7 @@ const BedBugsPosts = () => {
 
     const categoryName = {name: data.allWpPost?.nodes[0]?.categories?.nodes[0].name , slug: data.allWpPost?.nodes[0]?.categories?.nodes[0]?.uri};
     const dateCategory = data.allWpPost?.nodes[0]?.date;
-    const authorName = {name: data.allWpPost?.nodes[0]?.author?.node?.name , slug: data.allWpPost?.nodes[0]?.author?.node?.uri};
+    const authorName = {name: data.allWpPost?.nodes[0]?.author?.node?.firstName , slug: data.allWpPost?.nodes[0]?.author?.node?.uri};
 
     const arr = data.allWpPost.nodes.slice(0, 6);
 
