@@ -22,7 +22,7 @@ const ReadMore = () => {
                 />
                 <p>{'"'}The product works absolutely great! I had never even seen a bed bug till a family member got them!</p>
                 <br/>
-                <p>We started getting some bites so we immediately bought <Link to={'https://www.saybyebugs.com/?ver=2&AFFID=guide&utm_campaign=not_AMP_page'}>SayByeBugs</Link> & {"haven't"} had a bite since! We would recommend it to {'anyone!"'}
+                <p>We started getting some bites so we immediately bought <Link to={'https://www.saybyebugs.com/?ver=2&AFFID=guide'}>SayByeBugs</Link> & {"haven't"} had a bite since! We would recommend it to {'anyone!"'}
                 </p>
                 <br/>
                 <b>Stop Bed Bugs:</b>
@@ -30,7 +30,7 @@ const ReadMore = () => {
                 <br/>
                 <p>Request your kit here:</p>
                 <p>Get Started:</p>
-                <Link to={'https://www.saybyebugs.com/?ver=2&AFFID=guide&utm_campaign=not_AMP_page'}>Get SayByeBugs</Link>
+                <Link to={'https://www.saybyebugs.com/?ver=2&AFFID=guide'}>Get SayByeBugs</Link>
             </div>
         </div>
     )
