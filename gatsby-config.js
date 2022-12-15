@@ -97,11 +97,11 @@ module.exports = {
         schema: {
           //perPage: 20000,
         },
-        // type: {
-        //   __all: {
-        //     limit: 51,
-        //   },
-        // },
+        type: {
+          __all: {
+            limit: 10,
+          },
+        },
       }
     },
     {
