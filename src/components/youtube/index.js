@@ -1,20 +1,21 @@
-import React, {useState} from "react";
+import React, {useRef} from "react";
 import YouTube from 'react-youtube';
-import YoutubePlaySvg from '../../images/svg/youtube-play.svg'
+//import YoutubePlaySvg from '../../images/svg/youtube-play.svg'
+import useOnScreen from "../../hooks/usOneScreen";
 
 import './style.css'
 
 export default function YouTubeLazy({videoId, style}) {
-    const [show, setShow] = useState(false);
-    const showVideo = () => setShow(true);
+    const iframeRef = useRef(null);
+    const onScreenRef = useOnScreen(iframeRef)
 
     return (
-        <div style={style} className="youtube-component">
-            {show ?
+        <div style={style} className="youtube-component" ref={iframeRef}>
+            {onScreenRef ?
                 <YouTube
                     videoId={videoId}
                     loading={'lazy'}
-                    opts={{...style, playerVars: { autoplay: 1 } }}
+                    opts={{...style}}
                 />
                 :
                 <div>
@@ -22,7 +23,6 @@ export default function YouTubeLazy({videoId, style}) {
                         src={`https://img.youtube.com/vi/${videoId}/0.jpg`}
                         alt="youtube-video"
                         loading="lazy"/>
-                    <YoutubePlaySvg onClick={showVideo} />
                 </div>
             }
         </div>
