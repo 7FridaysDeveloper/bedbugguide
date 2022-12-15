@@ -7,13 +7,12 @@ export default function useOnScreen(ref) {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 setIntersecting(entry.isIntersecting);
-                console.log(entry.intersectionRatio)
-                if(entry.intersectionRatio >= 0.5) {
+                if(entry.intersectionRatio >= 0.3) {
                     observer.unobserve(ref.current);
                 }
             },
             {
-                threshold: 0.5,
+                threshold: 0.3,
             }
         )
         observer.observe(ref.current)
