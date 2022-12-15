@@ -65,8 +65,8 @@ export default function WordpressSearch({search, path, seo}) {
             <Helmet>
                 {<title>You searched for  a {paginationSettings.page > 1 ? `Page ${paginationSettings.page} of ${paginationSettings.totalPages}` : ''} - {seo}</title>}
             </Helmet>
-            <div className="container">
-                <h2 className="page_title_archive">{titleSearch}: {parse(decodeURI(search.replace('?s=', '')))} </h2>
+            <div className="container" key={'wordpress-search'}>
+                <h2 className="page_title_archive" key={'wordpress-search-title'}>{titleSearch}: {parse(decodeURI(search.replace('?s=', '')))}</h2>
             </div>
             <Posts posts={posts} loading={loading} pageContext={paginationSettings} changePagination={changePage}/>
         </div>
