@@ -4,6 +4,7 @@ import {Link} from "gatsby";
 import parse from "html-react-parser";
 
 const Post = ({title, featuredImage, uri, categories, excerpt, index}) => {
+    console.log(featuredImage);
     return (
 
         <div className="item">

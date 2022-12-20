@@ -25,7 +25,7 @@ const Posts = ({posts, pageContext, children, slug = '/', changePagination = nul
                                             key={databaseId}
                                             title={title}
                                             date={date}
-                                            featuredImage={featuredImage?.node.localFile}
+                                            featuredImage={featuredImage?.node}
                                             uri={uri}
                                             categories={categories}
                                             excerpt={excerpt}

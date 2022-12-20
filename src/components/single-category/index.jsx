@@ -5,7 +5,7 @@ import './style.css';
 const SingleCategory = (categories) => {
     return (
         <div className="category-post">
-            {categories.categories.map(
+            {categories?.categories?.map(
                 ({name, uri}, index) => (
                     <a href={uri} key={index}>
                         {name}

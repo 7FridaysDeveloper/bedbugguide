@@ -101,15 +101,7 @@ export const pageQuery = graphql`
       featuredImage {
           node {
             sourceUrl
-            localFile {
-              childImageSharp {
-                 gatsbyImageData(
-                    quality: 95
-                    breakpoints: [200, 400, 700],
-                    sizes: "(max-width: 500px) 200px, 400px, 700px"
-                )
-              }
-            }
+            gatsbyImage(width: 200, height: 200)
           }
         }
       categories {

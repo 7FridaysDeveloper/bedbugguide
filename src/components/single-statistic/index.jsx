@@ -9,7 +9,7 @@ const Statistic = ({author, date, postSettings}) => {
     return (
         <div className="single-statistic">
             <div className="author">
-                <a href={author.uri}>{author.firstName}</a>
+                <a href={author?.uri}>{author?.firstName}</a>
             </div>
             <div className="date">
                 <CalendarSvg/>

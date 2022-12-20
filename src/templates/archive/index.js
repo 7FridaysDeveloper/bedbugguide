@@ -19,7 +19,8 @@ const ArchivePage = ({data, pageContext, location}) => {
         if(isVisible === false) {
             setIsVisible(visible);
         }
-    }, [visible])
+    }, [visible]);
+    console.log(data)
     return (<>
             <div>
                 {location.search === '' ?
@@ -101,15 +102,7 @@ export const pageQuery = graphql`
         featuredImage {
           node {
             sourceUrl
-            localFile {
-              childImageSharp {
-                 gatsbyImageData(
-                    quality: 95
-                    breakpoints: [200, 400, 700],
-                    sizes: "(max-width: 500px) 200px, 400px, 700px"
-                )
-              }
-            }
+            gatsbyImage(width: 400, height: 300)
           }
         }
         categories {

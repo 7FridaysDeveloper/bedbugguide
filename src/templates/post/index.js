@@ -41,8 +41,8 @@ const Post = (props) => {
 export default Post;
 
 export const Head = ({data}) => {
-    const opengraphImage = data.post.seo?.opengraphImage;
-    const themeOptions = data.wp.themeGeneralSettings?.themeOptions;
+    const opengraphImage = data.post?.seo?.opengraphImage;
+    const themeOptions = data?.wp?.themeGeneralSettings?.themeOptions;
 
     return (
         <>
@@ -56,14 +56,14 @@ export const Head = ({data}) => {
                 }
             `}}>
             </style>
-            <link rel="canonical" href={process.env.CURRENT_URL+data.post.uri}/>
+            <link rel="canonical" href={process.env.CURRENT_URL+data.post?.uri}/>
             <meta property="article:published_time" content={ data.post?.dateGmt}/>
             <meta property="article:modified_time" content={data.post?.modifiedGmt}/>
             <meta property="og:image" content={process.env.CURRENT_URL + opengraphImage?.publicUrl} />
             <meta property="og:image:width" content={opengraphImage?.width} />
             <meta property="og:image:height" content={opengraphImage?.height} />
             <meta property="og:image:type" content={opengraphImage?.mimeType} />
-            <Seo post={data.post} postSchema={data.post?.seo?.schema?.raw}/>
+            <Seo post={data.post || {}} postSchema={data.post?.seo?.schema?.raw}/>
         </>
     )
 }
@@ -160,11 +160,7 @@ export const pageQuery = graphql`
       featuredImage {
         node {
           altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData(quality: 80)
-            }
-          }
+          gatsbyImage(width: 200, height: 200)
         }
       }
       related_posts {
@@ -181,11 +177,7 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           featuredImage {
             node {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(quality: 50)
-                }
-              }
+              gatsbyImage(width: 200, height: 200)
             }
           }
           categories {
@@ -204,11 +196,7 @@ export const pageQuery = graphql`
       title
       featuredImage {
         node {
-          localFile {
-            childImageSharp {
-              gatsbyImageData(quality: 50)
-            }
-          }
+          gatsbyImage(width: 200, height: 200)
         }
       }
     }
@@ -217,11 +205,7 @@ export const pageQuery = graphql`
       title
       featuredImage {
         node {
-          localFile {
-            childImageSharp {
-              gatsbyImageData(quality: 50)
-            }
-          }
+          gatsbyImage(width: 200, height: 200)
         }
       }
     }

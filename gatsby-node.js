@@ -1,6 +1,7 @@
 // const { setOptions, createPages } = require("./create/pages");
 const { createPosts } = require("./create/posts");
 const { createBlogPostArchive } = require("./create/archive");
+//import fetch from "node-fetch";
 const fetch = require('node-fetch');
 // setOptions({
 //   postTypes: ["Page"],

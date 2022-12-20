@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import {useStaticQuery, graphql} from "gatsby";
 import parse from "html-react-parser";
-//import {Helmet} from "react-helmet";
 
 const FooterScript = () => {
     const {wp: {themeGeneralSettings}} = useStaticQuery(graphql`
@@ -71,28 +70,5 @@ const FooterScript = () => {
     }, [])
     if(typeof window === 'undefined') return null;
     return null;
-    // return (
-    //     <Helmet>
-    //         {parse(themeGeneralSettings?.themeOptions.headerTrackingCodes, {
-    //             replace: (domNode) => {
-    //                 if(domNode.type === 'script') {
-    //                     if(domNode.attribs.src?.includes('conversion')) {
-    //                         return <script defer src={domNode.attribs.src}></script>
-    //                     }
-    //                     return <></>;
-    //
-    //             }
-    //         }})}
-    //         {parse(themeGeneralSettings?.themeOptions.footerTrackingCodes, {
-    //             replace: (domNode) => {
-    //                 if(domNode.type === 'script') {
-    //                     if(domNode.attribs.head !== undefined && domNode.attribs.src) {
-    //                         return <script defer src={domNode.attribs.src}></script>
-    //                     }
-    //                     return <></>;
-    //                 }
-    //             }})}
-    //     </Helmet>
-    // );
 }
 export default React.memo(FooterScript);

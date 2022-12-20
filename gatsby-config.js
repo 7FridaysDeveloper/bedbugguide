@@ -26,7 +26,7 @@ module.exports = {
     "gatsby-plugin-netlify",
     "gatsby-plugin-optimize-svgs",
     "gatsby-plugin-sitemap",
-    "gatsby-plugin-preact",
+    // "gatsby-plugin-preact",
     {
       resolve: `gatsby-plugin-yoast-sitemap`,
       options: {
@@ -97,11 +97,11 @@ module.exports = {
         schema: {
           //perPage: 20000,
         },
-        // type: {
-        //   __all: {
-        //     limit: 10,
-        //   },
-        // },
+        type: {
+          __all: {
+            limit: 10,
+          },
+        },
       }
     },
     {
