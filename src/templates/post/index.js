@@ -163,32 +163,6 @@ export const pageQuery = graphql`
           gatsbyImage(width: 200, height: 200)
         }
       }
-      related_posts {
-        nodes {
-          title
-          uri
-          databaseId
-          author {
-             node {
-                 name
-                 uri
-             }
-          }
-          date(formatString: "MMMM DD, YYYY")
-          featuredImage {
-            node {
-              gatsbyImage(width: 200, height: 200)
-            }
-          }
-          categories {
-            nodes {
-              name
-              id
-              uri
-            }
-          }
-        }
-      }
       content
     }
     previous: wpPost(id: { eq: $previousPostId }) {
